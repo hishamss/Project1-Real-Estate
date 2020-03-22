@@ -207,6 +207,7 @@ $(document).ready(function() {
     $(".SignUpMap").hide();
   });
   $("#signupsubmit").on("click", function() {
+    $("#signupmessage").text("");
     event.preventDefault();
     Email = $("#singupemail")
       .val()
@@ -218,14 +219,15 @@ $(document).ready(function() {
       var Auth = firebase
         .auth()
         .createUserWithEmailAndPassword(Email, Password)
+        .then(function() {
+          $("#signupmessage").text("Singed Up successfully");
+        })
         .catch(function(error) {
           // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
-          console.log(errorMessage);
-          // ...
+          $("#signupmessage").text(errorMessage);
         });
-      console.log(Auth);
     }
   });
 });
