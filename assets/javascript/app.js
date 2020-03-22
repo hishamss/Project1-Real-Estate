@@ -177,11 +177,56 @@ $(document).ready(function() {
     Lat = result[Id].lat;
     Lon = result[Id].lon;
     initMap(Lat, Lon);
-    $(".modal").show();
+    $(".ModalMap").show();
   });
 
   $("#close").on("click", function() {
-    $(".modal").hide();
+    $(".ModalMap").hide();
+  });
+
+  // Firebase Script
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDiOhlw4pg0zLapTaT7S1oF5sam6mMq5KU",
+    authDomain: "real-estate-project-2e3a3.firebaseapp.com",
+    databaseURL: "https://real-estate-project-2e3a3.firebaseio.com",
+    projectId: "real-estate-project-2e3a3",
+    storageBucket: "real-estate-project-2e3a3.appspot.com",
+    messagingSenderId: "1086203608176",
+    appId: "1:1086203608176:web:a1ae5db94335a8626148b5"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  // var database = firebase.database();
+
+  $("#signup").on("click", function() {
+    $(".SignUpMap").show();
+  });
+
+  $("#singupclose").on("click", function() {
+    $(".SignUpMap").hide();
+  });
+  $("#signupsubmit").on("click", function() {
+    event.preventDefault();
+    Email = $("#singupemail")
+      .val()
+      .trim();
+    Password = $("#signuppassword")
+      .val()
+      .trim();
+    if (Email && Password) {
+      var Auth = firebase
+        .auth()
+        .createUserWithEmailAndPassword(Email, Password)
+        .catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorMessage);
+          // ...
+        });
+      console.log(Auth);
+    }
   });
 });
 
