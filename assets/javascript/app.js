@@ -60,9 +60,7 @@ $(document).ready(function() {
           if (i % 4 == 0 && i !== 0) {
             $(".properties").append('<div class="w-100"></div>');
             $(".properties").append(
-              '<div class="col"><div class="card PropertyCard" data-id="' +
-                i +
-                '"><img src="' +
+              '<div class="col"><div class="card PropertyCard"><i class="far fa-heart" data-status="off" data-toggle="tooltip" data-placement="top" title="save this home"></i><img src="' +
                 Photo +
                 '" class="card-img-top" height="200"><p class="overlay">' +
                 result[i].price +
@@ -74,14 +72,13 @@ $(document).ready(function() {
                 result[i].sqft.split(" ")[0] +
                 ' sqft</div><div class="w-100"></div><div class="col"><strong>' +
                 result[i].address +
-                "</strong></div>" +
-                "</div></div></div></div>"
+                '</strong></div><div class="w-100"><div class="col"><button type="button" class="btn btn-secondary openmap" data-id="' +
+                i +
+                '">Open Map</button></div></div></div></div></div>'
             );
           } else {
             $(".properties").append(
-              '<div class="col"><div class="card PropertyCard" data-id="' +
-                i +
-                '"><img src="' +
+              '<div class="col"><div class="card PropertyCard"><i class="far fa-heart" data-status="off" data-toggle="tooltip" data-placement="top" title="save this home"></i><img src="' +
                 Photo +
                 '" class="card-img-top" height="200"><p class="overlay">' +
                 result[i].price +
@@ -93,7 +90,9 @@ $(document).ready(function() {
                 result[i].sqft.split(" ")[0] +
                 ' sqft</div><div class="w-100"></div><div class="col"><strong>' +
                 result[i].address +
-                "</strong></div></div></div>"
+                '</strong></div><div class="w-100"><div class="col"><button type="button" class="btn btn-secondary openmap" data-id="' +
+                i +
+                '">Open Map</button></div></div></div></div></div>'
             );
           }
         }
@@ -101,7 +100,21 @@ $(document).ready(function() {
     }
   });
 
-  $(document).on("click", ".PropertyCard", function() {
+  $(document).on("click", ".fa-heart", function() {
+    status = $(this).attr("data-status");
+
+    if (status === "off") {
+      $(this).css("color", "red");
+      $(this).attr("data-status", "on");
+      $(this).attr("title", "unsave this home");
+    } else {
+      $(this).css("color", "white");
+      $(this).attr("data-status", "off");
+      $(this).attr("title", "save this home");
+    }
+  });
+
+  $(document).on("click", ".openmap", function() {
     var Id = $(this).attr("data-id");
     Lat = result[Id].lat;
     Lon = result[Id].lon;
@@ -228,7 +241,7 @@ $(document).ready(function() {
         // An error happened.
       });
   });
-
+  // log out the user when closed the browser
   $(window).on("unload", function() {
     if (SignedUpOrIn) {
       database.ref("/users/" + UID).remove();
