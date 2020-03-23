@@ -5,6 +5,7 @@ var UID;
 var SignedUpOrIn = false;
 $(document).ready(function() {
   $("#signout").hide();
+
   // API call when search button clicked
   $("#search").on("click", function() {
     zipcode = $(".userInput")
@@ -101,16 +102,19 @@ $(document).ready(function() {
   });
 
   $(document).on("click", ".fa-heart", function() {
-    status = $(this).attr("data-status");
-
-    if (status === "off") {
-      $(this).css("color", "red");
-      $(this).attr("data-status", "on");
-      $(this).attr("title", "unsave this home");
+    if (UID) {
+      status = $(this).attr("data-status");
+      if (status === "off") {
+        $(this).css("color", "red");
+        $(this).attr("data-status", "on");
+        $(this).attr("title", "unsave this home");
+      } else {
+        $(this).css("color", "white");
+        $(this).attr("data-status", "off");
+        $(this).attr("title", "save this home");
+      }
     } else {
-      $(this).css("color", "white");
-      $(this).attr("data-status", "off");
-      $(this).attr("title", "save this home");
+      alert("please login or create account");
     }
   });
 
@@ -172,7 +176,7 @@ $(document).ready(function() {
         .then(function(User) {
           SignedUpOrIn = true;
           $("#signupmessage").text("Singed Up successfully");
-
+          $("#signup").hide();
           $("#signin").hide();
           $("#signout").show();
           $("#currentuser").text(User.user.email);
@@ -208,6 +212,7 @@ $(document).ready(function() {
           SignedUpOrIn = true;
           $("#signinmessage").text("Logged In successfully");
           UID = User.user.uid;
+          $("#signup").hide();
           $("#signin").hide();
           $("#signout").show();
           $("#currentuser").text(User.user.email);
@@ -234,8 +239,12 @@ $(document).ready(function() {
         SignedUpOrIn = false;
         database.ref("/users/" + UID).remove();
         $("#signin").show();
+        $("#signup").show();
         $("#signout").hide();
         $("#currentuser").text("Signed Out Successfully");
+        UID = undefined;
+        $(".fa-heart").attr("data-status", "off");
+        $(".fa-heart").css("color", "white");
       })
       .catch(function(error) {
         // An error happened.
@@ -243,7 +252,7 @@ $(document).ready(function() {
   });
   // log out the user when closed the browser
   $(window).on("unload", function() {
-    if (SignedUpOrIn) {
+    if (UID) {
       database.ref("/users/" + UID).remove();
     }
   });
