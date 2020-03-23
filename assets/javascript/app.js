@@ -1,7 +1,10 @@
 var Photo;
 var result = [];
 var Lat, Lon;
+var UID;
+var SignedUpOrIn = false;
 $(document).ready(function() {
+  $("#signout").hide();
   // API call when search button clicked
   $("#search").on("click", function() {
     zipcode = $(".userInput")
@@ -45,7 +48,7 @@ $(document).ready(function() {
         }
       }).done(function(data) {
         result = data.listings;
-        console.log(result);
+
         $(".properties").text("");
         for (i = 0; i < result.length; i++) {
           Photo = result[i].photo;
@@ -98,81 +101,7 @@ $(document).ready(function() {
     }
   });
 
-  // $(function() {
-  //   // IMPORTANT: Fill in your client key
-  //   var clientKey =
-  //     "js-0CPYQ0Fzjgzo483l0DqjZocTE7K18SexqKR4W118LrbeK8SC97yALL8ATccwidKz";
-
-  //   var cache = {};
-  //   var container = $("#example1");
-  //   var errorDiv = container.find("div.text-error");
-
-  //   /** Handle successful response */
-  //   function handleResp(data) {
-  //     // Check for error
-  //     if (data.error_msg) errorDiv.text(data.error_msg);
-  //     else if ("city" in data) {
-  //       // Set city and state
-  //       container.find("input[name='city']").val(data.city);
-  //       container.find("input[name='state']").val(data.state);
-  //     }
-  //   }
-
-  //   // Set up event handlers
-  //   container
-  //     .find("input[name='zipcode']")
-  //     .on("keyup change", function() {
-  //       // Get zip code
-  //       var zipcode = $(this)
-  //         .val()
-  //         .substring(0, 5);
-  //       if (zipcode.length == 5 && /^[0-9]+$/.test(zipcode)) {
-  //         // Clear error
-  //         errorDiv.empty();
-
-  //         // Check cache
-  //         if (zipcode in cache) {
-  //           handleResp(cache[zipcode]);
-  //         } else {
-  //           // Build url
-  //           var url =
-  //             "https://www.zipcodeapi.com/rest/" +
-  //             clientKey +
-  //             "/info.json/" +
-  //             zipcode +
-  //             "/radians";
-
-  //           // Make AJAX request
-  //           $.ajax({
-  //             url: url,
-  //             dataType: "json"
-  //           })
-  //             .done(function(data) {
-  //               handleResp(data);
-
-  //               // Store in cache
-  //               cache[zipcode] = data;
-  //             })
-  //             .fail(function(data) {
-  //               if (
-  //                 data.responseText &&
-  //                 (json = $.parseJSON(data.responseText))
-  //               ) {
-  //                 // Store in cache
-  //                 cache[zipcode] = json;
-
-  //                 // Check for error
-  //                 if (json.error_msg) errorDiv.text(json.error_msg);
-  //               } else errorDiv.text("Request failed.");
-  //             });
-  //         }
-  //       }
-  //     })
-  //     .trigger("change");
-  // });
-
   $(document).on("click", ".PropertyCard", function() {
-    console.log("called");
     var Id = $(this).attr("data-id");
     Lat = result[Id].lat;
     Lon = result[Id].lon;
@@ -197,18 +126,26 @@ $(document).ready(function() {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  // var database = firebase.database();
+  var database = firebase.database();
 
   $("#signup").on("click", function() {
-    $(".SignUpMap").show();
+    $(".SignUpMod").show();
   });
 
   $("#singupclose").on("click", function() {
-    $(".SignUpMap").hide();
+    $(".SignUpMod").hide();
   });
-  $("#signupsubmit").on("click", function() {
-    $("#signupmessage").text("");
+
+  $("#signin").on("click", function() {
+    $(".SignInMod").show();
+  });
+
+  $("#singinclose").on("click", function() {
+    $(".SignInMod").hide();
+  });
+  $("#signupsubmit").on("click", function(event) {
     event.preventDefault();
+    $("#signupmessage").text("");
     Email = $("#singupemail")
       .val()
       .trim();
@@ -219,15 +156,82 @@ $(document).ready(function() {
       var Auth = firebase
         .auth()
         .createUserWithEmailAndPassword(Email, Password)
-        .then(function() {
+        .then(function(User) {
+          SignedUpOrIn = true;
           $("#signupmessage").text("Singed Up successfully");
+
+          $("#signin").hide();
+          $("#signout").show();
+          $("#currentuser").text(User.user.email);
+
+          UID = User.user.uid;
+          database.ref("/users/" + UID).update({
+            email: User.user.email
+          });
         })
         .catch(function(error) {
           // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
+
           $("#signupmessage").text(errorMessage);
         });
+    }
+  });
+
+  $("#signinsubmit").on("click", function(event) {
+    event.preventDefault();
+    UserEmail = $("#singinemail")
+      .val()
+      .trim();
+    UserPassword = $("#signinpassword")
+      .val()
+      .trim();
+    if (UserEmail && UserPassword) {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(UserEmail, UserPassword)
+        .then(function(User) {
+          SignedUpOrIn = true;
+          $("#signinmessage").text("Logged In successfully");
+          UID = User.user.uid;
+          $("#signin").hide();
+          $("#signout").show();
+          $("#currentuser").text(User.user.email);
+          database.ref("/users/" + UID).update({
+            email: User.user.email
+          });
+        })
+        .catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          $("#signinmessage").text(errorMessage);
+          // ...
+        });
+    }
+  });
+
+  $("#signout").on("click", function() {
+    firebase
+      .auth()
+      .signOut()
+      .then(function() {
+        // Sign-out successful.
+        SignedUpOrIn = false;
+        database.ref("/users/" + UID).remove();
+        $("#signin").show();
+        $("#signout").hide();
+        $("#currentuser").text("Signed Out Successfully");
+      })
+      .catch(function(error) {
+        // An error happened.
+      });
+  });
+
+  $(window).on("unload", function() {
+    if (SignedUpOrIn) {
+      database.ref("/users/" + UID).remove();
     }
   });
 });

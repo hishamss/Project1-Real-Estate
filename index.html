@@ -58,8 +58,12 @@
   <body>
     <div class="container-fluid">
       <div style="float:right;">
+        <p id="currentuser" style="display: inline-block;"></p>
         <button type="button" class="btn btn-secondary" id="signin">
           SignIn
+        </button>
+        <button type="button" class="btn btn-secondary" id="signout">
+          SignOut
         </button>
         <button type="button" class="btn btn-secondary" id="signup">
           SignUp
@@ -110,7 +114,7 @@
     </div>
 
     <!-- SingUP Modal -->
-    <div class="modal SignUpMap">
+    <div class="modal SignUpMod">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body text-center">
@@ -133,12 +137,48 @@
                 />
               </div>
               <button type="submit" class="btn btn-primary" id="signupsubmit">
-                Submit
+                SingUp
               </button>
             </form>
             <br />
             <p id="signupmessage" style="color:red;"></p>
             <button class="btn btn-secondary" id="singupclose">close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sing In Modal -->
+    <!-- SingUP Modal -->
+    <div class="modal SignInMod">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+            <form>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="singinemail"
+                  placeholder="Emai"
+                />
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="signinpassword"
+                  placeholder="Password"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary" id="signinsubmit">
+                SignIn
+              </button>
+            </form>
+            <br />
+            <p id="signinmessage" style="color:red;"></p>
+            <button class="btn btn-secondary" id="singinclose">close</button>
           </div>
         </div>
       </div>
