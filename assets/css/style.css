@@ -1,58 +1,378 @@
-
-
-.* {
-  color: darkgrey;
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
 .header {
-  background-color: #4b79a0;
-  color: white;
-  height: relative;
+  background-color: #2e5677;
+  padding-top: 2vh;
+  padding-bottom: 1vh;
+  margin-bottom: 5vh;
+  -webkit-box-shadow: 0 3px 5px 1px #b8b6b6;
+          box-shadow: 0 3px 5px 1px #b8b6b6;
 }
 
-h2 {
-  font-family: 'Open Sans', sans-serif;
+.header .header.logo,
+.header .home {
+  width: 35%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.header h1 {
-  font-family: 'Abril Fatface', cursive;
-  font-size: 4rem;
+.searchRow {
+  margin-bottom: 5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 2rem;
 }
 
-.userInput {
-  width: 200px;
+.searchRow .userInput,
+.searchRow .radius {
+  width: 25vw;
+  text-align: center;
+  margin-right: 0.25%;
 }
 
-button {
-  background-color: #4b79a0 !important;
-  color: white !important;
+.searchRow ::-webkit-input-placeholder {
+  color: lightgrey;
 }
 
-#map {
-  height: 400px;
-  width: 400px;
-  left: 33px;
+.searchRow :-ms-input-placeholder {
+  color: lightgrey;
 }
 
-.result {
-  margin-bottom: 100px;
+.searchRow ::-ms-input-placeholder {
+  color: lightgrey;
 }
 
-.overlay {
-  position: absolute;
-  top: 150px;
-  left: 15px;
-  font-size: 1rem;
-  color: white;
+.searchRow ::placeholder {
+  color: lightgrey;
+}
+
+.searchRow .btn {
+  width: 8vw;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.container:after,
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+[class*='col-'] {
+  float: left;
+  padding: 1em;
+  width: 100%;
+  min-height: 1px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.infoRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+h3 {
+  width: 85%;
+}
+
+.infoRow p:after {
+  width: 100%;
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.sectionTitle {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.divider {
+  height: 1px;
+  border-top: 1px solid;
+  border-color: #ccc;
+}
+
+.properties {
+  margin: 0 auto;
+  margin-bottom: 10vh;
+  text-align: center;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.properties .card-img-top {
+  margin: 0 auto;
+  width: 16rem;
+  height: auto;
+  border-radius: 0;
+}
+
+.properties .card {
+  padding-top: 1vh;
+  margin-top: 2vh;
+  margin-left: 0;
+  margin-right: 0;
+  border-radius: 0;
+  max-width: 300px;
+  padding-bottom: 2vh;
+}
+
+.properties .card .price {
+  margin-bottom: 1vh;
+  margin-top: 0.25vh;
+  text-align: center;
+  font-weight: bold;
+}
+
+.properties .card .card-body {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 0;
   font-weight: bold;
 }
 
 .footer {
-  background-color: rgb(45, 86, 119);
+  background-color: #153956;
   position: fixed;
-  bottom: 0 !important;
-  margin: 0;
+  bottom: 0;
+  margin: 0 auto;
   padding: 0;
   width: 100%;
-  height: 50px;
-  color: white !important;
+  height: 6%;
+  color: white;
+  -webkit-box-shadow: 0px -3px 5px 1px #b8b6b6;
+          box-shadow: 0px -3px 5px 1px #b8b6b6;
+}
+
+.footer .footerText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: .85rem;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+span {
+  width: 200px;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+@media only screen and (min-width: 0px) {
+  .container {
+    width: 80;
+    max-width: 60%;
+  }
+  .col-sm-1 {
+    width: 8.33333%;
+  }
+  .col-sm-2 {
+    width: 16.66667%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33333%;
+  }
+  .col-sm-5 {
+    width: 41.66667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.33333%;
+  }
+  .col-sm-8 {
+    width: 66.66667%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.33333%;
+  }
+  .col-sm-11 {
+    width: 91.66667%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 90%;
+    max-width: 60%;
+  }
+  .col-md-1 {
+    width: 8.33333%;
+  }
+  .col-md-2 {
+    width: 16.66667%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-4 {
+    width: 33.33333%;
+  }
+  .col-md-5 {
+    width: 41.66667%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-7 {
+    width: 58.33333%;
+  }
+  .col-md-8 {
+    width: 66.66667%;
+  }
+  .col-md-9 {
+    width: 75%;
+  }
+  .col-md-10 {
+    width: 83.33333%;
+  }
+  .col-md-11 {
+    width: 91.66667%;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1008px) {
+  .container {
+    width: 95%;
+    max-width: 60%;
+  }
+  .col-lg-1 {
+    width: 8.33333%;
+  }
+  .col-lg-2 {
+    width: 16.66667%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33333%;
+  }
+  .col-lg-5 {
+    width: 41.66667%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.33333%;
+  }
+  .col-lg-8 {
+    width: 66.66667%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 83.33333%;
+  }
+  .col-lg-11 {
+    width: 91.66667%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .container {
+    width: 100%;
+    max-width: 60%;
+  }
+  .col-xl-1 {
+    width: 8.33333%;
+  }
+  .col-xl-2 {
+    width: 16.66667%;
+  }
+  .col-xl-3 {
+    width: 25%;
+  }
+  .col-xl-4 {
+    width: 33.33333%;
+  }
+  .col-xl-5 {
+    width: 41.66667%;
+  }
+  .col-xl-6 {
+    width: 50%;
+  }
+  .col-xl-7 {
+    width: 58.33333%;
+  }
+  .col-xl-8 {
+    width: 66.66667%;
+  }
+  .col-xl-9 {
+    width: 75%;
+  }
+  .col-xl-10 {
+    width: 83.33333%;
+  }
+  .col-xl-11 {
+    width: 91.66667%;
+  }
+  .col-xl-12 {
+    width: 100%;
+  }
 }

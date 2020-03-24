@@ -1,0 +1,27 @@
+.footer {
+    background-color: $dark-blue;
+    position: fixed;
+    bottom: 0;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    height: 6%;
+    color: white;
+    box-shadow: 0px -3px 5px 1px rgb(184, 182, 182);
+    
+    .footerText {
+        display: flex;
+        justify-content: center;
+        font-size: .85rem;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+span {
+    width: 200px;
+    margin-left:15%;
+    margin-right: 15%;
+    }

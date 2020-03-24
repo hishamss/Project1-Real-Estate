@@ -1,0 +1,64 @@
+
+
+.sectionTitle{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.divider {
+    height: 1px;
+    border-top: 1px solid;
+    border-color: #ccc;
+}
+
+// Whole div container for homes
+.properties {
+    margin: 0 auto;
+    margin-bottom: 10vh;
+    text-align: center;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+
+    // Home photo
+    .card-img-top {
+        margin: 0 auto;
+        width: 16rem;
+        height: auto;
+        border-radius: 0;
+    }
+    
+    //Card Body
+    .card {
+        padding-top: 1vh;
+        margin-top: 2vh;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0;
+        max-width: 300px;
+        padding-bottom: 2vh;
+
+        .price {
+            margin-bottom: 1vh;
+            margin-top: 0.25vh;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        // Beds/Baths/Sq ft
+        .card-body {
+            max-width: 300px;
+            margin:0 auto;
+            padding: 0;
+            font-weight: bold;
+        } 
+    }
+    
+  
+}
+
+
+
