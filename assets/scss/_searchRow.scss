@@ -8,7 +8,7 @@
 
     .userInput,
     .radius{
-    width: 25vw;
+    width: 15rem;
     text-align: center;
     margin-right: 0.25%;
     }
@@ -18,7 +18,19 @@
     }
 
     .btn {
-        width: 8vw;
+        width: 4.5rem;
+        text-align: center;
+        align-self: center;
+        padding-top: 0.25vh;
+        padding-bottom: 0.25vh;
+        border: 1px solid rgb(223, 222, 222);
+        border-radius: 0;
+        background-color: $blue-color;
+        color: white;
+    }
+
+    .btn:hover {
+        background-color: $hover-color;
     }
 
 }

@@ -21,7 +21,7 @@
     ></script>
 
     <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Tinos&display=swap" rel="stylesheet">
 
     <!-- javascript file -->
     <script type=" text/javascript" src="./assets/javascript/app.js"></script>
@@ -44,7 +44,7 @@
     </div>
 
       <div class="searchRow">
-      <input placeholder="Enter Search Zip Code" type="text" name="zipcode" class="userInput" maxlength="5"/>
+      <input placeholder="Enter Zipcode  ex: 90210" type="text" name="zipcode" class="userInput" maxlength="5"/>
       <input placeholder="Radius in miles (Optional)" type="text" class="radius" maxlength="3"/>
       <button type="button" class="btn" id="search"> Search </button>
       </div>
@@ -52,14 +52,7 @@
   <div class="container">
     <div class="row infoRow">
   
-      <div class="col-md-4" id="community">
-          <h3>The Community</h3>
-          <hr>
-          <p>Again from the Zillow API we generate school and community stats.</p>
-          <div id="communityResults"></div>
-      </div>
-  
-      <div class="col-md-4" id="weather">
+      <div class="col topCards" id="weather">
           <h3>Weather</h3>
           <hr>
           <p>Using a weather API we show the current weather for the zip entered as well as monthly averages
@@ -67,37 +60,38 @@
           <div id="weatherResults"></div>
       </div>
   
-      <div class="col-md-4" id="yelp">
+      <div class="col topCards" id="yelp">
           <h3>Places To Go</h3>
           <hr>
           <p>Using the Yelp API we list favorite local restaurants and/or attractions for
               the specified zip.</p>
           <div id="yelpResults"></div>
       </div>
+
+      <div class="col topCards" id="Schools">
+        <h3>Schools</h3>
+        <hr>
+        <p>Again from the Zillow API we generate school and community stats.</p>
+        <div id="schoolResults"></div>
+      </div>
+
     </div> <!-- end infoRow -->
+
+    <h2 class="row" id="searchResults">Home Search Results</h2>
+    <hr>
 
   </div> <!--end of container-->
 
-    <div class="row properties">
-      <h2 class="sectionTitle">Home Search Results</h2>
-        <hr class="row divider">
-      <hr>
-      <div class="card-img-top card-body"></div>
-      <div class="price"></div>
-    </div>
 
-    <div class="modal">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div id="map"></div>
-            <br/>
-            <button class="btn" id="close">close</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="modal">
+    <div class="modal-content" id="map"></div>
+    <button class="close">X</button>
   </div>
+
+    <div class="row properties">
+      <div class="row card-img-top card-body"></div>
+      <div class="col price"></div>
+    </div>
 
     <div class="footer">
       <p class="footerText">Powered by Realtor, Google Maps, OpenWeather and Yelp

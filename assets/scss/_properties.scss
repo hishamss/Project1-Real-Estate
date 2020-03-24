@@ -1,4 +1,8 @@
 
+#searchResults {
+    display: flex;
+    justify-content: center;
+}
 
 .sectionTitle{
     text-align: center;
@@ -6,12 +10,6 @@
     justify-content: center;
     width: 100%;
     margin: 0 auto;
-}
-
-.divider {
-    height: 1px;
-    border-top: 1px solid;
-    border-color: #ccc;
 }
 
 // Whole div container for homes

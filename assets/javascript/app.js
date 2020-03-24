@@ -88,7 +88,7 @@ $(document).ready(function() {
     $(".modal").show();
   });
 
-  $("#close").on("click", function() {
+  $(".close").on("click", function() {
     $(".modal").hide();
   });
 });
@@ -96,7 +96,7 @@ $(document).ready(function() {
 function initMap(Lat, Lon) {
   var location = { lat: Lat, lng: Lon };
   var map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 10,
+    zoom: 15,
     center: location
   });
   var marker = new google.maps.Marker({ position: location, map: map });
