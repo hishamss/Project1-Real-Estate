@@ -62,6 +62,9 @@
     <div class="container-fluid">
       <div style="float:right;">
         <p id="currentuser" style="display: inline-block;"></p>
+        <button type="button" class="btn btn-secondary" id="saved">
+          Saved Homes
+        </button>
         <button type="button" class="btn btn-secondary" id="signin">
           SignIn
         </button>
@@ -104,6 +107,12 @@
 
       <div class="row border properties"></div>
     </div>
+
+    <div class="container text-center SavedHomes">
+      <h2 class="border">Saved Homes</h2>
+
+      <div class="row border SavedProperties"></div>
+    </div>
     <div class="modal ModalMap">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -127,7 +136,7 @@
                   type="email"
                   class="form-control"
                   id="singupemail"
-                  placeholder="Emai"
+                  placeholder="Email"
                 />
               </div>
 
@@ -163,7 +172,7 @@
                   type="email"
                   class="form-control"
                   id="singinemail"
-                  placeholder="Emai"
+                  placeholder="Email"
                 />
               </div>
 
