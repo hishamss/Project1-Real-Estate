@@ -5,6 +5,7 @@ var UID;
 var UserEmail;
 var SavedHomesArr = [];
 var SavedHomes;
+var ZipLat, ZipLng;
 $(document).ready(function() {
   $(".SavedHomes").hide();
   $("#signout").hide();
@@ -38,6 +39,25 @@ $(document).ready(function() {
 
     // check if input is empty and the input is numbers only
     if (zipcode !== "" && /^[0-9]+$/.test(zipcode)) {
+      // zip to lat, lon API call
+      $.ajax({
+        async: "true",
+        crossDomain: "true",
+        url:
+          "https://redline-redline-zipcode.p.rapidapi.com/rest/multi-info.json/" +
+          zipcode +
+          "/degrees",
+        method: "GET",
+        headers: {
+          "x-rapidapi-host": "redline-redline-zipcode.p.rapidapi.com",
+          "x-rapidapi-key": "7f6807f23bmsh0797a1d4ca8a067p10f0bajsnc10b5c239d52"
+        }
+      }).done(function(data) {
+        ZipLat = data[zipcode].lat;
+        ZipLng = data[zipcode].lng;
+      });
+
+      // real estate API call
       $.ajax({
         async: "true",
         crossDomain: "true",
