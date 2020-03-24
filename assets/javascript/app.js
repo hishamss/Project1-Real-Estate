@@ -11,6 +11,8 @@ $(document).ready(function() {
   $("#saved").hide();
   // API call when search button clicked
   $("#search").on("click", function() {
+    $(".SavedHomes").hide();
+    $(".result").show();
     zipcode = $(".userInput")
       .val()
       .trim();
@@ -205,6 +207,14 @@ $(document).ready(function() {
     $(".ModalMap").show();
   });
 
+  $(document).on("click", ".savedopenmap", function() {
+    var Id = $(this).attr("data-id");
+    Lat = SavedHomes[SavedHomesArr[Id]].favlat;
+    Lon = SavedHomes[SavedHomesArr[Id]].favlon;
+    initMap(Lat, Lon);
+    $(".ModalMap").show();
+  });
+
   $("#close").on("click", function() {
     $(".ModalMap").hide();
   });
@@ -317,6 +327,9 @@ $(document).ready(function() {
       .signOut()
       .then(function() {
         // Sign-out successful.
+        $(".SavedHomes").hide();
+        $(".properties").text("");
+        $(".result").show();
         SignedUpOrIn = false;
         database.ref("/users/" + UID).remove();
         $("#signin").show();
