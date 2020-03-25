@@ -463,8 +463,35 @@ h3 {
   background: white;
 }
 
+<<<<<<< HEAD
 .modal .close:hover {
   text-decoration: none;
   cursor: pointer;
   font-size: 1.2rem;
+=======
+.SearchHeart {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  font-size: 30px;
+  color: white;
+}
+
+.SavedHeart {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  font-size: 30px;
+  color: red;
+}
+
+#map {
+  height: 400px;
+  width: 400px;
+  left: 33px;
+>>>>>>> master
+}
+
+.fa-circle {
+  color: grey;
 }

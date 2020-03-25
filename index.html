@@ -15,6 +15,41 @@
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
     </script>
     
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- Google API -->
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaBfBjxb7MONjKfxi7zajd73GxFlwNnFE&callback=initMap"
@@ -23,6 +58,10 @@
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Tinos&display=swap" rel="stylesheet">
 
+    <script
+      src="https://kit.fontawesome.com/4ce1ada840.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- javascript file -->
     <script type=" text/javascript" src="./assets/javascript/app.js"></script>
 
@@ -36,6 +75,23 @@
 </head>
 
   <body>
+    <div class="container-fluid">
+      <div style="float:right;">
+        <p id="currentuser" style="display: inline-block;"></p>
+        <button type="button" class="btn btn-secondary" id="saved">
+          Saved Homes
+        </button>
+        <button type="button" class="btn btn-secondary" id="signin">
+          SignIn
+        </button>
+        <button type="button" class="btn btn-secondary" id="signout">
+          SignOut
+        </button>
+        <button type="button" class="btn btn-secondary" id="signup">
+          SignUp
+        </button>
+      </div>
+    </div>
     <!-- Header  -->
     <div class="header">
       <div class="logo">
@@ -62,6 +118,142 @@
           <h3>To Do</h3>
           <hr>
           <div id="yelpResults"></div>
+    <div class="container text-center">
+      <h1>The Name of Our Site</h1>
+      <hr />
+    </div>
+
+    <div class="container text-center main">
+      <input
+        placeholder="Enter Search Zip Code"
+        type="text"
+        name="zipcode"
+        class="userInput text-center"
+        maxlength="5"
+      />
+      <input
+        placeholder="Radius in miles"
+        type="text"
+        class="radius text-center"
+        maxlength="3"
+      />
+      <button type="button" class="btn btn-secondary" id="search">
+        Search
+      </button>
+    </div>
+    <br />
+    <br />
+    <div class="container text-center">
+      <h1>Nearby Schools</h1>
+      <img
+        src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif"
+        width="200"
+        height="200"
+        id="spinner"
+      />
+      <table class="schools"></table>
+    </div>
+    <div class="container text-center result">
+      <h2 class="border">Home Search Results</h2>
+
+      <div class="row border properties"></div>
+    </div>
+
+    <div class="container text-center SavedHomes">
+      <h2 class="border">Saved Homes</h2>
+
+      <div class="row border SavedProperties"></div>
+    </div>
+    <div class="modal ModalMap">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+            <div id="map"></div>
+            <br />
+            <button class="btn btn-secondary" id="close">close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SingUP Modal -->
+    <div class="modal SignUpMod">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+            <form>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="singupemail"
+                  placeholder="Email"
+                />
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="signuppassword"
+                  placeholder="Password"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary" id="signupsubmit">
+                SingUp
+              </button>
+            </form>
+            <br />
+            <p id="signupmessage" style="color:red;"></p>
+            <button class="btn btn-secondary" id="singupclose">close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sing In Modal -->
+    <!-- SingUP Modal -->
+    <div class="modal SignInMod">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+            <form>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="singinemail"
+                  placeholder="Email"
+                />
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="signinpassword"
+                  placeholder="Password"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary" id="signinsubmit">
+                SignIn
+              </button>
+            </form>
+            <br />
+            <p id="signinmessage" style="color:red;"></p>
+            <button class="btn btn-secondary" id="singinclose">close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer text-center border-top">
+      <div class="row" style="padding:10px">
+        <div class="col">
+          Powered by Realtor, Google Maps, Weather.com and Yelp
+        </div>
+        <div class="col">Copyright&copy 2020</div>
+        <div class="col">Site built by Hisham, Jenen and Jennifer</div>
       </div>
 
       <div class="col topCards" id="Schools">
