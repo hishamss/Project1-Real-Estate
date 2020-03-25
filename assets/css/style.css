@@ -30,8 +30,28 @@
   font-weight: bold;
 }
 
+.SearchHeart {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  font-size: 30px;
+  color: white;
+}
+
+.SavedHeart {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  font-size: 30px;
+  color: red;
+}
+
 #map {
   height: 400px;
   width: 400px;
   left: 33px;
+}
+
+.fa-circle {
+  color: grey;
 }
