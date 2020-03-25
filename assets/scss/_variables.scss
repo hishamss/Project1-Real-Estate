@@ -1,0 +1,15 @@
+$light: white;
+$dark-text: rgb(113, 112, 112);
+$med-blue: #2e5677;
+$dark-blue: #153956;
+$hover-color: #586E80;
+$placeholder-text: lightgrey;
+
+
+// Grid System
+$grid-columns: 12;
+$grid-max-width: 60%;
+$breakpoint-small: "only screen and (min-width: 0px)";
+$breakpoint-medium: "only screen and (min-width: 768px)";
+$breakpoint-large: "only screen and (min-width: 1008px)";
+$breakpoint-xl: "only screen and (min-width: 1300px)";

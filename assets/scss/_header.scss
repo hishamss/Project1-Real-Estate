@@ -1,0 +1,38 @@
+.header {
+    background-color: $med-blue;
+    padding-top: 2vh;
+    padding-bottom: 1vh;
+    margin-bottom: 5vh;
+    box-shadow: 0 3px 5px 1px rgb(184, 182, 182);
+
+    #{&}.logo,
+    .home {
+        width: 35%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    #{&}.btn {
+            width: 4.5rem;
+            text-align: center;
+            align-self: center;
+            padding-top: 0.25vh;
+            padding-bottom: 0.25vh;
+            border: 1px solid rgb(223, 222, 222);
+            border-radius: 0;
+            background-color: $med-blue;
+            color: $light;
+        }
+    
+    #{&}.btn:hover {
+        background-color: $hover-color;
+    }
+
+}
+
+
+// <button type="button" class="btn" id="saved">Saved Homes</button>
+// <button type="button" class="btn" id="signin">SignIn</button>
+// <button type="button" class="btn" id="signout">SignOut</button>
+// <button type="button" class="btn" id="signup">SignUp</button>

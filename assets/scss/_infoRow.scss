@@ -1,0 +1,35 @@
+
+
+.infoRow {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 2vh;
+    height: 20vh;
+    overflow: hidden;
+}
+
+.topCards {
+    text-align: center;
+}
+
+.topCards hr {
+    border: 0.5px solid lightgray;
+    width: 60%;
+    margin: 0 auto;
+}
+
+#community,
+#weather {
+    margin-right: 1vw;
+}
+
+.infoRow::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.fa-circle {
+    font-size: 1rem;
+    color: grey;
+}
