@@ -183,6 +183,21 @@ $(document).ready(function() {
   $("#close").on("click", function() {
     $(".modal").hide();
   });
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://weatherbit-v1-mashape.p.rapidapi.com/current?lang=en&lon=41&lat=21",
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "weatherbit-v1-mashape.p.rapidapi.com",
+      "x-rapidapi-key": "7a8bf0974emshbc616f9ff3e1637p1c13b1jsn8bc89f3fb9ea"
+    }
+  };
+$.ajax(settings).done(function (response) {
+  console.log(response.data[0].temp);
+  console.log(response.data[0]).uv);
+  console.log(response.data[0]).wind_spd);
+  console.log(response.data[0]).city_name);
 });
 
 function initMap(Lat, Lon) {
@@ -193,3 +208,31 @@ function initMap(Lat, Lon) {
   });
   var marker = new google.maps.Marker({ position: location, map: map });
 }
+
+
+
+
+//weather api 
+
+var APIKey = "166a433c57516f51dfab1f7edaed8413";
+ var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
+      "q=&units=imperial&appid=" + APIKey;
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+      .then(function(response) {
+        console.log(queryURL);
+        console.log(response);
+        $(".city").html("<h1>" + response.name + " Weather Details</h1>");
+        $(".wind").text("Wind Speed: " + response.wind.speed);
+        $(".humidity").text("Humidity: " + response.main.humidity);
+        $(".temp").text("Temperature (F) " + response.main.temp);
+        console.log("Wind Speed: " + response.wind.speed);
+        console.log("Humidity: " + response.main.humidity);
+        console.log("Temperature (F): " + response.main.temp);
+      });
+
+
+
+
