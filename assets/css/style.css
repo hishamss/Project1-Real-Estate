@@ -143,7 +143,7 @@ h3 {
 .topCards hr {
   border: 0.5px solid lightgray;
   width: 60%;
-  text-align: center;
+  margin: 0 auto;
 }
 
 #community,
@@ -186,7 +186,7 @@ h3 {
 .sectionTitle hr {
   border: 0.5px solid lightgray;
   width: 60%;
-  text-align: center;
+  margin: 0 auto;
 }
 
 .properties {
