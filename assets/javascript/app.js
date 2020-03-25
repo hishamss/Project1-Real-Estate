@@ -7,11 +7,15 @@ var SavedHomesArr = [];
 var SavedHomes;
 var ZipLat, ZipLng;
 $(document).ready(function() {
+  $("#spinner").hide();
+  $(".schools").hide();
   $(".SavedHomes").hide();
   $("#signout").hide();
   $("#saved").hide();
   // API call when search button clicked
   $("#search").on("click", function() {
+    $("#spinner").show();
+    $(".schools").hide();
     $(".SavedHomes").hide();
     $(".result").show();
     zipcode = $(".userInput")
@@ -95,6 +99,8 @@ $(document).ready(function() {
                 school.grades.range.high +
                 "</p></td></tr><tr></tr><tr></tr>"
             );
+            $("#spinner").hide();
+            $(".schools").show();
           }
         });
       });
@@ -108,7 +114,7 @@ $(document).ready(function() {
           radius +
           "postal_code=" +
           zipcode +
-          "&offset=0&limit=5",
+          "&offset=0&limit=20",
         method: "GET",
         headers: {
           "x-rapidapi-host": "realtor.p.rapidapi.com",
