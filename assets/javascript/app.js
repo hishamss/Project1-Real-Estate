@@ -53,8 +53,50 @@ $(document).ready(function() {
           "x-rapidapi-key": "7f6807f23bmsh0797a1d4ca8a067p10f0bajsnc10b5c239d52"
         }
       }).done(function(data) {
-        ZipLat = data[zipcode].lat;
-        ZipLng = data[zipcode].lng;
+        $.ajax({
+          async: "true",
+          crossDomain: "true",
+          url:
+            "https://realtor.p.rapidapi.com/schools/list-nearby?lon=" +
+            data[zipcode].lng +
+            "&lat=" +
+            data[zipcode].lat,
+          method: "GET",
+          headers: {
+            "x-rapidapi-host": "realtor.p.rapidapi.com",
+            "x-rapidapi-key":
+              "7f6807f23bmsh0797a1d4ca8a067p10f0bajsnc10b5c239d52"
+          }
+        }).done(function(data) {
+          console.log(data);
+          $(".schools").text("");
+          for (school of data.schools) {
+            var rating = school.ratings.parent_rating;
+            GreatSchoolId = school.greatschools_id;
+            GreatSchoolId = GreatSchoolId.substr(GreatSchoolId.length - 5);
+            State = school.location.state;
+            if (rating) {
+              rating = rating + "/10";
+            } else {
+              rating = "N/A";
+            }
+            $(".schools").append(
+              '<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x" style="color:white; font-size:20px">' +
+                rating +
+                '</span></span></td><td><h5><a href="https://www.greatschools.org/school?id=' +
+                GreatSchoolId +
+                "&state=" +
+                State +
+                '" target="_blank">' +
+                school.name +
+                "</a></h5><p>Grades: " +
+                school.grades.range.low +
+                "-" +
+                school.grades.range.high +
+                "</p></td></tr><tr></tr><tr></tr>"
+            );
+          }
+        });
       });
 
       // real estate API call
