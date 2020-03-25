@@ -113,6 +113,8 @@ h3 {
       -ms-flex-pack: center;
           justify-content: center;
   margin-bottom: 2vh;
+  height: 20vh;
+  overflow: hidden;
 }
 
 .topCards {
@@ -123,6 +125,12 @@ h3 {
 #community,
 #weather {
   margin-right: 1vw;
+}
+
+.infoRow::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 #searchResults {
@@ -214,12 +222,25 @@ h3 {
   padding-bottom: 2vh;
   padding-left: 3rem;
   padding-right: 3rem;
+  width: relative;
 }
 
-span {
-  width: 200px;
+.footer .copywrite {
+  width: relative;
   margin-left: 15%;
   margin-right: 15%;
+}
+
+.footer a {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.footer a:hover {
+  color: white;
+  font-size: .90rem;
+  text-decoration: underline;
 }
 
 @media only screen and (min-width: 0px) {

@@ -4,6 +4,8 @@
     width: 100%;
     justify-content: center;
     margin-bottom: 2vh;
+    height: 20vh;
+    overflow: hidden;
 }
 
 .topCards {
@@ -14,4 +16,10 @@
 #community,
 #weather {
     margin-right: 1vw;
+}
+
+.infoRow::after {
+    content: "";
+    display: table;
+    clear: both;
 }

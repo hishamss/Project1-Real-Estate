@@ -6,8 +6,8 @@
     padding: 0;
     width: 100%;
     height: 6%;
-    color: white;
-    border-top: 1px solid white;
+    color: $light;
+    border-top: 1px solid $light;
     
     .footerText {
         display: flex;
@@ -17,11 +17,24 @@
         padding-bottom: 2vh;
         padding-left: 3rem;
         padding-right: 3rem;
+        width: relative;
     }
-}
 
-span {
-    width: 200px;
+.copywrite {
+    width: relative;
     margin-left:15%;
     margin-right: 15%;
     }
+
+    a{
+        cursor: pointer;
+        text-decoration: none;
+        color: $light;
+    }
+
+    a:hover {
+        color: $light;
+        font-size: .90rem;
+        text-decoration: underline;
+    }
+}

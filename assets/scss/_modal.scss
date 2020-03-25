@@ -11,7 +11,7 @@
     overflow: auto; /* Enable scroll if needed */
     border-color: #ccc;
     padding-top: 1vh;
-    background-color: white;
+    background-color: $light;
     box-shadow: 0 1px 5px 2px rgb(184, 182, 182);
 
 
@@ -35,7 +35,7 @@
         border-color: lightgray;
         margin-right: 0.6vw;
         font-size: 1rem;
-        background: white;
+        background: $light;
     }
 
     .close:hover

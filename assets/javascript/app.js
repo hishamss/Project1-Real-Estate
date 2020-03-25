@@ -1,6 +1,7 @@
 var Photo;
 var result = [];
 var Lat, Lon;
+
 $(document).ready(function() {
   // API call when search button clicked
   $("#search").on("click", function(event) {
@@ -31,6 +32,7 @@ $(document).ready(function() {
 
     // check if input is empty and the input is numbers only
     if (zipcode !== "" && /^[0-9]+$/.test(zipcode)) {
+      // Request property data via ajax from realtor api through rapidapi
       $.ajax({
         async: "true",
         crossDomain: "true",
@@ -45,7 +47,7 @@ $(document).ready(function() {
           "x-rapidapi-host": "realtor.p.rapidapi.com",
           "x-rapidapi-key": "7f6807f23bmsh0797a1d4ca8a067p10f0bajsnc10b5c239d52"
         }
-
+      // Put the property results into the properties div in 'cards'
       }).done(function(data) {
         result = data.listings;
         console.log(result);
@@ -79,6 +81,7 @@ $(document).ready(function() {
     }
   });
 
+  // Open the Google Map on click of the property card 
   $(document).on("click", ".card", function() {
     console.log("called");
     var Id = $(this).attr("data-id");
@@ -88,11 +91,13 @@ $(document).ready(function() {
     $(".modal").show();
   });
 
+  // Close 'X' on map modal
   $(".close").on("click", function() {
     $(".modal").hide();
   });
 });
 
+// Google Map - needs to remain outside of the document ready function
 function initMap(Lat, Lon) {
   var location = { lat: Lat, lng: Lon };
   var map = new google.maps.Map(document.getElementById("map"), {
