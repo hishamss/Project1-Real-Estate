@@ -32,6 +32,24 @@ h3 {
           justify-content: center;
 }
 
+.header .header.btn {
+  width: 4.5rem;
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding-top: 0.25vh;
+  padding-bottom: 0.25vh;
+  border: 1px solid #dfdede;
+  border-radius: 0;
+  background-color: #2e5677;
+  color: white;
+}
+
+.header .header.btn:hover {
+  background-color: #586E80;
+}
+
 .searchRow {
   margin-bottom: 5vh;
   display: -webkit-box;
@@ -82,6 +100,7 @@ h3 {
 }
 
 .searchRow .btn:hover {
+  cursor: pointer;
   background-color: #586E80;
 }
 
@@ -119,7 +138,12 @@ h3 {
 
 .topCards {
   text-align: center;
-  border-color: black;
+}
+
+.topCards hr {
+  border: 0.5px solid lightgray;
+  width: 60%;
+  text-align: center;
 }
 
 #community,
@@ -131,6 +155,11 @@ h3 {
   content: "";
   display: table;
   clear: both;
+}
+
+.fa-circle {
+  font-size: 1rem;
+  color: grey;
 }
 
 #searchResults {
@@ -154,34 +183,42 @@ h3 {
   margin: 0 auto;
 }
 
+.sectionTitle hr {
+  border: 0.5px solid lightgray;
+  width: 60%;
+  text-align: center;
+}
+
 .properties {
   margin: 0 auto;
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
   text-align: center;
   width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding-bottom: 5vh;
 }
 
 .properties .card-img-top {
   margin: 0 auto;
   width: 16rem;
   height: auto;
-  border-radius: 0;
 }
 
 .properties .card {
   padding-top: 1vh;
   margin-top: 2vh;
-  margin-left: 0;
+  margin-left: 2vh;
   margin-right: 0;
-  border-radius: 0;
   max-width: 300px;
   padding-bottom: 2vh;
+  border: 1px solid lightgrey;
 }
 
 .properties .card .price {
@@ -196,6 +233,26 @@ h3 {
   margin: 0 auto;
   padding: 0;
   font-weight: bold;
+}
+
+.properties .openmap {
+  cursor: pointer;
+  margin-top: 1vh;
+  width: 2.5rem;
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding-top: 0.2vh;
+  padding-bottom: 0.4vh;
+  border: 1px solid #dfdede;
+  border-radius: 0;
+  background-color: #2e5677;
+  color: white;
+}
+
+.properties .openmap:hover {
+  background-color: #586E80;
 }
 
 .footer {
@@ -463,12 +520,12 @@ h3 {
   background: white;
 }
 
-<<<<<<< HEAD
 .modal .close:hover {
   text-decoration: none;
   cursor: pointer;
   font-size: 1.2rem;
-=======
+}
+
 .SearchHeart {
   position: absolute;
   top: 20px;
@@ -483,15 +540,4 @@ h3 {
   right: 15px;
   font-size: 30px;
   color: red;
-}
-
-#map {
-  height: 400px;
-  width: 400px;
-  left: 33px;
->>>>>>> master
-}
-
-.fa-circle {
-  color: grey;
 }

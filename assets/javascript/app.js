@@ -1,15 +1,15 @@
+
+//variables
 var Photo;
 var result = [];
 var Lat, Lon;
-<<<<<<< HEAD
-
-=======
 var UID;
 var UserEmail;
 var SavedHomesArr = [];
 var SavedHomes;
 var ZipLat, ZipLng;
->>>>>>> master
+
+// jQuery document ready makes sure all html is loaded before running script
 $(document).ready(function() {
   $("#spinner").hide();
   $(".schools").hide();
@@ -17,17 +17,11 @@ $(document).ready(function() {
   $("#signout").hide();
   $("#saved").hide();
   // API call when search button clicked
-<<<<<<< HEAD
-  $("#search").on("click", function(event) {
-     //Prevents the page from refreshing when the button is clicked
-    event.preventDefault();
-=======
   $("#search").on("click", function() {
     $("#spinner").show();
     $(".schools").hide();
     $(".SavedHomes").hide();
     $(".result").show();
->>>>>>> master
     zipcode = $(".userInput")
       .val()
       .trim();
@@ -53,9 +47,6 @@ $(document).ready(function() {
 
     // check if input is empty and the input is numbers only
     if (zipcode !== "" && /^[0-9]+$/.test(zipcode)) {
-<<<<<<< HEAD
-      // Request property data via ajax from realtor api through rapidapi
-=======
       // zip to lat, lon API call
       $.ajax({
         async: "true",
@@ -98,7 +89,7 @@ $(document).ready(function() {
               rating = "N/A";
             }
             $(".schools").append(
-              '<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x" style="color:white; font-size:20px">' +
+              '<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x">' +
                 rating +
                 '</span></span></td><td><h5><a href="https://www.greatschools.org/school?id=' +
                 GreatSchoolId +
@@ -119,7 +110,6 @@ $(document).ready(function() {
       });
 
       // real estate API call
->>>>>>> master
       $.ajax({
         async: "true",
         crossDomain: "true",
@@ -128,11 +118,7 @@ $(document).ready(function() {
           radius +
           "postal_code=" +
           zipcode +
-<<<<<<< HEAD
           "&offset=0&limit=12",
-=======
-          "&offset=0&limit=20",
->>>>>>> master
         method: "GET",
         headers: {
           "x-rapidapi-host": "realtor.p.rapidapi.com",
@@ -145,21 +131,37 @@ $(document).ready(function() {
         $(".properties").text("");
         for (i = 0; i < result.length; i++) {
           Photo = result[i].photo;
-          if (Photo) {
-            Photo = result[i].photo;
-          } else {
-            Photo = "assets/images/logo.jpg";
-          }
+//          if (Photo) {
+//            Photo = result[i].photo;
+//          } else if {
+//            Photo = "assets/images/logo.jpg";
+//          }
+//            $(".properties").append(
+//              '<div class="col-md-3"><div class="card "><i class="far fa-heart //SearchHeart" data-status="off" id="' +
+//                i +
+//                '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img //src="' +
+//                Photo +
+//                '" class="card-img-top"><p class="price">' +
+//                result[i].price +
+//                '</p><div class="card-body">' +
+//                result[i].beds +
+//                " beds | " +
+//                result[i].baths +
+//                " baths | " +
+//                result[i].sqft.split(" ")[0] +
+//                ' sqft</div><div class="col">' +
+//                result[i].address +
+//                '</strong></div><div class="w-100"><div class="col"><button type="button" //class="btn btn-secondary openmap" data-id="' +
+//                i +
+//                '">Open Map</button></div></div></div></div></div>'
+//            );
+//          } else {
             $(".properties").append(
-<<<<<<< HEAD
-              '<div class="col"><div class="card " data-id="' +
-=======
-              '<div class="col-md-3"><div class="card PropertyCard"><i class="far fa-heart SearchHeart" data-status="off" id="' +
->>>>>>> master
+              '<div class="card "><i class="far fa-heart SearchHeart" data-status="off" id="' +
                 i +
                 '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img src="' +
                 Photo +
-                '" class="card-img-top"><p class="price">' +
+                '"class="card-img-top"><p class="price">' +
                 result[i].price +
                 '</p><div class="card-body">' +
                 result[i].beds +
@@ -167,48 +169,17 @@ $(document).ready(function() {
                 result[i].baths +
                 " baths | " +
                 result[i].sqft.split(" ")[0] +
-                ' sqft</div><div class="col">' +
+                ' sqft</div>' +
                 result[i].address +
-<<<<<<< HEAD
-                "</div></div></div>"
-            );
-=======
-                '</strong></div><div class="w-100"><div class="col"><button type="button" class="btn btn-secondary openmap" data-id="' +
+                '<br><button type="button" class="openmap" data-id="' +
                 i +
-                '">Open Map</button></div></div></div></div></div>'
+                '">Map</button>'
             );
-          } else {
-            $(".properties").append(
-              '<div class="col-md-3"><div class="card PropertyCard"><i class="far fa-heart SearchHeart" data-status="off" id="' +
-                i +
-                '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img src="' +
-                Photo +
-                '" class="card-img-top" height="200"><p class="overlay">' +
-                result[i].price +
-                '</p><div class="card-body"><div class="row"><div class="col">' +
-                result[i].beds +
-                " beds | " +
-                result[i].baths +
-                " baths | " +
-                result[i].sqft.split(" ")[0] +
-                ' sqft</div><div class="w-100"></div><div class="col"><strong>' +
-                result[i].address +
-                '</strong></div><div class="w-100"><div class="col"><button type="button" class="btn btn-secondary openmap" data-id="' +
-                i +
-                '">Open Map</button></div></div></div></div></div>'
-            );
-          }
->>>>>>> master
-        }
-      });
-    }
+          };
+        });
+    };
   });
 
-<<<<<<< HEAD
-  // Open the Google Map on click of the property card 
-  $(document).on("click", ".card", function() {
-    console.log("called");
-=======
   $(document).on("click", ".SavedHeart", function() {
     // unsave homes from user's favorite page
     var Clicked = $(this);
@@ -299,7 +270,6 @@ $(document).ready(function() {
   });
 
   $(document).on("click", ".openmap", function() {
->>>>>>> master
     var Id = $(this).attr("data-id");
     Lat = result[Id].lat;
     Lon = result[Id].lon;
@@ -315,19 +285,10 @@ $(document).ready(function() {
     $(".ModalMap").show();
   });
 
-<<<<<<< HEAD
-  // Close 'X' on map modal
-  $(".close").on("click", function() {
-    $(".modal").hide();
-=======
   $("#close").on("click", function() {
     $(".ModalMap").hide();
->>>>>>> master
   });
 
-<<<<<<< HEAD
-// Google Map - needs to remain outside of the document ready function
-=======
   // Firebase Script
   // Your web app's Firebase configuration
   var firebaseConfig = {
@@ -347,7 +308,7 @@ $(document).ready(function() {
     $(".SignUpMod").show();
   });
 
-  $("#singupclose").on("click", function() {
+  $("#signupclose").on("click", function() {
     $(".SignUpMod").hide();
   });
 
@@ -355,13 +316,13 @@ $(document).ready(function() {
     $(".SignInMod").show();
   });
 
-  $("#singinclose").on("click", function() {
+  $("#signinclose").on("click", function() {
     $(".SignInMod").hide();
   });
   $("#signupsubmit").on("click", function(event) {
     event.preventDefault();
     $("#signupmessage").text("");
-    Email = $("#singupemail")
+    Email = $("#signupemail")
       .val()
       .trim();
     Password = $("#signuppassword")
@@ -373,7 +334,7 @@ $(document).ready(function() {
         .createUserWithEmailAndPassword(Email, Password)
         .then(function(User) {
           UserEmail = User.user.email;
-          $("#signupmessage").text("Singed Up successfully");
+          $("#signupmessage").text("Signed Up successfully");
           $("#signup").hide();
           $("#signin").hide();
           $("#signout").show();
@@ -397,7 +358,7 @@ $(document).ready(function() {
 
   $("#signinsubmit").on("click", function(event) {
     event.preventDefault();
-    UserEmail = $("#singinemail")
+    UserEmail = $("#signinemail")
       .val()
       .trim();
     UserPassword = $("#signinpassword")
@@ -482,57 +443,56 @@ $(document).ready(function() {
             if (i % 4 == 0 && i !== 0) {
               $(".SavedProperties").append('<div class="w-100"></div>');
               $(".SavedProperties").append(
-                '<div class="col-md-3"><div class="card SavedPropertyCard"><i class="far fa-heart SavedHeart" data-status="on" id="' +
+                '<div class="card SavedPropertyCard"><i class="far fa-heart SavedHeart" data-status="on" id="' +
                   i +
                   '"data-toggle="tooltip" data-placement="top" title="unsave this home"></i><img src="' +
                   SavedHomes[SavedHomesArr[i]].favphoto +
-                  '" class="card-img-top" height="200"><p class="overlay">' +
+                  '"class="card-img-top"><p class="price">' +
                   SavedHomes[SavedHomesArr[i]].favprice +
-                  '</p><div class="card-body"><div class="row"><div class="col">' +
+                  '</p><p class="card-body">' +
                   SavedHomes[SavedHomesArr[i]].favbeds +
                   " beds | " +
                   SavedHomes[SavedHomesArr[i]].favbaths +
                   " baths | " +
                   SavedHomes[SavedHomesArr[i]].favsqft +
-                  ' sqft</div><div class="w-100"></div><div class="col"><strong>' +
+                  ' sqft</div>' +
                   SavedHomes[SavedHomesArr[i]].favaddress +
-                  '</strong></div><div class="w-100"><div class="col"><button type="button" class="btn btn-secondary savedopenmap" data-id="' +
+                  '<button type="button" class="btn savedopenmap" data-id="' +
                   i +
-                  '">Open Map</button></div></div></div></div></div>'
+                  '">Map</button>'
               );
             } else {
               $(".SavedProperties").append(
-                '<div class="col-md-3"><div class="card SavedPropertyCard"><i class="far fa-heart SavedHeart" data-status="on" id="' +
+                '<div class="card SavedPropertyCard"><i class="far fa-heart SavedHeart" data-status="on" id="' +
                   i +
                   '"data-toggle="tooltip" data-placement="top" title="unsave this home"></i><img src="' +
                   SavedHomes[SavedHomesArr[i]].favphoto +
-                  '" class="card-img-top" height="200"><p class="overlay">' +
+                  '"class="card-img-top"<p class="price">' +
                   SavedHomes[SavedHomesArr[i]].favprice +
-                  '</p><div class="card-body"><div class="row"><div class="col">' +
+                  '</p><div class="card-body"><<div class="row">' +
                   SavedHomes[SavedHomesArr[i]].favbeds +
                   " beds | " +
                   SavedHomes[SavedHomesArr[i]].favbaths +
                   " baths | " +
                   SavedHomes[SavedHomesArr[i]].favsqft +
-                  ' sqft</div><div class="w-100"></div><div class="col"><strong>' +
+                  ' sqft</div>' +
                   SavedHomes[SavedHomesArr[i]].favaddress +
-                  '</strong></div><div class="w-100"><div class="col"><button type="button" class="btn btn-secondary savedopenmap" data-id="' +
+                  '<button type="button" class="btn savedopenmap" data-id="' +
                   i +
-                  '">Open Map</button></div></div></div></div></div>'
+                  '">Open Map</button>'
               );
-            }
-          }
-          //////////////////////////////////////
+            };
+          };
         });
       });
   });
-});
->>>>>>> master
+}); //end document ready 
+
 function initMap(Lat, Lon) {
   var location = { lat: Lat, lng: Lon };
   var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 15,
     center: location
   });
-  var marker = new google.maps.Marker({ position: location, map: map });
-}
+  var marker = new google.maps.Marker({ position: location, map: map })
+};

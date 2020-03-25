@@ -10,7 +10,12 @@
 
 .topCards {
     text-align: center;
-    border-color: black;
+}
+
+.topCards hr {
+    border: 0.5px solid lightgray;
+    width: 60%;
+    text-align: center;
 }
 
 #community,
@@ -22,4 +27,9 @@
     content: "";
     display: table;
     clear: both;
+}
+
+.fa-circle {
+    font-size: 1rem;
+    color: grey;
 }

@@ -12,32 +12,40 @@
     margin: 0 auto;
 }
 
+.sectionTitle hr {
+    border: 0.5px solid lightgray;
+    width: 60%;
+    text-align: center;
+}
+
+
 // Whole div container for homes
 .properties {
     margin: 0 auto;
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
     text-align: center;
     width: 80%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    padding-bottom: 5vh;
 
     // Home photo
     .card-img-top {
         margin: 0 auto;
         width: 16rem;
         height: auto;
-        border-radius: 0;
     }
     
     //Card Body
     .card {
         padding-top: 1vh;
         margin-top: 2vh;
-        margin-left: 0;
+        margin-left: 2vh;
         margin-right: 0;
-        border-radius: 0;
         max-width: 300px;
         padding-bottom: 2vh;
+        border: 1px solid lightgrey;
 
         .price {
             margin-bottom: 1vh;
@@ -54,8 +62,24 @@
             font-weight: bold;
         } 
     }
+
+    .openmap {
+        cursor: pointer;
+        margin-top: 1vh;
+        width: 2.5rem;
+        text-align: center;
+        align-self: center;
+        padding-top: 0.2vh;
+        padding-bottom: 0.4vh;
+        border: 1px solid rgb(223, 222, 222);
+        border-radius: 0;
+        background-color: $med-blue;
+        color: $light;
+    }
     
-  
+    .openmap:hover {
+        background-color: $hover-color;
+    }
 }
 
 

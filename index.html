@@ -7,63 +7,24 @@
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!-- BOOTSTRAP - Keep for modal -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
-
     <!-- POPPER -->
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
     </script>
     
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <!-- <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script> -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-
     <!-- Google API -->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaBfBjxb7MONjKfxi7zajd73GxFlwNnFE&callback=initMap"
-    ></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaBfBjxb7MONjKfxi7zajd73GxFlwNnFE&callback=initMap"></script>
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Tinos&display=swap" rel="stylesheet">
 
-    <script
-      src="https://kit.fontawesome.com/4ce1ada840.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- javascript file -->
-    <script type=" text/javascript" src="./assets/javascript/app.js"></script>
+    <!-- FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/4ce1ada840.js"crossorigin="anonymous"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
@@ -75,36 +36,26 @@
 </head>
 
   <body>
-    <div class="container-fluid">
-      <div style="float:right;">
-        <p id="currentuser" style="display: inline-block;"></p>
-        <button type="button" class="btn btn-secondary" id="saved">
-          Saved Homes
-        </button>
-        <button type="button" class="btn btn-secondary" id="signin">
-          SignIn
-        </button>
-        <button type="button" class="btn btn-secondary" id="signout">
-          SignOut
-        </button>
-        <button type="button" class="btn btn-secondary" id="signup">
-          SignUp
-        </button>
-      </div>
-    </div>
     <!-- Header  -->
     <div class="header">
       <div class="logo">
         <img class="home" src="./assets/images/home.png" alt="Home">
       </div>
+      <p id="currentuser"></p>
+      <button type="button" class="btn" id="saved">Saved Homes</button>
+      <button type="button" class="btn" id="signin">SignIn</button>
+      <button type="button" class="btn" id="signout">SignOut</button>
+      <button type="button" class="btn" id="signup">SignUp</button>
     </div>
 
+      <!-- SEARCH ROW  -->
       <div class="searchRow">
-      <input placeholder="Enter Zipcode  ex: 90210" type="text" name="zipcode" class="userInput" maxlength="5"/>
-      <input placeholder="Radius in miles (Optional)" type="text" class="radius" maxlength="3"/>
-      <button type="button" class="btn" id="search"> Search </button>
+        <input placeholder="Enter Zipcode  ex: 90210" type="text" name="zipcode" class="userInput" maxlength="5"/>
+        <input placeholder="Radius in miles (Optional)" type="text" class="radius" maxlength="3"/>
+        <button type="button" class="btn" id="search"> Search </button>
       </div>
 
+      <!-- WEATHER, TO DO, SCHOOLS  -->
   <div class="container">
     <div class="row infoRow">
   
@@ -118,75 +69,54 @@
           <h3>To Do</h3>
           <hr>
           <div id="yelpResults"></div>
-    <div class="container text-center">
-      <h1>The Name of Our Site</h1>
-      <hr />
-    </div>
-
-    <div class="container text-center main">
-      <input
-        placeholder="Enter Search Zip Code"
-        type="text"
-        name="zipcode"
-        class="userInput text-center"
-        maxlength="5"
-      />
-      <input
-        placeholder="Radius in miles"
-        type="text"
-        class="radius text-center"
-        maxlength="3"
-      />
-      <button type="button" class="btn btn-secondary" id="search">
-        Search
-      </button>
-    </div>
-    <br />
-    <br />
-    <div class="container text-center">
-      <h1>Nearby Schools</h1>
-      <img
-        src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif"
-        width="200"
-        height="200"
-        id="spinner"
-      />
-      <table class="schools"></table>
-    </div>
-    <div class="container text-center result">
-      <h2 class="border">Home Search Results</h2>
-
-      <div class="row border properties"></div>
-    </div>
-
-    <div class="container text-center SavedHomes">
-      <h2 class="border">Saved Homes</h2>
-
-      <div class="row border SavedProperties"></div>
-    </div>
-    <div class="modal ModalMap">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body text-center">
-            <div id="map"></div>
-            <br />
-            <button class="btn btn-secondary" id="close">close</button>
-          </div>
-        </div>
       </div>
+
+      <div class="col topCards" id="Schools">
+        <h3>Schools</h3>
+        <hr>
+        <img src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif" origin="anonymous" width="200" height="200" id="spinner"/>
+        <table class="schools" id=schoolResults></table>
+      </div>
+
+    </div> <!-- end infoRow -->
+
+    <br>
+
+    <!-- SEARCH RESULTS HEADER -->
+   <h2 class="row" id="searchResults">Home Search Results</h2>
+    <hr>
+
+  </div> <!--end of container-->
+
+  <!-- MAP MODAL -->
+  <div class="modal">
+    <div class="modal-content" id="map"></div>
+    <button class="close">X</button>
+  </div>
+
+    <!-- PROPERTY RESULTS  -->
+    <div class="row properties">
+      <div class="row card-img-top card-body sr-only"></div>
+      <div class="col price"></div>
     </div>
 
-    <!-- SingUP Modal -->
+    <!-- SAVED HOMES  -->
+    <div class="container  SavedHomes">
+      <!-- <h2>Saved Homes</h2> -->
+      <div class="row SavedProperties"></div>
+    </div>
+
+    <!-- Sign-UP Modal -->
     <div class="modal SignUpMod">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-body text-center">
+          <div class="modal-body">
             <form>
               <div class="form-group">
                 <input
                   type="email"
                   class="form-control"
-                  id="singupemail"
+                  id="signupemail"
                   placeholder="Email"
                 />
               </div>
@@ -200,29 +130,28 @@
                 />
               </div>
               <button type="submit" class="btn btn-primary" id="signupsubmit">
-                SingUp
+                Sign Up
               </button>
             </form>
             <br />
-            <p id="signupmessage" style="color:red;"></p>
-            <button class="btn btn-secondary" id="singupclose">close</button>
+            <p id="signupmessage"></p>
+            <button class="btn btn-secondary" id="signupclose">close</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Sing In Modal -->
-    <!-- SingUP Modal -->
+    <!-- Sign-In Modal -->
     <div class="modal SignInMod">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-body text-center">
+          <div class="modal-body">
             <form>
               <div class="form-group">
                 <input
                   type="email"
                   class="form-control"
-                  id="singinemail"
+                  id="signinemail"
                   placeholder="Email"
                 />
               </div>
@@ -239,52 +168,23 @@
                 SignIn
               </button>
             </form>
-            <br />
-            <p id="signinmessage" style="color:red;"></p>
-            <button class="btn btn-secondary" id="singinclose">close</button>
+            <br/>
+            <p id="signinmessage"></p>
+            <button class="btn" id="signinclose">close</button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="footer text-center border-top">
-      <div class="row" style="padding:10px">
-        <div class="col">
-          Powered by Realtor, Google Maps, Weather.com and Yelp
-        </div>
-        <div class="col">Copyright&copy 2020</div>
-        <div class="col">Site built by Hisham, Jenen and Jennifer</div>
-      </div>
-
-      <div class="col topCards" id="Schools">
-        <h3>Schools</h3>
-        <hr>
-        <div id="schoolResults"></div>
-      </div>
-
-    </div> <!-- end infoRow -->
-    <br>
-    <h2 class="row" id="searchResults">Home Search Results</h2>
-    <hr>
-
-  </div> <!--end of container-->
-
-
-  <div class="modal">
-    <div class="modal-content" id="map"></div>
-    <button class="close">X</button>
-  </div>
-
-    <div class="row properties">
-      <div class="row card-img-top card-body"></div>
-      <div class="col price"></div>
-    </div>
-
+    <!-- FOOTER -->
     <div class="footer">
-      <p class="footerText">Powered by &nbsp<a class="realtor" href="https://www.realtor.com/" target="_blank"> Realtor</a>, &nbsp <a class="googleMaps" href="https://www.google.com/maps/" target="_blank"> Google Maps </a>, &nbsp <a class="openWeather" href="https://openweathermap.org/" target="_blank"> OpenWeather </a> &nbsp and &nbsp<a class="googleMaps" href="https://www.yelp.com/" target="_blank">Yelp</a>
-      <span class="copywrite">&copy&nbspCopyright 2020</span>
-      Site built by Hisham, &nbspJenen and Jennifer</p>
+
+      <p class="footerText">Powered by &nbsp<a class="realtor" href="https://www.realtor.com/" target="_blank"> Realtor</a>, &nbsp <a class="googleMaps" href="https://www.google.com/maps/" target="_blank"> Google Maps </a>, &nbsp <a class="openWeather" href="https://openweathermap.org/" target="_blank"> OpenWeather </a> &nbsp and &nbsp<a class="googleMaps" href="https://www.yelp.com/" target="_blank">Yelp</a><span class="copywrite">&copy&nbspCopyright 2020</span> Site built by Hisham, Jenen and Jennifer</p>
+
     </div> <!-- end of footer -->
+
+    <!-- javascript file -->
+    <script type=" text/javascript" src="./assets/javascript/app.js"></script>
 
   </body>
 </html>
