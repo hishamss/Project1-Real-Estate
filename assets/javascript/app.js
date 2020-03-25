@@ -57,6 +57,29 @@ $(document).ready(function() {
           "x-rapidapi-key": "7f6807f23bmsh0797a1d4ca8a067p10f0bajsnc10b5c239d52"
         }
       }).done(function(data) {
+        // Yelp API
+
+        // Yelp API
+        $.ajax({
+          url:
+            "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?latitude=" +
+            data[zipcode].lat +
+            "&longitude=" +
+            data[zipcode].lng,
+          // + "&zip_code=" +
+          // zipcode,
+          headers: {
+            Authorization:
+              "Bearer pf8EZ3kG6Cn-r8KdLxDg5Q3swc74ClJMQSFaZls_O-mUNmhcCouXdL0p-t-a1rg8NkklmMLNxIOJ9oEFQPpiNfQuRGDTvavc3Kvbkmxa76g6_oIJrJ_A3etu5dJ6XnYx"
+          },
+          method: "GET",
+          dataType: "json",
+          success: function(data) {
+            console.log("success Yelp: ");
+            console.log(data);
+          }
+        });
+        //Schools API
         $.ajax({
           async: "true",
           crossDomain: "true",
