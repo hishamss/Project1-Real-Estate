@@ -1,35 +1,57 @@
 
 
-.infoRow {
+.labels {
     width: 100%;
+    display: flex;
     justify-content: center;
-    margin-bottom: 2vh;
-    height: 20vh;
-    overflow: hidden;
 }
 
-.topCards {
+h3 {
+    padding-bottom: 0.5vh;
     text-align: center;
 }
 
-.topCards hr {
-    border: 0.5px solid lightgray;
-    width: 60%;
-    margin: 0 auto;
+.labels .col {
+    width: 50%;
 }
 
-#community,
+
+.infoRow {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 0.5vh;
+    height: 25vh;
+    display: flex;
+    float: left; 
+}
+
+.topCards {
+    padding-top: 1vh;
+    text-align: center;
+    width: 50%;
+    height: auto;
+    overflow: scroll;
+}
+
+.topCards hr {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 1.5vh;
+}
+
+#yelp,
 #weather {
     margin-right: 1vw;
 }
 
-.infoRow::after {
-    content: "";
-    display: table;
-    clear: both;
+.schools {
+    padding-top: 2vh;
+    width: 100%;
 }
 
 .fa-circle {
-    font-size: 1rem;
-    color: grey;
-}
+    font-size: 0.5rem;
+    color: $med-blue;
+    visibility: hidden;
+    }
+

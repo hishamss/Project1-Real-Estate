@@ -46,3 +46,39 @@
     }
 
 }
+
+.SignInMod {
+position: sticky; /* Stay in place */
+z-index: 1000; /* Sit on top */
+margin: 0 auto;
+margin-top: 0 !important;
+width: auto; /* Full width */
+height: 10vh; /* Full height */
+max-width: 20rem;
+border-color: #ccc;
+background-color: $light;
+box-shadow: 0 1px 5px 2px rgb(184, 182, 182);
+}
+
+.SignInMod .modal-body {
+    text-align: center;
+}
+
+.SignUpMod {
+    display: none; /* Hidden by default */
+    position: sticky; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    margin: 0 auto;
+    margin-top: 20px auto;
+    width: auto; /* Full width */
+    height: 10vh; /* Full height */
+    max-width: 20rem;
+    overflow: auto; /* Enable scroll if needed */
+    border-color: #ccc;
+    background-color: $light;
+    box-shadow: 0 1px 5px 2px rgb(184, 182, 182);
+    }
+    
+    .SignUpMod .modal-body {
+        text-align: center;
+    }

@@ -41,11 +41,17 @@
       <div class="logo">
         <img class="home" src="./assets/images/home.png" alt="Home">
       </div>
-      <p id="currentuser"></p>
+    </div>
+    
+    <div class="login">    
+      <div class="row">
       <button type="button" class="btn" id="saved">Saved Homes</button>
-      <button type="button" class="btn" id="signin">SignIn</button>
-      <button type="button" class="btn" id="signout">SignOut</button>
-      <button type="button" class="btn" id="signup">SignUp</button>
+      <button type="button" class="btn" id="signin">Sign In</button>
+      <button type="button" class="btn" id="signout">Sign Out</button>
+      <br>
+      <button type="button" class="btn" id="signup">Sign Up</button>
+      </div>
+      <p class=row id="currentuser"></p> 
     </div>
 
       <!-- SEARCH ROW  -->
@@ -57,55 +63,6 @@
 
       <!-- WEATHER, TO DO, SCHOOLS  -->
   <div class="container">
-    <div class="row infoRow">
-  
-      <div class="col topCards" id="weather">
-          <h3>Weather</h3>
-          <hr>
-          <div id="weatherResults"></div>
-      </div>
-  
-      <div class="col topCards" id="yelp">
-          <h3>To Do</h3>
-          <hr>
-          <div id="yelpResults"></div>
-      </div>
-
-      <div class="col topCards" id="Schools">
-        <h3>Schools</h3>
-        <hr>
-        <img src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif" origin="anonymous" width="200" height="200" id="spinner"/>
-        <table class="schools" id=schoolResults></table>
-      </div>
-
-    </div> <!-- end infoRow -->
-
-    <br>
-
-    <!-- SEARCH RESULTS HEADER -->
-   <h2 class="row" id="searchResults">Home Search Results</h2>
-    <hr>
-
-  </div> <!--end of container-->
-
-  <!-- MAP MODAL -->
-  <div class="modal">
-    <div class="modal-content" id="map"></div>
-    <button class="close">X</button>
-  </div>
-
-    <!-- PROPERTY RESULTS  -->
-    <div class="row properties">
-      <div class="row card-img-top card-body sr-only"></div>
-      <div class="col price"></div>
-    </div>
-
-    <!-- SAVED HOMES  -->
-    <div class="container  SavedHomes">
-      <!-- <h2>Saved Homes</h2> -->
-      <div class="row SavedProperties"></div>
-    </div>
-
     <!-- Sign-UP Modal -->
     <div class="modal SignUpMod">
       <div class="modal-dialog" role="document">
@@ -140,6 +97,63 @@
         </div>
       </div>
     </div>
+
+
+        
+    <div class="extra">
+
+      <div class="row labels">
+
+        <div class="col"><h3>To Do</h3>
+          <hr>
+        </div>
+
+        <div class="col"><h3>Schools</h3>
+          <hr>
+        </div>
+      </div>
+
+      <div class="row infoRow">
+        
+      <div class="topCards" id="yelp">
+          <div id="yelpResults"></div>
+      </div>
+
+      <div class="topCards" id="Schools">
+        <img src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif" origin="anonymous" width="200" height="200" id="spinner"/>
+        <table class="schools" id=schoolResults></table>
+      </div>
+
+    </div> <!-- end infoRow -->
+  </div> <!--end extra-->
+  </div> <!--end of container-->
+
+    <br>
+
+    <!-- SEARCH RESULTS HEADER -->
+    
+    <h2 class="row" id="searchResults">Home Search Results</h2>
+    <hr>
+
+  <!-- MAP MODAL -->
+  <div class="modal">
+    <div class="modal-content" id="map"></div>
+    <button class="close">X</button>
+  </div>
+
+    <!-- PROPERTY RESULTS  -->
+    <div class="row properties">
+      <div class="row card-img-top card-body sr-only"></div>
+      <div class="col price"></div>
+    </div>
+
+    <!-- SAVED HOMES  -->
+    <div class="container SavedHomes">
+      <!-- <h2>Saved Homes</h2> -->
+      <div class="row SavedProperties"></div>
+    </div>
+
+
 
     <!-- Sign-In Modal -->
     <div class="modal SignInMod">

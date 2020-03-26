@@ -1,23 +1,19 @@
 
-#searchResults {
-    display: flex;
-    justify-content: center;
-}
 
-.sectionTitle{
+#searchResults {
     text-align: center;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
+    padding-bottom: 0.5vh;
 }
 
-.sectionTitle hr {
+hr {
     border: 0.5px solid lightgray;
     width: 60%;
     margin: 0 auto;
 }
-
 
 // Whole div container for homes
 .properties {
