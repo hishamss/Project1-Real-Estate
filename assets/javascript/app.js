@@ -20,6 +20,7 @@ $(document).ready(function() {
   $("#search").on("click", function() {
     $(".extra").show();
     $("#spinner").show();
+    $("#YelpSpinner").show();
     $(".schools").hide();
     $(".SavedHomes").hide();
     $(".result").show();
@@ -62,6 +63,46 @@ $(document).ready(function() {
           "x-rapidapi-key": "79fade2b35msh8c080138382a181p1faedfjsn9a1234132c87"
         }
       }).done(function(data) {
+        // Yelp API
+        $.ajax({
+          url:
+            "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10&latitude=" +
+            data[zipcode].lat +
+            "&longitude=" +
+            data[zipcode].lng,
+          // + "&zip_code=" +
+          // zipcode,
+          headers: {
+            Authorization:
+              "Bearer pf8EZ3kG6Cn-r8KdLxDg5Q3swc74ClJMQSFaZls_O-mUNmhcCouXdL0p-t-a1rg8NkklmMLNxIOJ9oEFQPpiNfQuRGDTvavc3Kvbkmxa76g6_oIJrJ_A3etu5dJ6XnYx"
+          },
+          method: "GET",
+          dataType: "json",
+          success: function(data) {
+            console.log("success Yelp: ");
+            $("#yelpResults").text("");
+            for (places of data.businesses) {
+              title = "";
+              for (cat of places.categories) {
+                title += cat.title + ", ";
+              }
+              $("#yelpResults").append(
+                '<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x" style="color:white; font-size:20px">' +
+                  places.rating +
+                  '</span></span></td><td><h5><a href="' +
+                  places.url +
+                  '" target="_blank">' +
+                  places.name +
+                  "</a></h5><p>" +
+                  title +
+                  "</p></td></tr><tr></tr><tr></tr>"
+              );
+              $("#YelpSpinner").hide();
+              $("#yelpResults").show();
+            }
+          }
+        });
+        /////////////////
         $.ajax({
           async: "true",
           crossDomain: "true",
@@ -498,43 +539,3 @@ function initMap(Lat, Lon) {
   });
   var marker = new google.maps.Marker({ position: location, map: map });
 }
-
-// Yelp API
-$.ajax({
-  url:
-    "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10&latitude=" +
-    data[zipcode].lat +
-    "&longitude=" +
-    data[zipcode].lng,
-  // + "&zip_code=" +
-  // zipcode,
-  headers: {
-    Authorization:
-      "Bearer pf8EZ3kG6Cn-r8KdLxDg5Q3swc74ClJMQSFaZls_O-mUNmhcCouXdL0p-t-a1rg8NkklmMLNxIOJ9oEFQPpiNfQuRGDTvavc3Kvbkmxa76g6_oIJrJ_A3etu5dJ6XnYx"
-  },
-  method: "GET",
-  dataType: "json",
-  success: function(data) {
-    console.log("success Yelp: ");
-    $(".yelpResults").text("");
-    for (places of data.businesses) {
-      title = "";
-      for (cat of places.categories) {
-        title += cat.title + ", ";
-      }
-      $(".yelpResults").append(
-        '<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x" style="color:white; font-size:20px">' +
-          places.rating +
-          '</span></span></td><td><h5><a href="' +
-          places.url +
-          '" target="_blank">' +
-          places.name +
-          "</a></h5><p>" +
-          title +
-          "</p></td></tr><tr></tr><tr></tr>"
-      );
-      $("#YelpSpinner").hide();
-      $(".yelpResults").show();
-    }
-  }
-});
