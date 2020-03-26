@@ -7,14 +7,17 @@ var SavedHomesArr = [];
 var SavedHomes;
 var ZipLat, ZipLng;
 $(document).ready(function() {
-  $("#spinner").hide();
+  $("#YelpSpinner").hide();
+  $("#SchoolsSpinner").hide();
   $(".schools").hide();
+  $(".yelpResults").hide();
   $(".SavedHomes").hide();
   $("#signout").hide();
   $("#saved").hide();
   // API call when search button clicked
   $("#search").on("click", function() {
-    $("#spinner").show();
+    $("#SchoolsSpinner").show();
+    $("#YelpSpinner").show();
     $(".schools").hide();
     $(".SavedHomes").hide();
     $(".result").show();
@@ -54,7 +57,7 @@ $(document).ready(function() {
         method: "GET",
         headers: {
           "x-rapidapi-host": "redline-redline-zipcode.p.rapidapi.com",
-          "x-rapidapi-key": "7f6807f23bmsh0797a1d4ca8a067p10f0bajsnc10b5c239d52"
+          "x-rapidapi-key": "79fade2b35msh8c080138382a181p1faedfjsn9a1234132c87"
         }
       }).done(function(data) {
         // Yelp API
@@ -62,7 +65,7 @@ $(document).ready(function() {
         // Yelp API
         $.ajax({
           url:
-            "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?latitude=" +
+            "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10&latitude=" +
             data[zipcode].lat +
             "&longitude=" +
             data[zipcode].lng,
@@ -76,7 +79,26 @@ $(document).ready(function() {
           dataType: "json",
           success: function(data) {
             console.log("success Yelp: ");
-            console.log(data);
+            $(".yelpResults").text("");
+            for (places of data.businesses) {
+              title = "";
+              for (cat of places.categories) {
+                title += cat.title + ", ";
+              }
+              $(".yelpResults").append(
+                '<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x" style="color:white; font-size:20px">' +
+                  places.rating +
+                  '</span></span></td><td><h5><a href="' +
+                  places.url +
+                  '" target="_blank">' +
+                  places.name +
+                  "</a></h5><p>" +
+                  title +
+                  "</p></td></tr><tr></tr><tr></tr>"
+              );
+              $("#YelpSpinner").hide();
+              $(".yelpResults").show();
+            }
           }
         });
         //Schools API
@@ -92,7 +114,7 @@ $(document).ready(function() {
           headers: {
             "x-rapidapi-host": "realtor.p.rapidapi.com",
             "x-rapidapi-key":
-              "7f6807f23bmsh0797a1d4ca8a067p10f0bajsnc10b5c239d52"
+              "79fade2b35msh8c080138382a181p1faedfjsn9a1234132c87"
           }
         }).done(function(data) {
           console.log(data);
@@ -122,7 +144,7 @@ $(document).ready(function() {
                 school.grades.range.high +
                 "</p></td></tr><tr></tr><tr></tr>"
             );
-            $("#spinner").hide();
+            $("#SchoolsSpinner").hide();
             $(".schools").show();
           }
         });
@@ -141,7 +163,7 @@ $(document).ready(function() {
         method: "GET",
         headers: {
           "x-rapidapi-host": "realtor.p.rapidapi.com",
-          "x-rapidapi-key": "7f6807f23bmsh0797a1d4ca8a067p10f0bajsnc10b5c239d52"
+          "x-rapidapi-key": "79fade2b35msh8c080138382a181p1faedfjsn9a1234132c87"
         }
       }).done(function(data) {
         result = data.listings;
