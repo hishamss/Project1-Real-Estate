@@ -521,20 +521,19 @@ hr {
 }
 
 /* The Modal (background) */
-#map {
-  margin: 0 auto;
-}
-
-.modal .modalMap {
+.modal {
+  display: none;
+  /* Hidden by default */
   position: -webkit-sticky;
   position: sticky;
   /* Stay in place */
   z-index: 1;
   /* Sit on top */
+  margin: 0 auto;
   margin-top: 20px auto;
-  width: 20rem;
+  width: auto;
   /* Full width */
-  height: auto;
+  height: 350px;
   /* Full height */
   max-width: 20rem;
   overflow: auto;
@@ -548,20 +547,15 @@ hr {
   /* The Close Button */
 }
 
-.modal .modalMap .modal-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  /* Hidden by default */
-  float: center;
+.modal .modal-content {
   margin: 0 auto;
   border-radius: 0;
-  width: 400px;
+  width: 300px;
   height: 300px;
   margin-bottom: 0.5vh;
 }
 
-.modal .modalMap .close {
+.modal .close {
   text-align: center;
   color: #153956;
   font-size: 1rem;
@@ -574,13 +568,15 @@ hr {
   background: white;
 }
 
-.modal .modalMap .close:hover {
+.modal .close:hover {
   text-decoration: none;
   cursor: pointer;
   font-size: 1.2rem;
 }
 
 .SignInMod {
+  display: none;
+  /* Hidden by default */
   position: -webkit-sticky;
   position: sticky;
   /* Stay in place */
@@ -590,32 +586,7 @@ hr {
   margin-top: 0 !important;
   width: auto;
   /* Full width */
-  height: 10vh;
-  /* Full height */
-  max-width: 20rem;
-  border-color: #ccc;
-  background-color: white;
-  -webkit-box-shadow: 0 1px 5px 2px #b8b6b6;
-          box-shadow: 0 1px 5px 2px #b8b6b6;
-}
-
-.SignInMod .modal-body {
-  text-align: center;
-}
-
-.SignUpMod {
-  display: none;
-  /* Hidden by default */
-  position: -webkit-sticky;
-  position: sticky;
-  /* Stay in place */
-  z-index: 2;
-  /* Sit on top */
-  margin: 0 auto;
-  margin-top: 20px auto;
-  width: auto;
-  /* Full width */
-  height: 10vh;
+  height: 9vh;
   /* Full height */
   max-width: 20rem;
   overflow: auto;
@@ -626,14 +597,8 @@ hr {
           box-shadow: 0 1px 5px 2px #b8b6b6;
 }
 
-.SignUpMod .modal-body {
+.SignInMod .modal-body {
   text-align: center;
-}
-
-#map {
-  height: 400px;
-  width: 400px;
-  left: 33px;
 }
 
 .SearchHeart {
