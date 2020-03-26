@@ -1,145 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- POPPER -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
-    </script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
 
     <!-- Google API -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaBfBjxb7MONjKfxi7zajd73GxFlwNnFE&callback=initMap"></script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaBfBjxb7MONjKfxi7zajd73GxFlwNnFE&callback=initMap"
+    ></script>
 
     <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Tinos&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Tinos&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- FONT AWESOME -->
-    <script src="https://kit.fontawesome.com/4ce1ada840.js"crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/4ce1ada840.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 
     <!-- FAVICON  -->
-    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
 
     <title>Find Your Way Home</title>
-</head>
+  </head>
 
   <body>
     <!-- Header  -->
     <div class="header">
       <div class="logo">
-        <img class="home" src="./assets/images/home.png" alt="Home">
+        <img class="home" src="./assets/images/home.png" alt="Home" />
       </div>
     </div>
-    
-    <div class="login">    
+
+    <div class="login">
       <div class="row">
-      <button type="button" class="btn" id="saved">Saved Homes</button>
-      <button type="button" class="btn" id="signin">Sign In</button>
-      <button type="button" class="btn" id="signout">Sign Out</button>
-      <br>
-      <button type="button" class="btn" id="signup">Sign Up</button>
+        <button type="button" class="btn" id="saved">Saved Homes</button>
+        <button type="button" class="btn" id="signin">Sign In</button>
+        <button type="button" class="btn" id="signout">Sign Out</button>
+        <br />
+        <button type="button" class="btn" id="signup">Sign Up</button>
       </div>
-      <p class=row id="currentuser"></p> 
+      <p class="row" id="currentuser"></p>
     </div>
 
-      <!-- SEARCH ROW  -->
-      <div class="searchRow">
-        <input placeholder="Enter Zipcode  ex: 90210" type="text" name="zipcode" class="userInput" maxlength="5"/>
-        <input placeholder="Radius in miles (Optional)" type="text" class="radius" maxlength="3"/>
-        <button type="button" class="btn" id="search"> Search </button>
-      </div>
+    <!-- SEARCH ROW  -->
+    <div class="searchRow">
+      <input
+        placeholder="Enter Zipcode  ex: 90210"
+        type="text"
+        name="zipcode"
+        class="userInput"
+        maxlength="5"
+      />
+      <input
+        placeholder="Radius in miles (Optional)"
+        type="text"
+        class="radius"
+        maxlength="3"
+      />
+      <button type="button" class="btn" id="search">Search</button>
+    </div>
 
-      <!-- WEATHER, TO DO, SCHOOLS  -->
-  <div class="container">
-    <!-- Sign-UP Modal -->
-    <div class="modal SignUpMod">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="signupemail"
-                  placeholder="Email"
-                />
-              </div>
+    <!-- WEATHER, TO DO, SCHOOLS  -->
+    <div class="container">
+      <!-- Map Modal -->
+      <!-- <div class="modal ModalMap">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div id="map"></div>
+              <br />
+              <button class="btn btn-secondary" id="close">close</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
 
-              <div class="form-group">
-                <input
-                  type="password"
-                  class="form-control"
-                  id="signuppassword"
-                  placeholder="Password"
-                />
-              </div>
-              <button type="submit" class="btn btn-primary" id="signupsubmit">
-                Sign Up
-              </button>
-            </form>
-            <br />
-            <p id="signupmessage"></p>
-            <button class="btn btn-secondary" id="signupclose">close</button>
+      <!-- Sign-UP Modal -->
+      <div class="modal SignUpMod">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="signupemail"
+                    placeholder="Email"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="signuppassword"
+                    placeholder="Password"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary" id="signupsubmit">
+                  Sign Up
+                </button>
+              </form>
+              <br />
+              <p id="signupmessage"></p>
+              <button class="btn btn-secondary" id="signupclose">close</button>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="extra">
+        <div class="row labels">
+          <div class="col">
+            <h3>To Do</h3>
+            <hr />
+          </div>
+
+          <div class="col">
+            <h3>Schools</h3>
+            <hr />
+          </div>
+        </div>
+
+        <div class="row infoRow">
+          <div class="topCards" id="yelp">
+            <div id="yelpResults"></div>
+          </div>
+
+          <div class="topCards" id="Schools">
+            <img
+              src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif"
+              origin="anonymous"
+              width="200"
+              height="200"
+              id="spinner"
+            />
+            <table class="schools" id="schoolResults"></table>
+          </div>
+        </div>
+        <!-- end infoRow -->
+      </div>
+      <!--end extra-->
     </div>
+    <!--end of container-->
 
-
-        
-    <div class="extra">
-
-      <div class="row labels">
-
-        <div class="col"><h3>To Do</h3>
-          <hr>
-        </div>
-
-        <div class="col"><h3>Schools</h3>
-          <hr>
-        </div>
-      </div>
-
-      <div class="row infoRow">
-        
-      <div class="topCards" id="yelp">
-          <div id="yelpResults"></div>
-      </div>
-
-      <div class="topCards" id="Schools">
-        <img src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif" origin="anonymous" width="200" height="200" id="spinner"/>
-        <table class="schools" id=schoolResults></table>
-      </div>
-
-    </div> <!-- end infoRow -->
-  </div> <!--end extra-->
-  </div> <!--end of container-->
-
-    <br>
+    <br />
 
     <!-- SEARCH RESULTS HEADER -->
-    
-    <h2 class="row" id="searchResults">Home Search Results</h2>
-    <hr>
 
-  <!-- MAP MODAL -->
-  <div class="modal">
-    <div class="modal-content" id="map"></div>
-    <button class="close">X</button>
-  </div>
+    <h2 class="row" id="searchResults">Home Search Results</h2>
+    <hr />
+
+    <!-- MAP MODAL -->
+    <div class="modal ModalMap">
+      <div class="modal-content" id="map"></div>
+      <button class="close">X</button>
+    </div>
 
     <!-- PROPERTY RESULTS  -->
     <div class="row properties">
@@ -152,8 +189,6 @@
       <!-- <h2>Saved Homes</h2> -->
       <div class="row SavedProperties"></div>
     </div>
-
-
 
     <!-- Sign-In Modal -->
     <div class="modal SignInMod">
@@ -182,7 +217,7 @@
                 SignIn
               </button>
             </form>
-            <br/>
+            <br />
             <p id="signinmessage"></p>
             <button class="btn" id="signinclose">close</button>
           </div>
@@ -192,13 +227,40 @@
 
     <!-- FOOTER -->
     <div class="footer">
-
-      <p class="footerText">Powered by &nbsp<a class="realtor" href="https://www.realtor.com/" target="_blank"> Realtor</a>, &nbsp <a class="googleMaps" href="https://www.google.com/maps/" target="_blank"> Google Maps </a>, &nbsp <a class="openWeather" href="https://openweathermap.org/" target="_blank"> OpenWeather </a> &nbsp and &nbsp<a class="googleMaps" href="https://www.yelp.com/" target="_blank">Yelp</a><span class="copywrite">&copy&nbspCopyright 2020</span> Site built by Hisham, Jenen and Jennifer</p>
-
-    </div> <!-- end of footer -->
+      <p class="footerText">
+        Powered by &nbsp<a
+          class="realtor"
+          href="https://www.realtor.com/"
+          target="_blank"
+        >
+          Realtor</a
+        >, &nbsp
+        <a
+          class="googleMaps"
+          href="https://www.google.com/maps/"
+          target="_blank"
+        >
+          Google Maps </a
+        >, &nbsp
+        <a
+          class="openWeather"
+          href="https://openweathermap.org/"
+          target="_blank"
+        >
+          OpenWeather
+        </a>
+        &nbsp and &nbsp<a
+          class="googleMaps"
+          href="https://www.yelp.com/"
+          target="_blank"
+          >Yelp</a
+        ><span class="copywrite">&copy&nbspCopyright 2020</span> Site built by
+        Hisham, Jenen and Jennifer
+      </p>
+    </div>
+    <!-- end of footer -->
 
     <!-- javascript file -->
     <script type=" text/javascript" src="./assets/javascript/app.js"></script>
-
   </body>
 </html>

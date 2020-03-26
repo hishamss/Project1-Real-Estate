@@ -1,4 +1,3 @@
-
 //variables
 var Photo;
 var result = [];
@@ -92,9 +91,9 @@ $(document).ready(function() {
             }
             $(".schools").append(
               //'<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x">' +
-                //rating +
-                //'</span></span></td>
-                '<tr><td><h5><a href="https://www.greatschools.org/school?id=' +
+              //rating +
+              //'</span></span></td>
+              '<tr><td><h5><a href="https://www.greatschools.org/school?id=' +
                 GreatSchoolId +
                 "&state=" +
                 State +
@@ -112,8 +111,6 @@ $(document).ready(function() {
         });
       });
 
-      
-
       // real estate API call
       $.ajax({
         async: "true",
@@ -129,60 +126,60 @@ $(document).ready(function() {
           "x-rapidapi-host": "realtor.p.rapidapi.com",
           "x-rapidapi-key": "79fade2b35msh8c080138382a181p1faedfjsn9a1234132c87"
         }
-      // Put the property results into the properties div in 'cards'
+        // Put the property results into the properties div in 'cards'
       }).done(function(data) {
         result = data.listings;
         console.log(result);
         $(".properties").text("");
         for (i = 0; i < result.length; i++) {
           Photo = result[i].photo;
-//          if (Photo) {
-//            Photo = result[i].photo;
-//          } else if {
-//            Photo = "assets/images/logo.jpg";
-//          }
-//            $(".properties").append(
-//              '<div class="col-md-3"><div class="card "><i class="far fa-heart //SearchHeart" data-status="off" id="' +
-//                i +
-//                '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img //src="' +
-//                Photo +
-//                '" class="card-img-top"><p class="price">' +
-//                result[i].price +
-//                '</p><div class="card-body">' +
-//                result[i].beds +
-//                " beds | " +
-//                result[i].baths +
-//                " baths | " +
-//                result[i].sqft.split(" ")[0] +
-//                ' sqft</div><div class="col">' +
-//                result[i].address +
-//                '</strong></div><div class="w-100"><div class="col"><button type="button" //class="btn btn-secondary openmap" data-id="' +
-//                i +
-//                '">Open Map</button></div></div></div></div></div>'
-//            );
-//          } else {
-            $(".properties").append(
-              '<div class="card "><i class="far fa-heart SearchHeart" data-status="off" id="' +
-                i +
-                '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img src="' +
-                Photo +
-                '"class="card-img-top"><p class="price">' +
-                result[i].price +
-                '</p><div class="card-body">' +
-                result[i].beds +
-                " beds | " +
-                result[i].baths +
-                " baths | " +
-                result[i].sqft.split(" ")[0] +
-                ' sqft</div>' +
-                result[i].address +
-                '<br><button type="button" class="openmap" data-id="' +
-                i +
-                '">Map</button>'
-            );
-          };
-        });
-    };
+          //          if (Photo) {
+          //            Photo = result[i].photo;
+          //          } else if {
+          //            Photo = "assets/images/logo.jpg";
+          //          }
+          //            $(".properties").append(
+          //              '<div class="col-md-3"><div class="card "><i class="far fa-heart //SearchHeart" data-status="off" id="' +
+          //                i +
+          //                '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img //src="' +
+          //                Photo +
+          //                '" class="card-img-top"><p class="price">' +
+          //                result[i].price +
+          //                '</p><div class="card-body">' +
+          //                result[i].beds +
+          //                " beds | " +
+          //                result[i].baths +
+          //                " baths | " +
+          //                result[i].sqft.split(" ")[0] +
+          //                ' sqft</div><div class="col">' +
+          //                result[i].address +
+          //                '</strong></div><div class="w-100"><div class="col"><button type="button" //class="btn btn-secondary openmap" data-id="' +
+          //                i +
+          //                '">Open Map</button></div></div></div></div></div>'
+          //            );
+          //          } else {
+          $(".properties").append(
+            '<div class="card "><i class="far fa-heart SearchHeart" data-status="off" id="' +
+              i +
+              '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img src="' +
+              Photo +
+              '"class="card-img-top"><p class="price">' +
+              result[i].price +
+              '</p><div class="card-body">' +
+              result[i].beds +
+              " beds | " +
+              result[i].baths +
+              " baths | " +
+              result[i].sqft.split(" ")[0] +
+              " sqft</div>" +
+              result[i].address +
+              '<br><button type="button" class="openmap" data-id="' +
+              i +
+              '">Map</button>'
+          );
+        }
+      });
+    }
   });
 
   $(document).on("click", ".SavedHeart", function() {
@@ -290,7 +287,7 @@ $(document).ready(function() {
     $(".ModalMap").show();
   });
 
-  $("#close").on("click", function() {
+  $(".close").on("click", function() {
     $(".ModalMap").hide();
   });
 
@@ -460,7 +457,7 @@ $(document).ready(function() {
                   SavedHomes[SavedHomesArr[i]].favbaths +
                   " baths | " +
                   SavedHomes[SavedHomesArr[i]].favsqft +
-                  ' sqft</div>' +
+                  " sqft</div>" +
                   SavedHomes[SavedHomesArr[i]].favaddress +
                   '<button type="button" class="btn savedopenmap" data-id="' +
                   i +
@@ -480,18 +477,18 @@ $(document).ready(function() {
                   SavedHomes[SavedHomesArr[i]].favbaths +
                   " baths | " +
                   SavedHomes[SavedHomesArr[i]].favsqft +
-                  ' sqft</div>' +
+                  " sqft</div>" +
                   SavedHomes[SavedHomesArr[i]].favaddress +
                   '<button type="button" class="btn savedopenmap" data-id="' +
                   i +
                   '">Open Map</button>'
               );
-            };
-          };
+            }
+          }
         });
       });
   });
-}); //end document ready 
+}); //end document ready
 
 function initMap(Lat, Lon) {
   var location = { lat: Lat, lng: Lon };
@@ -499,8 +496,8 @@ function initMap(Lat, Lon) {
     zoom: 15,
     center: location
   });
-  var marker = new google.maps.Marker({ position: location, map: map })
-};
+  var marker = new google.maps.Marker({ position: location, map: map });
+}
 
 // Yelp API
 $.ajax({
