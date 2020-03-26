@@ -4,6 +4,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    float: center;
 }
 
 h3 {
@@ -12,7 +13,7 @@ h3 {
 }
 
 .labels .col {
-    width: 50%;
+    width: 100%;
 }
 
 
@@ -34,7 +35,7 @@ h3 {
 }
 
 .topCards hr {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
     margin-bottom: 1.5vh;
 }

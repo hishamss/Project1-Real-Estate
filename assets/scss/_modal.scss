@@ -1,12 +1,16 @@
 /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
+
+#map {
+    margin: 0 auto;
+}
+
+.modal .modalMap{
+  
   position: sticky; /* Stay in place */
   z-index: 1; /* Sit on top */
-  margin: 0 auto;
   margin-top: 20px auto;
-  width: auto; /* Full width */
-  height: 350px; /* Full height */
+  width: 20rem; /* Full width */
+  height: auto; /* Full height */
   max-width: 20rem;
   overflow: auto; /* Enable scroll if needed */
   border-color: #ccc;
@@ -16,12 +20,15 @@
 
   /* Modal Content/Box */
   .modal-content {
+    display: flex; /* Hidden by default */
+    float: center;
     margin: 0 auto;
     border-radius: 0;
-    width: 300px;
+    width: 400px;
     height: 300px;
     margin-bottom: 0.5vh;
   }
+
 
   /* The Close Button */
   .close {
