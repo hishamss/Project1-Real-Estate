@@ -14,6 +14,7 @@ $(document).ready(function() {
   $("#saved").hide();
   // API call when search button clicked
   $("#search").on("click", function() {
+    $(".schoolsdiv").show();
     $("#spinner").show();
     $(".schools").hide();
     $(".SavedHomes").hide();
@@ -421,6 +422,7 @@ $(document).ready(function() {
   });
 
   $("#saved").on("click", function() {
+    $(".schoolsdiv").hide();
     $(".result").hide();
     $(".SavedHomes").show();
     $(".SavedProperties").text("");
