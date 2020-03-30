@@ -1,10 +1,10 @@
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
-    position: sticky; /* Stay in place */
+    position: absolute; /* Stay in place */
     z-index: 1; /* Sit on top */
     margin: 0 auto;
-    margin-top: 20px auto;
+    margin-top: 20px;
     width: auto; /* Full width */
     height: 350px; /* Full height */
     max-width: 20rem;
@@ -47,6 +47,9 @@
     }
 
 }
+
+
+/* SIGN-IN MODAL */
 
 .SignInMod {
 display: none; /* Hidden by default */

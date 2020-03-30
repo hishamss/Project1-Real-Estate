@@ -15,7 +15,6 @@ h3 {
   background-color: #2e5677;
   padding-top: 2vh;
   padding-bottom: 1vh;
-  margin-bottom: 2vh;
   -webkit-box-shadow: 0 3px 5px 1px #b8b6b6;
           box-shadow: 0 3px 5px 1px #b8b6b6;
 }
@@ -80,7 +79,6 @@ h3 {
 }
 
 .searchRow {
-  margin-bottom: 5vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,6 +87,7 @@ h3 {
           justify-content: center;
   width: 100%;
   height: 2rem;
+  margin-bottom: 2vh;
 }
 
 .searchRow .userInput,
@@ -133,16 +132,39 @@ h3 {
   background-color: #586E80;
 }
 
-.container {
-  width: 80%;
+.weatherContainer {
   margin: 0 auto;
+  height: 3vh;
+  width: auto;
+  margin-bottom: 2vh;
+  color: #717070;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
 }
 
-.container:after,
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.weatherContainer div {
+  display: inline-block;
+  margin: 2px;
+}
+
+#cityHeader {
+  margin-left: 0px;
+}
+
+#weatherIcon {
+  margin-top: -1.2vh;
+  margin-right: 0;
 }
 
 [class*='col-'] {
@@ -155,7 +177,13 @@ h3 {
   display: inline-flex;
 }
 
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .labels {
+  font-family: 'Tinos', serif;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -163,62 +191,54 @@ h3 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  float: center;
-}
-
-h3 {
+  float: left;
+  margin-top: 2vh;
   padding-bottom: 0.5vh;
-  text-align: center;
 }
 
 .labels .col {
+  margin-left: 4vw;
   width: 100%;
 }
 
 .infoRow {
   width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   margin-bottom: 0.5vh;
   height: 25vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  float: left;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  padding-bottom: 3vh;
 }
 
 .topCards {
   padding-top: 1vh;
-  text-align: center;
-  width: 50%;
+  margin: 0 auto;
+  width: 100%;
   height: auto;
   overflow: scroll;
 }
 
-.topCards hr {
+.labels .col hr {
   width: 100%;
-  margin: 0 auto;
-  margin-bottom: 1.5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: left;
+  margin-top: 0.5vh;
+  margin-bottom: 1vh;
 }
 
-#yelp,
-#weather {
-  margin-right: 1vw;
-}
-
+.yelp,
 .schools {
-  padding-top: 2vh;
-  width: 100%;
-}
-
-.fa-circle {
-  font-size: 0.5rem;
-  color: #2e5677;
-  visibility: hidden;
+  margin-left: 4vw;
 }
 
 #searchResults {
+  font-family: 'Tinos', serif;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -301,6 +321,103 @@ hr {
 
 .properties .openmap:hover {
   background-color: #586E80;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: absolute;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  margin: 0 auto;
+  margin-top: 20px;
+  width: auto;
+  /* Full width */
+  height: 350px;
+  /* Full height */
+  max-width: 20rem;
+  overflow: auto;
+  /* Enable scroll if needed */
+  border-color: #ccc;
+  padding-top: 1vh;
+  background-color: white;
+  -webkit-box-shadow: 0 1px 5px 2px #b8b6b6;
+          box-shadow: 0 1px 5px 2px #b8b6b6;
+  /* Modal Content/Box */
+  /* The Close Button */
+}
+
+.modal .modal-content {
+  margin: 0 auto;
+  border-radius: 0;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 0.5vh;
+}
+
+.modal .close {
+  text-align: center;
+  color: #153956;
+  font-size: 1rem;
+  padding: 0.25rem;
+  padding-right: 0.5vw;
+  padding-left: 0.5vw;
+  border-color: lightgray;
+  margin-right: 0.6vw;
+  font-size: 1rem;
+  background: white;
+}
+
+.modal .close:hover {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/* SIGN-IN MODAL */
+.SignInMod {
+  display: none;
+  /* Hidden by default */
+  position: -webkit-sticky;
+  position: sticky;
+  /* Stay in place */
+  z-index: 1000;
+  /* Sit on top */
+  margin: 0 auto;
+  margin-top: 0 !important;
+  width: auto;
+  /* Full width */
+  height: 9vh;
+  /* Full height */
+  max-width: 20rem;
+  overflow: auto;
+  /* Enable scroll if needed */
+  border-color: #ccc;
+  background-color: white;
+  -webkit-box-shadow: 0 1px 5px 2px #b8b6b6;
+          box-shadow: 0 1px 5px 2px #b8b6b6;
+}
+
+.SignInMod .modal-body {
+  text-align: center;
+}
+
+.SearchHeart {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  font-size: 30px;
+  color: white;
+}
+
+.SavedHeart {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  font-size: 30px;
+  color: red;
 }
 
 .footer {
@@ -518,101 +635,4 @@ hr {
   .col-xl-12 {
     width: 100%;
   }
-}
-
-/* The Modal (background) */
-.modal {
-  display: none;
-  /* Hidden by default */
-  position: -webkit-sticky;
-  position: sticky;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
-  margin: 0 auto;
-  margin-top: 20px auto;
-  width: auto;
-  /* Full width */
-  height: 350px;
-  /* Full height */
-  max-width: 20rem;
-  overflow: auto;
-  /* Enable scroll if needed */
-  border-color: #ccc;
-  padding-top: 1vh;
-  background-color: white;
-  -webkit-box-shadow: 0 1px 5px 2px #b8b6b6;
-          box-shadow: 0 1px 5px 2px #b8b6b6;
-  /* Modal Content/Box */
-  /* The Close Button */
-}
-
-.modal .modal-content {
-  margin: 0 auto;
-  border-radius: 0;
-  width: 300px;
-  height: 300px;
-  margin-bottom: 0.5vh;
-}
-
-.modal .close {
-  text-align: center;
-  color: #153956;
-  font-size: 1rem;
-  padding: 0.25rem;
-  padding-right: 0.5vw;
-  padding-left: 0.5vw;
-  border-color: lightgray;
-  margin-right: 0.6vw;
-  font-size: 1rem;
-  background: white;
-}
-
-.modal .close:hover {
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-}
-
-.SignInMod {
-  display: none;
-  /* Hidden by default */
-  position: -webkit-sticky;
-  position: sticky;
-  /* Stay in place */
-  z-index: 1000;
-  /* Sit on top */
-  margin: 0 auto;
-  margin-top: 0 !important;
-  width: auto;
-  /* Full width */
-  height: 9vh;
-  /* Full height */
-  max-width: 20rem;
-  overflow: auto;
-  /* Enable scroll if needed */
-  border-color: #ccc;
-  background-color: white;
-  -webkit-box-shadow: 0 1px 5px 2px #b8b6b6;
-          box-shadow: 0 1px 5px 2px #b8b6b6;
-}
-
-.SignInMod .modal-body {
-  text-align: center;
-}
-
-.SearchHeart {
-  position: absolute;
-  top: 20px;
-  right: 15px;
-  font-size: 30px;
-  color: white;
-}
-
-.SavedHeart {
-  position: absolute;
-  top: 20px;
-  right: 15px;
-  font-size: 30px;
-  color: red;
 }

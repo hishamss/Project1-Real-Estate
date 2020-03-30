@@ -47,9 +47,9 @@
     <!-- Header  -->
     <div class="header">
       <div class="logo">
-        <img class="home" src="./assets/images/home.png" alt="Home" />
+        <img class="home" src="./assets/images/header.png" alt="Home" />
       </div>
-    </div>
+    </div>  <!-- end header -->
 
     <div class="login">
       <div class="row">
@@ -64,23 +64,25 @@
 
     <!-- SEARCH ROW  -->
     <div class="searchRow">
-      <input
-        placeholder="Enter Zipcode  ex: 90210"
-        type="text"
-        name="zipcode"
-        class="userInput"
-        maxlength="5"
-      />
-      <input
-        placeholder="Radius in miles (Optional)"
-        type="text"
-        class="radius"
-        maxlength="3"
-      />
-      <button type="button" class="btn" id="search">Search</button>
-    </div>
+      <input placeholder="Enter Zipcode  ex: 90210" type="text" name="zipcode" class="userInput" maxlength="5" id="searchInput"/>
+      <input placeholder="Radius in miles (Optional)" type="text" class="radius" maxlength="3"/>
+      <button type="button" class="btn" id="searchBtn">Search</button>
+    </div> <!-- end searchRow -->
 
-    <!-- WEATHER, TO DO, SCHOOLS  -->
+          <!-- WEATHER DIV -->
+          
+          <div class="weatherContainer">
+              <div id="weatherDescription"></div>
+              <div><img id="weatherIcon"></div>
+              <div id="cityHeader"></div>
+              <div id="weatherMain"></div>
+              <div id="temperature"></div>
+              <div id="weatherDescriptionHeader"></div>
+              <div id="windSpeed" class="bottomDetails"></div>
+              <div id="humidity" class="bottomDetails"></div>
+          </div> 
+
+    <!-- RESTAURANTS, SCHOOLS  -->
     <div class="container">
       <!-- Map Modal -->
       <!-- <div class="modal ModalMap">
@@ -102,25 +104,12 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="signupemail"
-                    placeholder="Email"
-                  />
+                  <input type="email" class="form-control" id="signupemail" placeholder="Email"/>
                 </div>
-
                 <div class="form-group">
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="signuppassword"
-                    placeholder="Password"
-                  />
+                  <input type="password" class="form-control" id="signuppassword" placeholder="Password"/>
                 </div>
-                <button type="submit" class="btn btn-primary" id="signupsubmit">
-                  Sign Up
-                </button>
+                <button type="submit" class="btn btn-primary" id="signupsubmit">Sign Up</button>
               </form>
               <br />
               <p id="signupmessage"></p>
@@ -128,11 +117,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> <!--end sign-up modal -->
 
-      <div class="extra">
         <div class="row labels">
-
+          <!-- HEADINGS -->
           <div class="col">
             <h3>Restaurants</h3>
             <hr/>
@@ -142,45 +130,34 @@
             <h3>Schools</h3>
             <hr/>
           </div>
-        </div>
+
+        </div> <!--end row labels-->
 
         <div class="row infoRow">
-          <div class="topCards" id="yelp">
-            <img
-              src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif"
-              origin="anonymous"
-              width="200"
-              height="200"
-              id="YelpSpinner"
-            />
-            <!-- <div id="yelpResults"></div> -->
-            <table class="schools" id="yelpResults"></table>
+
+          <div class="topCards">
+            <!-- <img src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif" -->
+              <!-- id="YelpSpinner"/> -->
+            <table class="yelp"></table>
           </div>
 
-          <div class="topCards" id="Schools">
-            <img
-              src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif"
-              origin="anonymous"
-              width="200"
-              height="200"
-              id="spinner"
-            />
-            <table class="schools" id="schoolResults"></table>
+          <div class="topCards">
+            <!-- <img src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif" -->
+              <!-- id="spinner"/> -->
+            <table class="schools"></table>
           </div>
-        </div>
+        </div> <!--  end topCards  -->
 
-        <!-- end infoRow -->
-      </div>
-      <!--end extra-->
-    </div>
-    <!--end of container-->
+        </div> <!--  end infoRow -->
+      
+    </div>  <!--end container-->
 
-    <br />
+    <br/>
 
     <!-- SEARCH RESULTS HEADER -->
 
     <h2 class="row" id="searchResults">Home Search Results</h2>
-    <hr />
+    <hr/>
 
     <!-- MAP MODAL -->
     <div class="modal ModalMap">
@@ -207,68 +184,32 @@
           <div class="modal-body">
             <form>
               <div class="form-group">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="signinemail"
-                  placeholder="Email"
-                />
+                <input type="email" class="form-control" id="signinemail" placeholder="Email"/>
               </div>
 
               <div class="form-group">
-                <input
-                  type="password"
-                  class="form-control"
-                  id="signinpassword"
-                  placeholder="Password"
-                />
+                <input type="password" class="form-control" id="signinpassword" placeholder="Password"/>
               </div>
-              <button type="submit" class="btn btn-primary" id="signinsubmit">
-                Sign In
-              </button>
+
+              <button type="submit" class="btn btn-primary" id="signinsubmit">Sign In</button>
             </form>
-            <br />
+            <br/>
             <p id="signinmessage"></p>
             <button class="btn" id="signinclose">close</button>
           </div>
         </div>
       </div>
-    </div>
+    </div> <!-- end sign-in modal -->
 
     <!-- FOOTER -->
     <div class="footer">
-      <p class="footerText">
-        Powered by &nbsp<a
-          class="realtor"
-          href="https://www.realtor.com/"
-          target="_blank"
-        >
-          Realtor</a
-        >, &nbsp
-        <a
-          class="googleMaps"
-          href="https://www.google.com/maps/"
-          target="_blank"
-        >
-          Google Maps </a
-        >, &nbsp
-        <a
-          class="openWeather"
-          href="https://openweathermap.org/"
-          target="_blank"
-        >
-          OpenWeather
-        </a>
-        &nbsp and &nbsp<a
-          class="googleMaps"
-          href="https://www.yelp.com/"
-          target="_blank"
-          >Yelp</a
-        ><span class="copywrite">&copy&nbspCopyright 2020</span> Site built by
-        Hisham, Jenen and Jennifer
+      <p class="footerText"> Powered by &nbsp<a class="realtor" href="https://www.realtor.com/" target="_blank">Realtor</a>, 
+        &nbsp<a class="googleMaps" href="https://www.google.com/maps/" target="_blank"> Google Maps </a>, 
+        &nbsp<a class="openWeather" href="https://openweathermap.org/" target="_blank"> OpenWeather </a>
+        &nbsp and &nbsp<a class="googleMaps" href="https://www.yelp.com/" target="_blank">Yelp</a>
+        <span class="copywrite">&copy&nbspCopyright 2020</span> Site built by Hisham, Jenen and Jennifer
       </p>
-    </div>
-    <!-- end of footer -->
+    </div>   <!-- end of footer -->
 
     <!-- javascript file -->
     <script type=" text/javascript" src="./assets/javascript/app.js"></script>

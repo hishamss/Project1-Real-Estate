@@ -2,7 +2,6 @@
     background-color: $med-blue;
     padding-top: 2vh;
     padding-bottom: 1vh;
-    margin-bottom: 2vh;
     box-shadow: 0 3px 5px 1px rgb(184, 182, 182);
 
     #{&}.logo,
@@ -15,45 +14,4 @@
 
     }
 
-    .login {
-        display: flex;
-        float: right;
-        margin-top: 1vh;
-        margin-right: 3vw;
-    }
-
-    #saved,
-    #signin,
-    #signout,
-    #signup {
-        cursor: pointer;
-        width: relative;
-        text-align: center;
-        align-self: center;
-        padding-top: 0.2vh;
-        padding-bottom: 0.4vh;
-        padding-right: 1vw;
-        padding-left: 1vw;
-        border: 1px solid rgb(223, 222, 222);
-        border-radius: 0;
-        background-color: $med-blue;
-        color: $light;
-        margin-right: 1vw;
-        display: flex;
-        float: left;
-        margin-bottom: 2vh;
-        margin-top: 0;
-    }
     
-    #saved:hover,
-    #signin:hover,
-    #signout:hover,
-    #signup:hover {
-        background-color: $hover-color;
-
-    }
-
-    #currentuser {
-     text-align: right;
-     padding-bottom: 3vh;
-    }

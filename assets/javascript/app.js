@@ -17,7 +17,7 @@ $(document).ready(function() {
   $("#saved").hide();
   $(".extra").hide();
   // API call when search button clicked
-  $("#search").on("click", function() {
+  $("#searchBtn").on("click", function() {
     $(".extra").show();
     $("#spinner").show();
     $("#YelpSpinner").show();
@@ -79,17 +79,18 @@ $(document).ready(function() {
           method: "GET",
           dataType: "json",
           success: function(data) {
-            console.log("success Yelp: ");
-            $("#yelpResults").text("");
+            console.log(data);
+            $(".yelp").text("");
             for (places of data.businesses) {
               title = "";
               for (cat of places.categories) {
                 title += cat.title + ", ";
               }
-              $("#yelpResults").append(
-                '<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x" style="color:white; font-size:20px">' +
-                  places.rating +
-                  '</span></span></td><td><h5><a href="' +
+              $(".yelp").append(
+                //<span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x" style="color:white; font-size:20px">' +
+                  //places.rating +
+                  //'</span></span></td><td>
+                  '<tr><td><h5><a href="' +
                   places.url +
                   '" target="_blank">' +
                   places.name +
@@ -98,7 +99,7 @@ $(document).ready(function() {
                   "</p></td></tr><tr></tr><tr></tr>"
               );
               $("#YelpSpinner").hide();
-              $("#yelpResults").show();
+              $(".yelp").show();
             }
           }
         });
@@ -126,7 +127,7 @@ $(document).ready(function() {
             GreatSchoolId = GreatSchoolId.substr(GreatSchoolId.length - 5);
             State = school.location.state;
             if (rating) {
-              rating = rating + "/10";
+              rating = rating + "/5";
             } else {
               rating = "N/A";
             }
@@ -177,7 +178,7 @@ $(document).ready(function() {
           //          if (Photo) {
           //            Photo = result[i].photo;
           //          } else if {
-          //            Photo = "assets/images/logo.jpg";
+          //            Photo = "assets/images/noImage.jpg";
           //          }
           //            $(".properties").append(
           //              '<div class="col-md-3"><div class="card "><i class="far fa-heart //SearchHeart" data-status="off" id="' +
@@ -529,6 +530,7 @@ $(document).ready(function() {
         });
       });
   });
+ 
 }); //end document ready
 
 function initMap(Lat, Lon) {
@@ -539,3 +541,45 @@ function initMap(Lat, Lon) {
   });
   var marker = new google.maps.Marker({ position: location, map: map });
 }
+
+  // WEATHER API --------------------------------------------------------------------------------------------------------------------------
+
+    // This is our API key
+    var appID = "27f932af50bf7081ba92dbe383500085";
+    var units="imperial";
+    var searchMethod = "zip";
+
+    function searchWeather(searchTerm) {
+      fetch(`http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&appid=${appID}&units=${units}`).then(result => {
+          return result.json();
+      }).then(result => {
+          init(result);
+      })
+  }
+  
+  function init(resultFromServer) {
+      console.log(resultFromServer);
+
+      var weatherDescriptionHeader = document.getElementById('weatherDescriptionHeader');
+      var temperatureElement = document.getElementById('temperature');
+      var humidityElement = document.getElementById('humidity');
+      var windSpeedElement = document.getElementById('windSpeed');
+      var cityHeader = document.getElementById('cityHeader');
+      var weatherIcon = document.getElementById('weatherIcon');
+
+      weatherIcon.src = "http://openweathermap.org/img/w/" + resultFromServer.weather[0].icon + ".png";
+
+      var resultDescription = resultFromServer.weather[0].description;
+      weatherDescriptionHeader.innerText = resultDescription + ',';
+
+      temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176 with a';
+      windSpeedElement.innerHTML = "the winds are at " + Math.floor(resultFromServer.wind.speed) + " m/s";
+      cityHeader.innerHTML = "In " + resultFromServer.name + ", it's";
+      humidityElement.innerHTML = "and humidity levels are at " + resultFromServer.main.humidity + "%";
+  }
+  
+  document.getElementById('searchBtn').addEventListener('click', () => {
+      var searchTerm = document.getElementById('searchInput').value;
+      if(searchTerm)
+      searchWeather(searchTerm);
+  })
