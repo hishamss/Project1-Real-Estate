@@ -54,10 +54,10 @@
     <div class="login">
       <div class="row">
         <button type="button" class="btn" id="saved">Saved Homes</button>
-        <button type="button" class="btn" id="signin">Sign In</button>
-        <button type="button" class="btn" id="signout">Sign Out</button>
+        <button type="button" class="btn" id="signin">Sign-In</button>
+        <button type="button" class="btn" id="signout">Sign-Out</button>
         <br />
-        <button type="button" class="btn" id="signup">Sign Up</button>
+        <button type="button" class="btn" id="signup">Sign-Up</button>
       </div>
       <p class="row" id="currentuser"></p>
     </div>
@@ -84,40 +84,6 @@
 
     <!-- RESTAURANTS, SCHOOLS  -->
     <div class="container">
-      <!-- Map Modal -->
-      <!-- <div class="modal ModalMap">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div id="map"></div>
-              <br />
-              <button class="btn btn-secondary" id="close">close</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- Sign-UP Modal -->
-      <div class="modal SignUpMod">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <input type="email" class="form-control" id="signupemail" placeholder="Email"/>
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" id="signuppassword" placeholder="Password"/>
-                </div>
-                <button type="submit" class="btn btn-primary" id="signupsubmit">Sign Up</button>
-              </form>
-              <br />
-              <p id="signupmessage"></p>
-              <button class="btn btn-secondary" id="signupclose">close</button>
-            </div>
-          </div>
-        </div>
-      </div> <!--end sign-up modal -->
 
         <div class="row labels">
           <!-- HEADINGS -->
@@ -136,14 +102,14 @@
         <div class="row infoRow">
 
           <div class="topCards">
-            <!-- <img src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif" -->
-              <!-- id="YelpSpinner"/> -->
+            <img src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif"
+              id="yelpSpinner"/>
             <table class="yelp"></table>
           </div>
 
           <div class="topCards">
-            <!-- <img src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif" -->
-              <!-- id="spinner"/> -->
+            <img src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif"
+              id="spinner"/>
             <table class="schools"></table>
           </div>
         </div> <!--  end topCards  -->
@@ -159,15 +125,10 @@
     <h2 class="row" id="searchResults">Home Search Results</h2>
     <hr/>
 
-    <!-- MAP MODAL -->
-    <div class="modal ModalMap">
-      <div class="modal-content" id="map"></div>
-      <button class="close">X</button>
-    </div>
-
     <!-- PROPERTY RESULTS  -->
     <div class="row properties">
-      <div class="row card-img-top card-body sr-only"></div>
+      <div class="row card-img-top card-body"><img src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif"
+        id="propertySpinner"/></div>
       <div class="col price"></div>
     </div>
 
@@ -178,10 +139,7 @@
     </div>
 
     <!-- Sign-In Modal -->
-    <div class="modal SignInMod">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
+    <div class="modal signInMod">
             <form>
               <div class="form-group">
                 <input type="email" class="form-control" id="signinemail" placeholder="Email"/>
@@ -191,15 +149,34 @@
                 <input type="password" class="form-control" id="signinpassword" placeholder="Password"/>
               </div>
 
-              <button type="submit" class="btn btn-primary" id="signinsubmit">Sign In</button>
+              <button type="submit" class="btn btn-primary" id="signinsubmit">Sign-In</button>
             </form>
             <br/>
             <p id="signinmessage"></p>
-            <button class="btn" id="signinclose">close</button>
-          </div>
-        </div>
-      </div>
+            <button class="btn" id="signinclose">Close</button>
     </div> <!-- end sign-in modal -->
+
+    <!-- Sign-UP Modal -->
+    <div class="modal signUpMod">
+            <form>
+              <div class="form-group">
+                <input type="email" class="form-control" id="signupemail" placeholder="Email"/>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="signuppassword" placeholder="Password"/>
+              </div>
+              <button type="submit" class="btn btn-primary" id="signupsubmit">Sign-Up</button>
+            </form>
+            <br />
+            <p id="signupmessage"></p>
+            <button class="btn btn-secondary" id="signupclose">Close</button>
+    </div> <!--end sign-up modal -->
+
+    <!-- MAP MODAL -->
+    <div class="modal modalMap">
+      <div class="modal-content" id="map"></div>
+      <button id="close">Close</button>
+    </div>
 
     <!-- FOOTER -->
     <div class="footer">

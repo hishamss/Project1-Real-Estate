@@ -18,10 +18,19 @@
     width: 100%;
 }
 
+.labels .col hr {
+    width: 100%;
+    display: flex;
+    float: left;
+    margin-top: 0.5vh;
+    margin-bottom: 1vh;
+}
+
 .infoRow {
     width: 100%;
     margin-bottom: 0.5vh;
-    height: 25vh;
+    height: relative;
+    max-height: 25vh;
     display: flex;
     justify-content: left;
     padding-bottom: 3vh;
@@ -35,12 +44,15 @@
     overflow: scroll;
 }
 
-.labels .col hr {
-    width: 100%;
-    display: flex;
-    float: left;
-    margin-top: 0.5vh;
-    margin-bottom: 1vh;
+#spinner,
+#yelpSpinner {
+    width: 30%;
+    margin-left: 11vw;
+}
+
+#propertySpinner {
+    width: 75%;
+    margin: 0 auto;
 }
 
 .yelp,

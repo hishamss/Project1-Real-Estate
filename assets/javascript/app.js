@@ -11,6 +11,8 @@ var ZipLat, ZipLng;
 // jQuery document ready makes sure all html is loaded before running script
 $(document).ready(function() {
   $("#spinner").hide();
+  $("#yelpSpinner").hide();
+  $("#propertySpinner").hide();
   $(".schools").hide();
   $(".SavedHomes").hide();
   $("#signout").hide();
@@ -20,10 +22,12 @@ $(document).ready(function() {
   $("#searchBtn").on("click", function() {
     $(".extra").show();
     $("#spinner").show();
-    $("#YelpSpinner").show();
+    $("#yelpSpinner").show();
+    $("#propertySpinner").show();
     $(".schools").hide();
     $(".SavedHomes").hide();
     $(".result").show();
+    $(".modal").hide();
     zipcode = $(".userInput")
       .val()
       .trim();
@@ -98,7 +102,7 @@ $(document).ready(function() {
                   title +
                   "</p></td></tr><tr></tr><tr></tr>"
               );
-              $("#YelpSpinner").hide();
+              $("#yelpSpinner").hide();
               $(".yelp").show();
             }
           }
@@ -219,6 +223,8 @@ $(document).ready(function() {
               i +
               '">Map</button>'
           );
+          $("#propertySpinner").hide();
+          $(".properties").show();
         }
       });
     }
@@ -309,7 +315,7 @@ $(document).ready(function() {
         Clicked.attr("title", "save this home");
       }
     } else {
-      alert("please login or create account");
+      alert("Please log in or create an account");
     }
   });
 
@@ -318,7 +324,7 @@ $(document).ready(function() {
     Lat = result[Id].lat;
     Lon = result[Id].lon;
     initMap(Lat, Lon);
-    $(".ModalMap").show();
+    $(".modalMap").show();
   });
 
   $(document).on("click", ".savedopenmap", function() {
@@ -326,11 +332,11 @@ $(document).ready(function() {
     Lat = SavedHomes[SavedHomesArr[Id]].favlat;
     Lon = SavedHomes[SavedHomesArr[Id]].favlon;
     initMap(Lat, Lon);
-    $(".ModalMap").show();
+    $(".modalMap").show();
   });
 
-  $(".close").on("click", function() {
-    $(".ModalMap").hide();
+  $("#close").on("click", function() {
+    $(".modalMap").hide();
   });
 
   // Firebase Script
@@ -349,19 +355,19 @@ $(document).ready(function() {
   var database = firebase.database();
 
   $("#signup").on("click", function() {
-    $(".SignUpMod").show();
+    $(".signUpMod").show();
   });
 
   $("#signupclose").on("click", function() {
-    $(".SignUpMod").hide();
+    $(".signUpMod").hide();
   });
 
   $("#signin").on("click", function() {
-    $(".SignInMod").show();
+    $(".signInMod").show();
   });
 
   $("#signinclose").on("click", function() {
-    $(".SignInMod").hide();
+    $(".signInMod").hide();
   });
   $("#signupsubmit").on("click", function(event) {
     event.preventDefault();
