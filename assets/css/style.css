@@ -251,6 +251,17 @@ h3 {
   margin-left: 4vw;
 }
 
+.fas {
+  color: white;
+  border: 1px solid blue;
+}
+
+.fa-stack {
+  color: #2e5677;
+  font-size: 1rem;
+  margin-right: 1vw;
+}
+
 #searchResults {
   font-family: 'Tinos', serif;
   text-align: center;

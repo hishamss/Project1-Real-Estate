@@ -91,16 +91,14 @@ $(document).ready(function() {
                 title += cat.title + ", ";
               }
               $(".yelp").append(
-                //<span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x" style="color:white; font-size:20px">' +
-                  //places.rating +
-                  //'</span></span></td><td>
-                  '<tr><td><h5><a href="' +
+                '<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x">'
+                  + places.rating + "/5"+ '</span></span></td><td><h5><a href="' +
                   places.url +
                   '" target="_blank">' +
                   places.name +
-                  "</a></h5><p>" +
+                  '</a></h5><p>' +
                   title +
-                  "</p></td></tr><tr></tr><tr></tr>"
+                  '</p></td></tr>'
               );
               $("#yelpSpinner").hide();
               $(".yelp").show();
@@ -136,10 +134,9 @@ $(document).ready(function() {
               rating = "N/A";
             }
             $(".schools").append(
-              //'<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x">' +
-              //rating +
-              //'</span></span></td>
-              '<tr><td><h5><a href="https://www.greatschools.org/school?id=' +
+              '<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x">' +
+              rating +
+              '</span></span></td><td><h5><a href="https://www.greatschools.org/school?id=' +
                 GreatSchoolId +
                 "&state=" +
                 State +
