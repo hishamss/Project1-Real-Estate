@@ -1,53 +1,72 @@
-
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
 
 .labels {
+    font-family: 'Tinos', serif;
     width: 100%;
     display: flex;
     justify-content: center;
-    float: center;
-}
-
-h3 {
+    float: left;
+    margin-top: 2vh;
     padding-bottom: 0.5vh;
-    text-align: center;
 }
 
 .labels .col {
+    margin-left: 4vw;
     width: 100%;
 }
 
+.labels .col hr {
+    width: 100%;
+    display: flex;
+    float: left;
+    margin-top: 0.5vh;
+    margin-bottom: 1vh;
+}
 
 .infoRow {
     width: 100%;
-    justify-content: center;
     margin-bottom: 0.5vh;
-    height: 25vh;
+    height: relative;
+    max-height: 25vh;
     display: flex;
-    float: left; 
+    justify-content: left;
+    padding-bottom: 3vh;
 }
 
 .topCards {
     padding-top: 1vh;
-    text-align: center;
-    width: 50%;
+    margin: 0 auto;
+    width: 100%;
     height: auto;
     overflow: scroll;
 }
 
-.topCards hr {
-    width: 100%;
+#spinner,
+#yelpSpinner {
+    width: 30%;
+    margin-left: 11vw;
+}
+
+#propertySpinner {
+    width: 75%;
     margin: 0 auto;
-    margin-bottom: 1.5vh;
 }
 
+.yelp,
 .schools {
-    padding-top: 2vh;
-    width: 100%;
+    margin-left: 4vw;
 }
 
-.fa-circle {
-    font-size: 0.5rem;
-    color: $med-blue;
-    visibility: hidden;
-    }
+.fas {
+    color: white;
+    border: 1px solid blue;
+}
 
+.fa-stack {
+    color: $med-blue;
+    font-size: 1rem;
+    margin-right: 1vw;
+}

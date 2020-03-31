@@ -11,19 +11,23 @@ var ZipLat, ZipLng;
 // jQuery document ready makes sure all html is loaded before running script
 $(document).ready(function() {
   $("#spinner").hide();
+  $("#yelpSpinner").hide();
+  $("#propertySpinner").hide();
   $(".schools").hide();
   $(".SavedHomes").hide();
   $("#signout").hide();
   $("#saved").hide();
   $(".extra").hide();
   // API call when search button clicked
-  $("#search").on("click", function() {
+  $("#searchBtn").on("click", function() {
     $(".extra").show();
     $("#spinner").show();
-    $("#YelpSpinner").show();
+    $("#yelpSpinner").show();
+    $("#propertySpinner").show();
     $(".schools").hide();
     $(".SavedHomes").hide();
     $(".result").show();
+    $(".modal").hide();
     zipcode = $(".userInput")
       .val()
       .trim();
@@ -79,26 +83,25 @@ $(document).ready(function() {
           method: "GET",
           dataType: "json",
           success: function(data) {
-            console.log("success Yelp: ");
-            $("#yelpResults").text("");
+            console.log(data);
+            $(".yelp").text("");
             for (places of data.businesses) {
               title = "";
               for (cat of places.categories) {
                 title += cat.title + ", ";
               }
-              $("#yelpResults").append(
-                '<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x" style="color:white; font-size:20px">' +
-                  places.rating +
-                  '</span></span></td><td><h5><a href="' +
+              $(".yelp").append(
+                '<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x">'
+                  + places.rating + "/5"+ '</span></span></td><td><h5><a href="' +
                   places.url +
                   '" target="_blank">' +
                   places.name +
-                  "</a></h5><p>" +
+                  '</a></h5><p>' +
                   title +
-                  "</p></td></tr><tr></tr><tr></tr>"
+                  '</p></td></tr>'
               );
-              $("#YelpSpinner").hide();
-              $("#yelpResults").show();
+              $("#yelpSpinner").hide();
+              $(".yelp").show();
             }
           }
         });
@@ -126,15 +129,14 @@ $(document).ready(function() {
             GreatSchoolId = GreatSchoolId.substr(GreatSchoolId.length - 5);
             State = school.location.state;
             if (rating) {
-              rating = rating + "/10";
+              rating = rating + "/5";
             } else {
               rating = "N/A";
             }
             $(".schools").append(
-              //'<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x">' +
-              //rating +
-              //'</span></span></td>
-              '<tr><td><h5><a href="https://www.greatschools.org/school?id=' +
+              '<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x">' +
+              rating +
+              '</span></span></td><td><h5><a href="https://www.greatschools.org/school?id=' +
                 GreatSchoolId +
                 "&state=" +
                 State +
@@ -177,7 +179,7 @@ $(document).ready(function() {
           //          if (Photo) {
           //            Photo = result[i].photo;
           //          } else if {
-          //            Photo = "assets/images/logo.jpg";
+          //            Photo = "assets/images/noImage.jpg";
           //          }
           //            $(".properties").append(
           //              '<div class="col-md-3"><div class="card "><i class="far fa-heart //SearchHeart" data-status="off" id="' +
@@ -218,6 +220,8 @@ $(document).ready(function() {
               i +
               '">Map</button>'
           );
+          $("#propertySpinner").hide();
+          $(".properties").show();
         }
       });
     }
@@ -308,7 +312,7 @@ $(document).ready(function() {
         Clicked.attr("title", "save this home");
       }
     } else {
-      alert("please login or create account");
+      alert("Please log in or create an account");
     }
   });
 
@@ -317,7 +321,7 @@ $(document).ready(function() {
     Lat = result[Id].lat;
     Lon = result[Id].lon;
     initMap(Lat, Lon);
-    $(".ModalMap").show();
+    $(".modalMap").show();
   });
 
   $(document).on("click", ".savedopenmap", function() {
@@ -325,11 +329,11 @@ $(document).ready(function() {
     Lat = SavedHomes[SavedHomesArr[Id]].favlat;
     Lon = SavedHomes[SavedHomesArr[Id]].favlon;
     initMap(Lat, Lon);
-    $(".ModalMap").show();
+    $(".modalMap").show();
   });
 
-  $(".close").on("click", function() {
-    $(".ModalMap").hide();
+  $("#close").on("click", function() {
+    $(".modalMap").hide();
   });
 
   // Firebase Script
@@ -348,19 +352,19 @@ $(document).ready(function() {
   var database = firebase.database();
 
   $("#signup").on("click", function() {
-    $(".SignUpMod").show();
+    $(".signUpMod").show();
   });
 
   $("#signupclose").on("click", function() {
-    $(".SignUpMod").hide();
+    $(".signUpMod").hide();
   });
 
   $("#signin").on("click", function() {
-    $(".SignInMod").show();
+    $(".signInMod").show();
   });
 
   $("#signinclose").on("click", function() {
-    $(".SignInMod").hide();
+    $(".signInMod").hide();
   });
   $("#signupsubmit").on("click", function(event) {
     event.preventDefault();
@@ -529,6 +533,7 @@ $(document).ready(function() {
         });
       });
   });
+ 
 }); //end document ready
 
 function initMap(Lat, Lon) {
@@ -539,3 +544,45 @@ function initMap(Lat, Lon) {
   });
   var marker = new google.maps.Marker({ position: location, map: map });
 }
+
+  // WEATHER API --------------------------------------------------------------------------------------------------------------------------
+
+    // This is our API key
+    var appID = "27f932af50bf7081ba92dbe383500085";
+    var units="imperial";
+    var searchMethod = "zip";
+
+    function searchWeather(searchTerm) {
+      fetch(`http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&appid=${appID}&units=${units}`).then(result => {
+          return result.json();
+      }).then(result => {
+          init(result);
+      })
+  }
+  
+  function init(resultFromServer) {
+      console.log(resultFromServer);
+
+      var weatherDescriptionHeader = document.getElementById('weatherDescriptionHeader');
+      var temperatureElement = document.getElementById('temperature');
+      var humidityElement = document.getElementById('humidity');
+      var windSpeedElement = document.getElementById('windSpeed');
+      var cityHeader = document.getElementById('cityHeader');
+      var weatherIcon = document.getElementById('weatherIcon');
+
+      weatherIcon.src = "http://openweathermap.org/img/w/" + resultFromServer.weather[0].icon + ".png";
+
+      var resultDescription = resultFromServer.weather[0].description;
+      weatherDescriptionHeader.innerText = resultDescription + ',';
+
+      temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176 with a';
+      windSpeedElement.innerHTML = "the winds are at " + Math.floor(resultFromServer.wind.speed) + " m/s";
+      cityHeader.innerHTML = "In " + resultFromServer.name + ", it's";
+      humidityElement.innerHTML = "and humidity levels are at " + resultFromServer.main.humidity + "%";
+  }
+  
+  document.getElementById('searchBtn').addEventListener('click', () => {
+      var searchTerm = document.getElementById('searchInput').value;
+      if(searchTerm)
+      searchWeather(searchTerm);
+  })
