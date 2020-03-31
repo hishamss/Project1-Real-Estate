@@ -553,7 +553,7 @@ function initMap(Lat, Lon) {
     var searchMethod = "zip";
 
     function searchWeather(searchTerm) {
-      fetch(`http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&appid=${appID}&units=${units}`).then(result => {
+      fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&appid=${appID}&units=${units}`).then(result => {
           return result.json();
       }).then(result => {
           init(result);
