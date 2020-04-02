@@ -55,7 +55,7 @@ $(document).ready(function() {
         method: "GET",
         headers: {
           "x-rapidapi-host": "redline-redline-zipcode.p.rapidapi.com",
-          "x-rapidapi-key": "79fade2b35msh8c080138382a181p1faedfjsn9a1234132c87"
+          "x-rapidapi-key": "05068e4ea0msh2bd159bb20ee682p1b3511jsn33e4d4be9936"
         }
       }).done(function(data) {
         $.ajax({
@@ -70,7 +70,7 @@ $(document).ready(function() {
           headers: {
             "x-rapidapi-host": "realtor.p.rapidapi.com",
             "x-rapidapi-key":
-              "79fade2b35msh8c080138382a181p1faedfjsn9a1234132c87"
+              "05068e4ea0msh2bd159bb20ee682p1b3511jsn33e4d4be9936"
           }
         }).done(function(data) {
           console.log(data);
@@ -119,7 +119,7 @@ $(document).ready(function() {
         method: "GET",
         headers: {
           "x-rapidapi-host": "realtor.p.rapidapi.com",
-          "x-rapidapi-key": "79fade2b35msh8c080138382a181p1faedfjsn9a1234132c87"
+          "x-rapidapi-key": "05068e4ea0msh2bd159bb20ee682p1b3511jsn33e4d4be9936"
         }
       }).done(function(data) {
         result = data.listings;
