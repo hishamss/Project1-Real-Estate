@@ -1,16 +1,16 @@
 * {
   position: relative;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   z-index: 0;
 }
 
 h2,
 h3 {
-  font-family: 'Tinos', serif;
+  font-family: "Tinos", serif;
 }
 
 .header {
@@ -18,7 +18,7 @@ h3 {
   padding-top: 2vh;
   padding-bottom: 1vh;
   -webkit-box-shadow: 0 3px 5px 1px #b8b6b6;
-          box-shadow: 0 3px 5px 1px #b8b6b6;
+  box-shadow: 0 3px 5px 1px #b8b6b6;
 }
 
 .header .header.logo,
@@ -29,8 +29,8 @@ h3 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .login {
@@ -50,7 +50,7 @@ h3 {
   width: relative;
   text-align: center;
   -ms-flex-item-align: center;
-      align-self: center;
+  align-self: center;
   padding-top: 0.2vh;
   padding-bottom: 0.4vh;
   padding-right: 1vw;
@@ -72,7 +72,7 @@ h3 {
 #signin:hover,
 #signout:hover,
 #signup:hover {
-  background-color: #586E80;
+  background-color: #586e80;
 }
 
 #currentuser {
@@ -85,8 +85,8 @@ h3 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: 100%;
   height: 2rem;
   margin-bottom: 2vh;
@@ -119,8 +119,8 @@ h3 {
   width: 4.5rem;
   text-align: center;
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  -ms-grid-row-align: center;
+  align-self: center;
   padding-top: 0.25vh;
   padding-bottom: 0.25vh;
   border: 1px solid #dfdede;
@@ -131,7 +131,7 @@ h3 {
 
 .searchRow .btn:hover {
   cursor: pointer;
-  background-color: #586E80;
+  background-color: #586e80;
 }
 
 .weatherContainer {
@@ -147,12 +147,12 @@ h3 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
 }
 
 .weatherContainer div {
@@ -169,7 +169,7 @@ h3 {
   margin-right: 0;
 }
 
-[class*='col-'] {
+[class*="col-"] {
   float: left;
   padding: 1em;
   width: 100%;
@@ -185,14 +185,14 @@ h3 {
 }
 
 .labels {
-  font-family: 'Tinos', serif;
+  font-family: "Tinos", serif;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   float: left;
   margin-top: 2vh;
   padding-bottom: 0.5vh;
@@ -222,8 +222,8 @@ h3 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
+  -ms-flex-pack: left;
+  justify-content: left;
   padding-bottom: 3vh;
 }
 
@@ -263,14 +263,14 @@ h3 {
 }
 
 #searchResults {
-  font-family: 'Tinos', serif;
+  font-family: "Tinos", serif;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: 80%;
   margin: 0 auto;
   padding-bottom: 0.5vh;
@@ -291,10 +291,10 @@ hr {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   padding-bottom: 5vh;
 }
 
@@ -334,8 +334,8 @@ hr {
   width: 2.5rem;
   text-align: center;
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  -ms-grid-row-align: center;
+  align-self: center;
   padding-top: 0.2vh;
   padding-bottom: 0.4vh;
   border: 1px solid #dfdede;
@@ -345,7 +345,7 @@ hr {
 }
 
 .properties .openmap:hover {
-  background-color: #586E80;
+  background-color: #586e80;
 }
 
 /* All Modal's */
@@ -366,14 +366,30 @@ hr {
   background-color: #f7f6f6;
   border-color: #ccc;
   -webkit-box-shadow: 0 2px 4px 2px #b8b6b6;
-          box-shadow: 0 2px 4px 2px #b8b6b6;
+  box-shadow: 0 2px 4px 2px #b8b6b6;
 }
 
 /* The Map Modal */
 .modalMap {
-  overflow: auto;
+  /* overflow: auto; */
   /* Enable scroll if needed */
   /* Modal Content/Box */
+  width: 400px !important;
+  height: 400px !important;
+  max-width: 400px;
+  margin-left: 43% !important;
+  margin-top: -103% !important;
+  padding: 0 !important;
+}
+
+#map {
+  height: 400px;
+  width: 400px;
+}
+
+.card-img-top {
+  height: 300px !important;
+  width: 300px !important;
 }
 
 .modalMap .modal-content {
@@ -433,9 +449,9 @@ hr {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-size: .85rem;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 0.85rem;
   padding-top: 2vh;
   padding-bottom: 2vh;
   padding-left: 3rem;
@@ -457,7 +473,7 @@ hr {
 
 .footer a:hover {
   color: white;
-  font-size: .90rem;
+  font-size: 0.9rem;
   text-decoration: underline;
 }
 

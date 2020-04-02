@@ -203,6 +203,10 @@ $(document).ready(function() {
           //                '">Open Map</button></div></div></div></div></div>'
           //            );
           //          } else {
+          if (!Photo) {
+            Photo = "assets/images/noImage.jpg";
+          }
+
           $(".properties").append(
             '<div class="card "><i class="far fa-heart SearchHeart" data-status="off" id="' +
               i +
