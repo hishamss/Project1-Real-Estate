@@ -553,7 +553,6 @@ var appID = "27f932af50bf7081ba92dbe383500085";
 var units = "imperial";
 var searchMethod = "zip";
 
-<<<<<<< HEAD
 function searchWeather(searchTerm) {
   fetch(
     `http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&appid=${appID}&units=${units}`
@@ -599,39 +598,3 @@ document.getElementById("searchBtn").addEventListener("click", () => {
   var searchTerm = document.getElementById("searchInput").value;
   if (searchTerm) searchWeather(searchTerm);
 });
-=======
-    function searchWeather(searchTerm) {
-      fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&appid=${appID}&units=${units}`).then(result => {
-          return result.json();
-      }).then(result => {
-          init(result);
-      })
-  }
-  
-  function init(resultFromServer) {
-      console.log(resultFromServer);
-
-      var weatherDescriptionHeader = document.getElementById('weatherDescriptionHeader');
-      var temperatureElement = document.getElementById('temperature');
-      var humidityElement = document.getElementById('humidity');
-      var windSpeedElement = document.getElementById('windSpeed');
-      var cityHeader = document.getElementById('cityHeader');
-      var weatherIcon = document.getElementById('weatherIcon');
-
-      weatherIcon.src = "http://openweathermap.org/img/w/" + resultFromServer.weather[0].icon + ".png";
-
-      var resultDescription = resultFromServer.weather[0].description;
-      weatherDescriptionHeader.innerText = resultDescription + ',';
-
-      temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176 with a';
-      windSpeedElement.innerHTML = "the winds are at " + Math.floor(resultFromServer.wind.speed) + " m/s";
-      cityHeader.innerHTML = "In " + resultFromServer.name + ", it's";
-      humidityElement.innerHTML = "and humidity levels are at " + resultFromServer.main.humidity + "%";
-  }
-  
-  document.getElementById('searchBtn').addEventListener('click', () => {
-      var searchTerm = document.getElementById('searchInput').value;
-      if(searchTerm)
-      searchWeather(searchTerm);
-  })
->>>>>>> 3a85e8f57cccc6af40fbbf05c0d47e4d4a17e5b5
