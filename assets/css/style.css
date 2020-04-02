@@ -1,3 +1,11 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+}
+
 * {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -357,7 +365,7 @@ hr {
   height: auto;
   /* Full height */
   max-width: 20rem;
-  position: fixed;
+  position: absolute;
   margin-left: 43%;
   margin-top: -85%;
   /* Stay in place */
@@ -377,19 +385,21 @@ hr {
   width: 400px !important;
   height: 400px !important;
   max-width: 400px;
-  margin-left: 43% !important;
-  margin-top: -130% !important;
+  position: absolute !important;
+  margin-left: 50% !important;
+  /* margin-top: 40px !important; */
+  /* margin-bottom: auto !important; */
   padding: 0 !important;
 }
 
 #map {
-  height: 400px;
-  width: 400px;
+  height: 400px !important;
+  width: 400px !important;
 }
 
 .card-img-top {
-  height: 300px !important;
-  width: 300px !important;
+  height: 250px !important;
+  width: 250px !important;
 }
 
 .modalMap .modal-content {

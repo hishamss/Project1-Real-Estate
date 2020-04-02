@@ -327,6 +327,12 @@ $(document).ready(function() {
     Lat = result[Id].lat;
     Lon = result[Id].lon;
     initMap(Lat, Lon);
+    BodyHeight = $("body").height();
+    console.log("body:" + BodyHeight);
+    ModPos = BodyHeight * 0.5 - $(".modalMap").height() / 2;
+    ModPos = -1 * ModPos;
+    console.log("modal: " + $(".modalMap").height());
+    $(".modalMap").css("margin-bottom", ModPos);
     $(".modalMap").show();
   });
 
