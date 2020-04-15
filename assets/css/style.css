@@ -40,21 +40,14 @@ h3 {
   -ms-flex-pack: center;
   justify-content: center;
 }
-
-.login {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  float: right;
-  margin-top: 1vh;
-  margin-right: 3vw;
-}
-
+#searchBtn,
 #saved,
 #signin,
 #signout,
 #signup {
-  cursor: pointer;
+  background-color: #2e5677;
+  color: white;
+  /* cursor: pointer;
   width: relative;
   text-align: center;
   -ms-flex-item-align: center;
@@ -73,9 +66,9 @@ h3 {
   display: flex;
   float: left;
   margin-bottom: 2vh;
-  margin-top: 0;
+  margin-top: 0; */
 }
-
+#searchBtn:hover,
 #saved:hover,
 #signin:hover,
 #signout:hover,
@@ -123,7 +116,7 @@ h3 {
   color: lightgrey;
 }
 
-.searchRow .btn {
+/* .searchRow .btn {
   width: 4.5rem;
   text-align: center;
   -ms-flex-item-align: center;
@@ -135,7 +128,7 @@ h3 {
   border-radius: 0;
   background-color: #2e5677;
   color: white;
-}
+} */
 
 .searchRow .btn:hover {
   cursor: pointer;

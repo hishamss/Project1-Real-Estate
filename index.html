@@ -55,16 +55,41 @@
       </div>
     </div>  <!-- end header -->
 
-    <div class="login">
-      <div class="row">
-        <button type="button" class="btn" id="saved">Saved Homes</button>
-        <button type="button" class="btn" id="signin">Sign-In</button>
-        <button type="button" class="btn" id="signout">Sign-Out</button>
-        <br />
-        <button type="button" class="btn" id="signup">Sign-Up</button>
-      </div>
-      <p class="row" id="currentuser"></p>
-    </div>
+      
+
+      <div style="float:right;">
+        <div class="row">
+          <div class="col">
+            <p id="currentuser"></p>
+          </div>
+          <div class="col savedbtn">
+            <button type="button" class="btn btn-secondary" id="saved" style="width:136px;">
+              Saved Homes
+            </button>
+          </div>
+          <div class="col signinbtn">
+            <button type="button" class="btn btn-secondary" id="signin">
+              SignIn
+            </button>
+          </div>
+          <div class="col signoutbtn">
+            <button type="button" class="btn btn-secondary" id="signout">
+              SignOut
+            </button>
+          </div>
+
+          <div class="col signupbtn">
+            <button type="button" class="btn btn-secondary" id="signup">
+              SignUp
+            </button>
+          </div>
+            
+          </div>
+        </div>
+        
+        
+      
+    
 
     <!-- SEARCH ROW  -->
     <div class="searchRow">
@@ -144,21 +169,60 @@
 
     <!-- Sign-In Modal -->
     <div class="modal signInMod">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Sign In</h5>
+            <button type="button" class="close signinclose">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
             <form>
               <div class="form-group">
-                <input type="email" class="form-control" id="signinemail" placeholder="Email"/>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="signinemail"
+                  placeholder="Email"
+                />
               </div>
 
               <div class="form-group">
-                <input type="password" class="form-control" id="signinpassword" placeholder="Password"/>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="signinpassword"
+                  placeholder="Password"
+                />
               </div>
-
-              <button type="submit" class="btn btn-primary" id="signinsubmit">Sign-In</button>
+              <button type="submit" class="btn btn-primary" id="signinsubmit">
+                SignIn
+              </button>
             </form>
-            <br/>
-            <p id="signinmessage"></p>
-            <button class="btn" id="signinclose">Close</button>
-    </div> <!-- end sign-in modal -->
+            <br />
+            <p id="signinmessage" style="color:red; margin-bottom: 0;"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="modal signInMod">
+      <form>
+        <div class="form-group">
+          <input type="email" class="form-control" id="signinemail" placeholder="Email"/>
+        </div>
+
+        <div class="form-group">
+          <input type="password" class="form-control" id="signinpassword" placeholder="Password"/>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="signinsubmit">Sign-In</button>
+      </form>
+      <br/>
+      <p id="signinmessage"></p>
+      <button class="btn" id="signinclose">Close</button>
+</div>  -->
+    <!-- end sign-in modal -->
 
     <!-- Sign-UP Modal -->
     <div class="modal signUpMod">

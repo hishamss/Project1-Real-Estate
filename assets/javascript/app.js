@@ -15,8 +15,8 @@ $(document).ready(function () {
   $("#propertySpinner").hide();
   $(".schools").hide();
   $(".SavedHomes").hide();
-  $("#signout").hide();
-  $("#saved").hide();
+  $(".signoutbtn").hide();
+  $(".savedbtn").hide();
   $(".extra").hide();
   // API call when search button clicked
   $("#searchBtn").on("click", function () {
@@ -363,7 +363,7 @@ $(document).ready(function () {
     $(".signInMod").show();
   });
 
-  $("#signinclose").on("click", function () {
+  $(".signinclose").on("click", function () {
     $(".signInMod").hide();
   });
   $("#signupsubmit").on("click", function (event) {
@@ -378,10 +378,10 @@ $(document).ready(function () {
         .then(function (User) {
           UserEmail = User.user.email;
           $("#signupmessage").text("Signed Up successfully");
-          $("#signup").hide();
-          $("#signin").hide();
-          $("#signout").show();
-          $("#saved").show();
+          $(".signupbtn").hide();
+          $(".signinbtn").hide();
+          $(".signoutbtn").show();
+          $(".savedbtn").show();
           $("#currentuser").text(User.user.email);
 
           UID = User.user.uid;
@@ -411,10 +411,10 @@ $(document).ready(function () {
           UserEmail = User.user.email;
           $("#signinmessage").text("Logged In successfully");
           UID = User.user.uid;
-          $("#signup").hide();
-          $("#signin").hide();
-          $("#signout").show();
-          $("#saved").show();
+          $(".signupbtn").hide();
+          $(".signinbtn").hide();
+          $(".signoutbtn").show();
+          $(".savedbtn").show();
           $("#currentuser").text(User.user.email);
           database.ref("/users/" + UID).update({
             email: User.user.email,
@@ -441,11 +441,11 @@ $(document).ready(function () {
         $(".result").show();
         SignedUpOrIn = false;
         database.ref("/users/" + UID).remove();
-        $("#signin").show();
-        $("#signup").show();
-        $("#saved").hide();
-        $("#signout").hide();
-        $("#currentuser").text("Signed Out Successfully");
+        $(".signinbtn").show();
+        $(".signupbtn").show();
+        $(".savedbtn").hide();
+        $(".signoutbtn").hide();
+        $("#currentuser").text("");
         UID = undefined;
         $(".fa-heart").attr("data-status", "off");
         $(".fa-heart").css("color", "white");
