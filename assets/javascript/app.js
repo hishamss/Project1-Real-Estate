@@ -355,7 +355,7 @@ $(document).ready(function () {
     $(".signUpMod").show();
   });
 
-  $("#signupclose").on("click", function () {
+  $(".signupclose").on("click", function () {
     $(".signUpMod").hide();
   });
 
