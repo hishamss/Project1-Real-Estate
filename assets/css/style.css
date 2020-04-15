@@ -356,59 +356,13 @@ hr {
   background-color: #586e80;
 }
 
-/* All Modal's */
-.modal {
-  text-align: center;
-  padding: 1vh 2vw 1vh 2vw;
-  width: 12%;
-  /* Full width */
-  height: auto;
-  /* Full height */
-  max-width: 20rem;
-  position: absolute;
-  margin-left: 43%;
-  margin-top: -85%;
-  /* Stay in place */
-  z-index: 1000;
-  margin-bottom: 2vh;
-  background-color: #f7f6f6;
-  border-color: #ccc;
-  -webkit-box-shadow: 0 2px 4px 2px #b8b6b6;
-  box-shadow: 0 2px 4px 2px #b8b6b6;
-}
-
-/* The Map Modal */
-.modalMap {
-  /* overflow: auto; */
-  /* Enable scroll if needed */
-  /* Modal Content/Box */
-  width: 400px !important;
-  height: 400px !important;
-  max-width: 400px;
-  position: absolute !important;
-  margin-left: 50% !important;
-  /* margin-top: 40px !important; */
-  /* margin-bottom: auto !important; */
-  padding: 0 !important;
-}
-
 #map {
   height: 400px !important;
-  width: 400px !important;
 }
 
 .card-img-top {
   height: 250px !important;
   width: 250px !important;
-}
-
-.modalMap .modal-content {
-  margin: 0 auto;
-  text-align: center;
-  border-radius: 0;
-  width: 300px;
-  height: auto;
-  margin-bottom: 0.5vh;
 }
 
 /* end modalMap */

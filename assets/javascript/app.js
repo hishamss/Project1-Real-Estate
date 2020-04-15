@@ -9,7 +9,7 @@ var SavedHomes;
 var ZipLat, ZipLng;
 
 // jQuery document ready makes sure all html is loaded before running script
-$(document).ready(function() {
+$(document).ready(function () {
   $("#spinner").hide();
   $("#yelpSpinner").hide();
   $("#propertySpinner").hide();
@@ -19,7 +19,7 @@ $(document).ready(function() {
   $("#saved").hide();
   $(".extra").hide();
   // API call when search button clicked
-  $("#searchBtn").on("click", function() {
+  $("#searchBtn").on("click", function () {
     $(".extra").show();
     $("#spinner").show();
     $("#yelpSpinner").show();
@@ -27,26 +27,12 @@ $(document).ready(function() {
     $(".schools").hide();
     $(".SavedHomes").hide();
     $(".result").show();
-    $(".modal").hide();
-    zipcode = $(".userInput")
-      .val()
-      .trim();
+    zipcode = $(".userInput").val().trim();
     if (
-      $(".radius")
-        .val()
-        .trim() &&
-      /^[0-9]+$/.test(
-        $(".radius")
-          .val()
-          .trim()
-      )
+      $(".radius").val().trim() &&
+      /^[0-9]+$/.test($(".radius").val().trim())
     ) {
-      radius =
-        "radius=" +
-        $(".radius")
-          .val()
-          .trim() +
-        "&";
+      radius = "radius=" + $(".radius").val().trim() + "&";
     } else {
       radius = "";
     }
@@ -64,9 +50,10 @@ $(document).ready(function() {
         method: "GET",
         headers: {
           "x-rapidapi-host": "redline-redline-zipcode.p.rapidapi.com",
-          "x-rapidapi-key": "05068e4ea0msh2bd159bb20ee682p1b3511jsn33e4d4be9936"
-        }
-      }).done(function(data) {
+          "x-rapidapi-key":
+            "05068e4ea0msh2bd159bb20ee682p1b3511jsn33e4d4be9936",
+        },
+      }).done(function (data) {
         // Yelp API
         $.ajax({
           url:
@@ -78,11 +65,11 @@ $(document).ready(function() {
           // zipcode,
           headers: {
             Authorization:
-              "Bearer pf8EZ3kG6Cn-r8KdLxDg5Q3swc74ClJMQSFaZls_O-mUNmhcCouXdL0p-t-a1rg8NkklmMLNxIOJ9oEFQPpiNfQuRGDTvavc3Kvbkmxa76g6_oIJrJ_A3etu5dJ6XnYx"
+              "Bearer pf8EZ3kG6Cn-r8KdLxDg5Q3swc74ClJMQSFaZls_O-mUNmhcCouXdL0p-t-a1rg8NkklmMLNxIOJ9oEFQPpiNfQuRGDTvavc3Kvbkmxa76g6_oIJrJ_A3etu5dJ6XnYx",
           },
           method: "GET",
           dataType: "json",
-          success: function(data) {
+          success: function (data) {
             console.log(data);
             $(".yelp").text("");
             for (places of data.businesses) {
@@ -105,7 +92,7 @@ $(document).ready(function() {
               $("#yelpSpinner").hide();
               $(".yelp").show();
             }
-          }
+          },
         });
         /////////////////
         $.ajax({
@@ -120,9 +107,9 @@ $(document).ready(function() {
           headers: {
             "x-rapidapi-host": "realtor.p.rapidapi.com",
             "x-rapidapi-key":
-              "05068e4ea0msh2bd159bb20ee682p1b3511jsn33e4d4be9936"
-          }
-        }).done(function(data) {
+              "05068e4ea0msh2bd159bb20ee682p1b3511jsn33e4d4be9936",
+          },
+        }).done(function (data) {
           console.log(data);
           $(".schools").text("");
           for (school of data.schools) {
@@ -169,10 +156,11 @@ $(document).ready(function() {
         method: "GET",
         headers: {
           "x-rapidapi-host": "realtor.p.rapidapi.com",
-          "x-rapidapi-key": "05068e4ea0msh2bd159bb20ee682p1b3511jsn33e4d4be9936"
-        }
+          "x-rapidapi-key":
+            "05068e4ea0msh2bd159bb20ee682p1b3511jsn33e4d4be9936",
+        },
         // Put the property results into the properties div in 'cards'
-      }).done(function(data) {
+      }).done(function (data) {
         result = data.listings;
         console.log(result);
         $(".properties").text("");
@@ -233,7 +221,7 @@ $(document).ready(function() {
     }
   });
 
-  $(document).on("click", ".SavedHeart", function() {
+  $(document).on("click", ".SavedHeart", function () {
     // unsave homes from user's favorite page
     var Clicked = $(this);
     var Id = Clicked.attr("id");
@@ -253,7 +241,7 @@ $(document).ready(function() {
         favsqft: SavedHomes[SavedHomesArr[Id]].favsqft,
         favaddress: SavedHomes[SavedHomesArr[Id]].favaddress,
         favlat: SavedHomes[SavedHomesArr[Id]].favlat,
-        favlon: SavedHomes[SavedHomesArr[Id]].favlon
+        favlon: SavedHomes[SavedHomesArr[Id]].favlon,
       });
       Clicked.css("color", "red");
       Clicked.attr("data-status", "on");
@@ -261,7 +249,7 @@ $(document).ready(function() {
     }
   });
 
-  $(document).on("click", ".SearchHeart", function() {
+  $(document).on("click", ".SearchHeart", function () {
     // check if the user signed by User ID
     if (UID) {
       var Clicked = $(this);
@@ -273,7 +261,7 @@ $(document).ready(function() {
         database
           .ref("/favorites/" + UID)
           .once("value")
-          .then(function(snapshot) {
+          .then(function (snapshot) {
             var AlreadySaved = snapshot.child(favpropid).exists();
 
             if (!AlreadySaved) {
@@ -293,7 +281,7 @@ $(document).ready(function() {
                 favsqft: favsqft,
                 favaddress: favaddress,
                 favlat: favlat,
-                favlon: favlon
+                favlon: favlon,
               });
               Clicked.css("color", "red");
               Clicked.attr("data-status", "on");
@@ -306,7 +294,7 @@ $(document).ready(function() {
         database
           .ref("/favorites/" + UID)
           .once("value")
-          .then(function(snapshot) {
+          .then(function (snapshot) {
             var AlreadySaved = snapshot.child(favpropid).exists();
 
             if (AlreadySaved) {
@@ -322,21 +310,21 @@ $(document).ready(function() {
     }
   });
 
-  $(document).on("click", ".openmap", function() {
+  $(document).on("click", ".openmap", function () {
     var Id = $(this).attr("data-id");
     Lat = result[Id].lat;
     Lon = result[Id].lon;
     initMap(Lat, Lon);
-    BodyHeight = $("body").height();
-    console.log("body:" + BodyHeight);
-    ModPos = BodyHeight * 0.5 - $(".modalMap").height() / 2;
-    ModPos = -1 * ModPos;
-    console.log("modal: " + $(".modalMap").height());
-    $(".modalMap").css("margin-bottom", ModPos);
+    // BodyHeight = $("body").height();
+    // console.log("body:" + BodyHeight);
+    // ModPos = BodyHeight * 0.5 - $(".modalMap").height() / 2;
+    // ModPos = -1 * ModPos;
+    // console.log("modal: " + $(".modalMap").height());
+    // $(".modalMap").css("margin-bottom", ModPos);
     $(".modalMap").show();
   });
 
-  $(document).on("click", ".savedopenmap", function() {
+  $(document).on("click", ".savedopenmap", function () {
     var Id = $(this).attr("data-id");
     Lat = SavedHomes[SavedHomesArr[Id]].favlat;
     Lon = SavedHomes[SavedHomesArr[Id]].favlon;
@@ -344,7 +332,7 @@ $(document).ready(function() {
     $(".modalMap").show();
   });
 
-  $("#close").on("click", function() {
+  $("#close").on("click", function () {
     $(".modalMap").hide();
   });
 
@@ -357,41 +345,37 @@ $(document).ready(function() {
     projectId: "real-estate-project-2e3a3",
     storageBucket: "real-estate-project-2e3a3.appspot.com",
     messagingSenderId: "1086203608176",
-    appId: "1:1086203608176:web:a1ae5db94335a8626148b5"
+    appId: "1:1086203608176:web:a1ae5db94335a8626148b5",
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   var database = firebase.database();
 
-  $("#signup").on("click", function() {
+  $("#signup").on("click", function () {
     $(".signUpMod").show();
   });
 
-  $("#signupclose").on("click", function() {
+  $("#signupclose").on("click", function () {
     $(".signUpMod").hide();
   });
 
-  $("#signin").on("click", function() {
+  $("#signin").on("click", function () {
     $(".signInMod").show();
   });
 
-  $("#signinclose").on("click", function() {
+  $("#signinclose").on("click", function () {
     $(".signInMod").hide();
   });
-  $("#signupsubmit").on("click", function(event) {
+  $("#signupsubmit").on("click", function (event) {
     event.preventDefault();
     $("#signupmessage").text("");
-    Email = $("#signupemail")
-      .val()
-      .trim();
-    Password = $("#signuppassword")
-      .val()
-      .trim();
+    Email = $("#signupemail").val().trim();
+    Password = $("#signuppassword").val().trim();
     if (Email && Password) {
       var Auth = firebase
         .auth()
         .createUserWithEmailAndPassword(Email, Password)
-        .then(function(User) {
+        .then(function (User) {
           UserEmail = User.user.email;
           $("#signupmessage").text("Signed Up successfully");
           $("#signup").hide();
@@ -402,10 +386,10 @@ $(document).ready(function() {
 
           UID = User.user.uid;
           database.ref("/users/" + UID).update({
-            email: User.user.email
+            email: User.user.email,
           });
         })
-        .catch(function(error) {
+        .catch(function (error) {
           // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
@@ -415,19 +399,15 @@ $(document).ready(function() {
     }
   });
 
-  $("#signinsubmit").on("click", function(event) {
+  $("#signinsubmit").on("click", function (event) {
     event.preventDefault();
-    UserEmail = $("#signinemail")
-      .val()
-      .trim();
-    UserPassword = $("#signinpassword")
-      .val()
-      .trim();
+    UserEmail = $("#signinemail").val().trim();
+    UserPassword = $("#signinpassword").val().trim();
     if (UserEmail && UserPassword) {
       firebase
         .auth()
         .signInWithEmailAndPassword(UserEmail, UserPassword)
-        .then(function(User) {
+        .then(function (User) {
           UserEmail = User.user.email;
           $("#signinmessage").text("Logged In successfully");
           UID = User.user.uid;
@@ -437,10 +417,10 @@ $(document).ready(function() {
           $("#saved").show();
           $("#currentuser").text(User.user.email);
           database.ref("/users/" + UID).update({
-            email: User.user.email
+            email: User.user.email,
           });
         })
-        .catch(function(error) {
+        .catch(function (error) {
           // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
@@ -450,11 +430,11 @@ $(document).ready(function() {
     }
   });
 
-  $("#signout").on("click", function() {
+  $("#signout").on("click", function () {
     firebase
       .auth()
       .signOut()
-      .then(function() {
+      .then(function () {
         // Sign-out successful.
         $(".SavedHomes").hide();
         $(".properties").text("");
@@ -470,18 +450,18 @@ $(document).ready(function() {
         $(".fa-heart").attr("data-status", "off");
         $(".fa-heart").css("color", "white");
       })
-      .catch(function(error) {
+      .catch(function (error) {
         // An error happened.
       });
   });
   // log out the user when closed the browser
-  $(window).on("unload", function() {
+  $(window).on("unload", function () {
     if (UID) {
       database.ref("/users/" + UID).remove();
     }
   });
 
-  $("#saved").on("click", function() {
+  $("#saved").on("click", function () {
     $(".result").hide();
     $(".SavedHomes").show();
     $(".SavedProperties").text("");
@@ -489,9 +469,9 @@ $(document).ready(function() {
     database
       .ref("/favorites/" + UID)
       .once("value")
-      .then(function(snapshot) {
+      .then(function (snapshot) {
         console.log("exitst :" + snapshot.exists());
-        database.ref("/favorites/" + UID).once("value", function(data) {
+        database.ref("/favorites/" + UID).once("value", function (data) {
           SavedHomes = data.val();
           SavedHomesArr = [];
           for (PropId in SavedHomes) {
@@ -551,7 +531,7 @@ function initMap(Lat, Lon) {
   var location = { lat: Lat, lng: Lon };
   var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 15,
-    center: location
+    center: location,
   });
   var marker = new google.maps.Marker({ position: location, map: map });
 }
@@ -567,10 +547,10 @@ function searchWeather(searchTerm) {
   fetch(
     `http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&appid=${appID}&units=${units}`
   )
-    .then(result => {
+    .then((result) => {
       return result.json();
     })
-    .then(result => {
+    .then((result) => {
       init(result);
     });
 }
