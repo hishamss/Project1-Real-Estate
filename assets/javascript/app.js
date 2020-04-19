@@ -166,57 +166,54 @@ $(document).ready(function () {
         $(".properties").text("");
         for (i = 0; i < result.length; i++) {
           Photo = result[i].photo;
-          //          if (Photo) {
-          //            Photo = result[i].photo;
-          //          } else if {
-          //            Photo = "assets/images/noImage.jpg";
-          //          }
-          //            $(".properties").append(
-          //              '<div class="col-md-3"><div class="card "><i class="far fa-heart //SearchHeart" data-status="off" id="' +
-          //                i +
-          //                '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img //src="' +
-          //                Photo +
-          //                '" class="card-img-top"><p class="price">' +
-          //                result[i].price +
-          //                '</p><div class="card-body">' +
-          //                result[i].beds +
-          //                " beds | " +
-          //                result[i].baths +
-          //                " baths | " +
-          //                result[i].sqft.split(" ")[0] +
-          //                ' sqft</div><div class="col">' +
-          //                result[i].address +
-          //                '</strong></div><div class="w-100"><div class="col"><button type="button" //class="btn btn-secondary openmap" data-id="' +
-          //                i +
-          //                '">Open Map</button></div></div></div></div></div>'
-          //            );
-          //          } else {
           if (!Photo) {
             Photo = "assets/images/noImage.jpg";
           }
-
-          $(".properties").append(
-            '<div class="card "><i class="far fa-heart SearchHeart" data-status="off" id="' +
-              i +
-              '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img src="' +
-              Photo +
-              '"class="card-img-top"><p class="price">' +
-              result[i].price +
-              '</p><div class="card-body">' +
-              result[i].beds +
-              " beds | " +
-              result[i].baths +
-              " baths | " +
-              result[i].sqft.split(" ")[0] +
-              " sqft</div>" +
-              result[i].address +
-              '<br><button type="button" class="openmap" data-id="' +
-              i +
-              '">Map</button>'
-          );
-          $("#propertySpinner").hide();
-          $(".properties").show();
+          if (i % 4 == 0 && i !== 0) {
+            $(".properties").append('<div class="w-100"></div>');
+            $(".properties").append(
+              '<div class="col-md-3"><div class="card PropertyCard"><i class="far fa-heart SearchHeart" data-status="off" id="' +
+                i +
+                '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img src="' +
+                Photo +
+                '" class="card-img-top" height="200"><p class="overlay">' +
+                result[i].price +
+                '</p><div class="card-body"><div class="row"><div class="col">' +
+                result[i].beds +
+                " beds | " +
+                result[i].baths +
+                " baths | " +
+                result[i].sqft.split(" ")[0] +
+                ' sqft</div><div class="w-100"></div><div class="col"><strong>' +
+                result[i].address +
+                '</strong></div><div class="w-100"><div class="col"><button type="button" class="btn btn-secondary openmap" data-id="' +
+                i +
+                '">Open Map</button></div></div></div></div></div>'
+            );
+          } else {
+            $(".properties").append(
+              '<div class="col-md-3"><div class="card PropertyCard"><i class="far fa-heart SearchHeart" data-status="off" id="' +
+                i +
+                '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img src="' +
+                Photo +
+                '" class="card-img-top" height="200"><p class="overlay">' +
+                result[i].price +
+                '</p><div class="card-body"><div class="row"><div class="col">' +
+                result[i].beds +
+                " beds | " +
+                result[i].baths +
+                " baths | " +
+                result[i].sqft.split(" ")[0] +
+                ' sqft</div><div class="w-100"></div><div class="col"><strong>' +
+                result[i].address +
+                '</strong></div><div class="w-100"><div class="col"><button type="button" class="btn btn-secondary openmap" data-id="' +
+                i +
+                '">Open Map</button></div></div></div></div></div>'
+            );
+          }
         }
+        $("#propertySpinner").hide();
+        $(".properties").show();
       });
     }
   });
@@ -352,6 +349,9 @@ $(document).ready(function () {
   var database = firebase.database();
 
   $("#signup").on("click", function () {
+    $("#signupemail").val("");
+    $("#signuppassword").val("");
+    $("#signupmessage").text("");
     $(".signUpMod").show();
   });
 
@@ -360,6 +360,9 @@ $(document).ready(function () {
   });
 
   $("#signin").on("click", function () {
+    $("#signinemail").val("");
+    $("#signinpassword").val("");
+    $("#signinmessage").text("");
     $(".signInMod").show();
   });
 
