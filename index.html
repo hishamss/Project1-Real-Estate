@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Bootstrap link-CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -53,109 +57,126 @@
       <div class="logo">
         <img class="home" src="./assets/images/header.png" alt="Home" />
       </div>
-    </div>  <!-- end header -->
+    </div>
+    <!-- end header -->
 
-      
-   <br>
-      <div style="float:right; padding: 5px;">
-        <div class="row">
-          <div class="col">
-            <p id="currentuser" style="line-height: 37px;"></p>
-          </div>
-          <div class="col savedbtn">
-            <button type="button" class="btn btn-secondary" id="saved" style="width:136px;">
-              Saved Homes
-            </button>
-          </div>
-          <div class="col signinbtn">
-            <button type="button" class="btn btn-secondary" id="signin">
-              SignIn
-            </button>
-          </div>
-          <div class="col signoutbtn">
-            <button type="button" class="btn btn-secondary" id="signout">
-              SignOut
-            </button>
-          </div>
-
-          <div class="col signupbtn">
-            <button type="button" class="btn btn-secondary" id="signup">
-              SignUp
-            </button>
-          </div>
-            
-          </div>
+    <br />
+    <div style="float: right; padding: 5px;">
+      <div class="row">
+        <div class="col">
+          <p id="currentuser" style="line-height: 37px;"></p>
         </div>
-        
-        
-      
-    
+        <div class="col savedbtn">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="saved"
+            style="width: 136px;"
+          >
+            Saved Homes
+          </button>
+        </div>
+        <div class="col signinbtn">
+          <button type="button" class="btn btn-secondary" id="signin">
+            SignIn
+          </button>
+        </div>
+        <div class="col signoutbtn">
+          <button type="button" class="btn btn-secondary" id="signout">
+            SignOut
+          </button>
+        </div>
+
+        <div class="col signupbtn">
+          <button type="button" class="btn btn-secondary" id="signup">
+            SignUp
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- SEARCH ROW  -->
     <div class="searchRow">
-      <input placeholder="Enter Zipcode  ex: 90210" type="text" name="zipcode" class="userInput" maxlength="5" id="searchInput"/>
-      <input placeholder="Radius in miles (Optional)" type="text" class="radius" maxlength="3"/>
-      <button type="button" class="btn btn-secondary" id="searchBtn" style="line-height: .5;">Search</button>
-    </div> <!-- end searchRow -->
+      <input
+        placeholder="Enter Zipcode  ex: 90210"
+        type="text"
+        name="zipcode"
+        class="userInput"
+        maxlength="5"
+        id="searchInput"
+      />
+      <input
+        placeholder="Radius in miles (Optional)"
+        type="text"
+        class="radius"
+        maxlength="3"
+      />
+      <button
+        type="button"
+        class="btn btn-secondary"
+        id="searchBtn"
+        style="line-height: 0.5;"
+      >
+        Search
+      </button>
+    </div>
+    <!-- end searchRow -->
 
-          <!-- WEATHER DIV -->
-          
-          <div class="weatherContainer">
-              <div id="weatherDescription"></div>
-              <div><img id="weatherIcon"></div>
-              <div id="cityHeader"></div>
-              <div id="weatherMain"></div>
-              <div id="temperature"></div>
-              <div id="weatherDescriptionHeader"></div>
-              <div id="windSpeed" class="bottomDetails"></div>
-              <div id="humidity" class="bottomDetails"></div>
-          </div> 
+    <!-- WEATHER DIV -->
 
-    <!-- RESTAURANTS, SCHOOLS  -->
-    <div class="container">
+    <div class="weatherContainer">
+      <div id="weatherDescription"></div>
+      <div><img id="weatherIcon" /></div>
+      <div id="cityHeader"></div>
+      <div id="weatherMain"></div>
+      <div id="temperature"></div>
+      <div id="weatherDescriptionHeader"></div>
+      <div id="windSpeed" class="bottomDetails"></div>
+      <div id="humidity" class="bottomDetails"></div>
+    </div>
 
-        <div class="row labels">
-          <!-- HEADINGS -->
-          <div class="col">
-            <h3>Restaurants</h3>
-            <hr/>
+    <div class="row">
+      <div class="col-md-9">
+        <!-- SEARCH RESULTS HEADER -->
+        <div class="row" style="width: 100%;">
+          <div class="col text-center">
+            <h2 id="searchResults">Home Search Results</h2>
           </div>
-
+          <div class="w-100"></div>
+          <!-- PROPERTY RESULTS  -->
           <div class="col">
-            <h3>Schools</h3>
-            <hr/>
+            <div class="row properties"></div>
           </div>
-
-        </div> <!--end row labels-->
-
-        <div class="row infoRow">
-
-          <div class="topCards">
-            <img src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif"
-              id="yelpSpinner"/>
+        </div>
+      </div>
+      <!-- RESTAURANTS, SCHOOLS  -->
+      <div class="col-md-3">
+        <div class="row text-center">
+          <div class="col">
+            <h2>Schools</h2>
+          </div>
+          <div class="w-100"></div>
+          <div class="col">
+            <img
+              src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif"
+              id="spinner"
+            />
+            <div class="row schools"></div>
+          </div>
+          <div class="w-100"></div>
+          <div class="col">
+            <h2>Resturants</h2>
+          </div>
+          <div class="w-100"></div>
+          <div class="col">
+            <img
+              src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif"
+              id="yelpSpinner"
+            />
             <table class="yelp"></table>
           </div>
-
-          <div class="topCards">
-            <img src="https://thumbs.gfycat.com/ImprobablePertinentGraysquirrel-size_restricted.gif"
-              id="spinner"/>
-            <table class="schools"></table>
-          </div>
-        </div> <!--  end topCards  -->
-
-        </div> <!--  end infoRow -->
-      
-    </div>  <!--end container-->
-
-    <br/>
-
-    <!-- SEARCH RESULTS HEADER -->
-
-    <h2 class="row" id="searchResults">Home Search Results</h2>
-    <hr/>
-
-    <!-- PROPERTY RESULTS  -->
-    <div class="row properties">
+        </div>
+      </div>
     </div>
 
     <!-- SAVED HOMES  -->
@@ -198,7 +219,7 @@
               </button>
             </form>
             <br />
-            <p id="signinmessage" style="color:red; margin-bottom: 0;"></p>
+            <p id="signinmessage" style="color: red; margin-bottom: 0;"></p>
           </div>
         </div>
       </div>
@@ -255,11 +276,12 @@
               </button>
             </form>
             <br />
-            <p id="signupmessage" style="color:red; margin-bottom: 0;"></p>
+            <p id="signupmessage" style="color: red; margin-bottom: 0;"></p>
           </div>
         </div>
       </div>
-    </div> <!--end sign-up modal -->
+    </div>
+    <!--end sign-up modal -->
 
     <!-- MAP MODAL -->
     <div class="modal modalMap">
@@ -276,15 +298,42 @@
 
     <!-- FOOTER -->
     <div class="footer">
-      <p class="footerText"> Powered by &nbsp<a class="realtor" href="https://www.realtor.com/" target="_blank">Realtor</a>, 
-        &nbsp<a class="googleMaps" href="https://www.google.com/maps/" target="_blank"> Google Maps </a>, 
-        &nbsp<a class="openWeather" href="https://openweathermap.org/" target="_blank"> OpenWeather </a>
-        &nbsp and &nbsp<a class="googleMaps" href="https://www.yelp.com/" target="_blank">Yelp</a>
-        <span class="copywrite">&copy&nbspCopyright 2020</span> Site built by Hisham, Jenen and Jennifer
+      <p class="footerText">
+        Powered by &nbsp<a
+          class="realtor"
+          href="https://www.realtor.com/"
+          target="_blank"
+          >Realtor</a
+        >, &nbsp<a
+          class="googleMaps"
+          href="https://www.google.com/maps/"
+          target="_blank"
+        >
+          Google Maps </a
+        >, &nbsp<a
+          class="openWeather"
+          href="https://openweathermap.org/"
+          target="_blank"
+        >
+          OpenWeather
+        </a>
+        &nbsp and &nbsp<a
+          class="googleMaps"
+          href="https://www.yelp.com/"
+          target="_blank"
+          >Yelp</a
+        >
+        <span class="copywrite">&copy&nbspCopyright 2020</span> Site built by
+        Hisham, Jenen and Jennifer
       </p>
-    </div>   <!-- end of footer -->
+    </div>
+    <!-- end of footer -->
     <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
     <!-- javascript file -->
     <script type=" text/javascript" src="./assets/javascript/app.js"></script>
   </body>

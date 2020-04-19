@@ -123,9 +123,9 @@ $(document).ready(function () {
               rating = "N/A";
             }
             $(".schools").append(
-              '<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x">' +
+              '<div class="col"><div class="row"><div class="col-md-2 border"><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x">' +
                 rating +
-                '</span></span></td><td><h5><a href="https://www.greatschools.org/school?id=' +
+                '</span></span></div><div class="col-md-10 border"><h5><a href="https://www.greatschools.org/school?id=' +
                 GreatSchoolId +
                 "&state=" +
                 State +
@@ -135,7 +135,7 @@ $(document).ready(function () {
                 school.grades.range.low +
                 "-" +
                 school.grades.range.high +
-                "</p></td></tr><tr></tr><tr></tr>"
+                "</p></div></div></div><div class='w-100'></div>"
             );
             $("#spinner").hide();
             $(".schools").show();
@@ -172,7 +172,7 @@ $(document).ready(function () {
           if (i % 4 == 0 && i !== 0) {
             $(".properties").append('<div class="w-100"></div>');
             $(".properties").append(
-              '<div class="col-md-3"><div class="card PropertyCard"><i class="far fa-heart SearchHeart" data-status="off" id="' +
+              '<div class="col"><div class="card PropertyCard"><i class="far fa-heart SearchHeart" data-status="off" id="' +
                 i +
                 '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img src="' +
                 Photo +
@@ -192,7 +192,7 @@ $(document).ready(function () {
             );
           } else {
             $(".properties").append(
-              '<div class="col-md-3"><div class="card PropertyCard"><i class="far fa-heart SearchHeart" data-status="off" id="' +
+              '<div class="col"><div class="card PropertyCard"><i class="far fa-heart SearchHeart" data-status="off" id="' +
                 i +
                 '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img src="' +
                 Photo +

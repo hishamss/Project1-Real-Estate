@@ -6,7 +6,7 @@ body {
   position: relative;
 }
 
-* {
+/* * {
   position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -14,12 +14,12 @@ body {
   padding: 0;
   font-family: "Open Sans", sans-serif;
   z-index: 0;
-}
+} */
 
-h2,
+/* h2,
 h3 {
   font-family: "Tinos", serif;
-}
+} */
 
 .header {
   background-color: #2e5677;
@@ -228,29 +228,29 @@ h3 {
   padding-bottom: 3vh;
 }
 
-.topCards {
+/* .topCards {
   padding-top: 1vh;
   margin: 0 auto;
   width: 100%;
   height: auto;
   overflow: scroll;
-}
+} */
 
-#spinner,
+/* #spinner,
 #yelpSpinner {
   width: 30%;
   margin-left: 11vw;
-}
+} */
 
-#propertySpinner {
+/* #propertySpinner {
   width: 75%;
   margin: 0 auto;
-}
+} */
 
-.yelp,
+/* .yelp,
 .schools {
   margin-left: 4vw;
-}
+} */
 
 .fas {
   color: white;
@@ -263,7 +263,7 @@ h3 {
   margin-right: 1vw;
 }
 
-#searchResults {
+/* #searchResults {
   font-family: "Tinos", serif;
   text-align: center;
   display: -webkit-box;
@@ -275,7 +275,7 @@ h3 {
   width: 80%;
   margin: 0 auto;
   padding-bottom: 0.5vh;
-}
+} */
 
 hr {
   border: 0.5px solid lightgray;
@@ -345,9 +345,9 @@ hr {
   color: white;
 } */
 
-.properties .openmap:hover {
+/* .properties .openmap:hover {
   background-color: #586e80;
-}
+} */
 
 #map {
   height: 400px !important;
@@ -355,7 +355,6 @@ hr {
 
 .card-img-top {
   height: 250px !important;
-  width: 250px !important;
 }
 
 /* end modalMap */
