@@ -10,7 +10,7 @@ var ZipLat, ZipLng;
 
 // jQuery document ready makes sure all html is loaded before running script
 $(document).ready(function () {
-  $("#spinner").hide();
+  $("#schoolsspinner").hide();
   $("#yelpSpinner").hide();
   $("#propertySpinner").hide();
   $(".schools").hide();
@@ -21,7 +21,7 @@ $(document).ready(function () {
   // API call when search button clicked
   $("#searchBtn").on("click", function () {
     $(".extra").show();
-    $("#spinner").show();
+    $("#schoolsspinner").show();
     $("#yelpSpinner").show();
     $("#propertySpinner").show();
     $(".schools").hide();
@@ -78,16 +78,16 @@ $(document).ready(function () {
                 title += cat.title + ", ";
               }
               $(".yelp").append(
-                '<tr><td><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x">' +
+                '<div class="col"><div class="row"><div class="col-md-2"><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x" style="color:white; font-size:20px">' +
                   places.rating +
                   "/5" +
-                  '</span></span></td><td><h5><a href="' +
+                  '</span></span></div><div class="col-md-10"><h5><a style="color:#2e5677" href="' +
                   places.url +
                   '" target="_blank">' +
                   places.name +
                   "</a></h5><p>" +
                   title +
-                  "</p></td></tr>"
+                  "</p></div></div></div><div class='w-100'></div>"
               );
               $("#yelpSpinner").hide();
               $(".yelp").show();
@@ -123,9 +123,9 @@ $(document).ready(function () {
               rating = "N/A";
             }
             $(".schools").append(
-              '<div class="col"><div class="row"><div class="col-md-2 border"><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x">' +
+              '<div class="col"><div class="row"><div class="col-md-2"><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x"></i><span class="fa-stack-1x" style="color:white; font-size:20px">' +
                 rating +
-                '</span></span></div><div class="col-md-10 border"><h5><a href="https://www.greatschools.org/school?id=' +
+                '</span></span></div><div class="col-md-10"><h5 ><a style="color:#2e5677" href="https://www.greatschools.org/school?id=' +
                 GreatSchoolId +
                 "&state=" +
                 State +
@@ -137,7 +137,7 @@ $(document).ready(function () {
                 school.grades.range.high +
                 "</p></div></div></div><div class='w-100'></div>"
             );
-            $("#spinner").hide();
+            $("#schoolsspinner").hide();
             $(".schools").show();
           }
         });
@@ -176,9 +176,9 @@ $(document).ready(function () {
                 i +
                 '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img src="' +
                 Photo +
-                '" class="card-img-top" height="200"><p class="overlay">' +
+                '" class="card-img-top" height="200"><p class="overlay"><strong>' +
                 result[i].price +
-                '</p><div class="card-body"><div class="row"><div class="col">' +
+                '</strong></p><div class="card-body"><div class="row"><div class="col">' +
                 result[i].beds +
                 " beds | " +
                 result[i].baths +
@@ -196,9 +196,9 @@ $(document).ready(function () {
                 i +
                 '"data-toggle="tooltip" data-placement="top" title="save this home"></i><img src="' +
                 Photo +
-                '" class="card-img-top" height="200"><p class="overlay">' +
+                '" class="card-img-top" height="200"><p class="overlay"><strong>' +
                 result[i].price +
-                '</p><div class="card-body"><div class="row"><div class="col">' +
+                '</strong></p><div class="card-body"><div class="row"><div class="col">' +
                 result[i].beds +
                 " beds | " +
                 result[i].baths +
