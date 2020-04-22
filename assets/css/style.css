@@ -6,7 +6,8 @@ body {
   position: relative;
 }
 
-.PropertyCard {
+.PropertyCard,
+.SavedPropertyCard {
   margin-bottom: 10px;
   padding: 3px;
 }
@@ -356,7 +357,8 @@ hr {
   height: 400px !important;
 }
 
-.openmap {
+.openmap,
+.savedopenmap {
   background-color: #2e5677;
 }
 .card-img-top {

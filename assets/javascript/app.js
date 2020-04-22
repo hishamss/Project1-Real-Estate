@@ -12,19 +12,24 @@ var ZipLat, ZipLng;
 $(document).ready(function () {
   $("#schoolsspinner").hide();
   $("#yelpSpinner").hide();
-  $("#propertySpinner").hide();
-  $(".schools").hide();
+  $("#homesspinner").hide();
+  $("#schoolsheader").hide();
+  $("#homesheader").hide();
+  $("#yelpheader").hide();
   $(".SavedHomes").hide();
   $(".signoutbtn").hide();
   $(".savedbtn").hide();
-  $(".extra").hide();
+  // $(".extra").hide();
   // API call when search button clicked
   $("#searchBtn").on("click", function () {
-    $(".extra").show();
+    // $(".extra").show();
     $("#schoolsspinner").show();
+    $("#schoolsheader").show();
     $("#yelpSpinner").show();
-    $("#propertySpinner").show();
-    $(".schools").hide();
+    $("#yelpheader").show();
+    $("#homesspinner").show();
+    $("#homesheader").show();
+    // $(".schools").hide();
     $(".SavedHomes").hide();
     $(".result").show();
     zipcode = $(".userInput").val().trim();
@@ -212,7 +217,7 @@ $(document).ready(function () {
             );
           }
         }
-        $("#propertySpinner").hide();
+        $("#homesspinner").hide();
         $(".properties").show();
       });
     }
@@ -466,6 +471,9 @@ $(document).ready(function () {
 
   $("#saved").on("click", function () {
     $(".result").hide();
+    $("#homesheader").hide();
+    $("#schoolsheader").hide();
+    $("#yelpheader").hide();
     $(".SavedHomes").show();
     $(".SavedProperties").text("");
     // check if there are saved homes
@@ -485,43 +493,43 @@ $(document).ready(function () {
             if (i % 4 == 0 && i !== 0) {
               $(".SavedProperties").append('<div class="w-100"></div>');
               $(".SavedProperties").append(
-                '<div class="card SavedPropertyCard"><i class="far fa-heart SavedHeart" data-status="on" id="' +
+                '<div class="col-md-3"><div class="card SavedPropertyCard"><i class="far fa-heart SavedHeart" data-status="on" id="' +
                   i +
                   '"data-toggle="tooltip" data-placement="top" title="unsave this home"></i><img src="' +
                   SavedHomes[SavedHomesArr[i]].favphoto +
-                  '"class="card-img-top"><p class="price">' +
+                  '" class="card-img-top" height="200"><p class="overlay">' +
                   SavedHomes[SavedHomesArr[i]].favprice +
-                  '</p><p class="card-body">' +
+                  '</p><div class="card-body"><div class="row"><div class="col">' +
                   SavedHomes[SavedHomesArr[i]].favbeds +
                   " beds | " +
                   SavedHomes[SavedHomesArr[i]].favbaths +
                   " baths | " +
                   SavedHomes[SavedHomesArr[i]].favsqft +
-                  " sqft</div>" +
+                  ' sqft</div><div class="w-100"></div><div class="col"><strong>' +
                   SavedHomes[SavedHomesArr[i]].favaddress +
-                  '<button type="button" class="btn savedopenmap" data-id="' +
+                  '</strong></div><div class="w-100"><div class="col"><button type="button" class="btn btn-secondary savedopenmap" data-id="' +
                   i +
-                  '">Map</button>'
+                  '">Open Map</button></div></div></div></div></div>'
               );
             } else {
               $(".SavedProperties").append(
-                '<div class="card SavedPropertyCard"><i class="far fa-heart SavedHeart" data-status="on" id="' +
+                '<div class="col-md-3"><div class="card SavedPropertyCard"><i class="far fa-heart SavedHeart" data-status="on" id="' +
                   i +
                   '"data-toggle="tooltip" data-placement="top" title="unsave this home"></i><img src="' +
                   SavedHomes[SavedHomesArr[i]].favphoto +
-                  '"class="card-img-top"<p class="price">' +
+                  '" class="card-img-top" height="200"><p class="overlay">' +
                   SavedHomes[SavedHomesArr[i]].favprice +
-                  '</p><div class="card-body"><<div class="row">' +
+                  '</p><div class="card-body"><div class="row"><div class="col">' +
                   SavedHomes[SavedHomesArr[i]].favbeds +
                   " beds | " +
                   SavedHomes[SavedHomesArr[i]].favbaths +
                   " baths | " +
                   SavedHomes[SavedHomesArr[i]].favsqft +
-                  " sqft</div>" +
+                  ' sqft</div><div class="w-100"></div><div class="col"><strong>' +
                   SavedHomes[SavedHomesArr[i]].favaddress +
-                  '<button type="button" class="btn savedopenmap" data-id="' +
+                  '</strong></div><div class="w-100"><div class="col"><button type="button" class="btn btn-secondary savedopenmap" data-id="' +
                   i +
-                  '">Open Map</button>'
+                  '">Open Map</button></div></div></div></div></div>'
               );
             }
           }
