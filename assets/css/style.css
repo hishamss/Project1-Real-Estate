@@ -365,6 +365,11 @@ hr {
   height: 250px !important;
 }
 
+.PropertyCard,
+.SavedPropertyCard {
+  height: 470px !important;
+}
+
 /* end modalMap */
 /* SIGN-IN MODAL */
 #signinsubmit,

@@ -32,6 +32,7 @@ $(document).ready(function () {
     // $(".schools").hide();
     $(".SavedHomes").hide();
     $(".result").show();
+    $(".properties").hide();
     zipcode = $(".userInput").val().trim();
     if (
       $(".radius").val().trim() &&
