@@ -6,7 +6,12 @@ body {
   position: relative;
 }
 
-* {
+.PropertyCard,
+.SavedPropertyCard {
+  margin-bottom: 10px;
+  padding: 3px;
+}
+/* * {
   position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -14,12 +19,12 @@ body {
   padding: 0;
   font-family: "Open Sans", sans-serif;
   z-index: 0;
-}
+} */
 
-h2,
+/* h2,
 h3 {
   font-family: "Tinos", serif;
-}
+} */
 
 .header {
   background-color: #2e5677;
@@ -40,21 +45,14 @@ h3 {
   -ms-flex-pack: center;
   justify-content: center;
 }
-
-.login {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  float: right;
-  margin-top: 1vh;
-  margin-right: 3vw;
-}
-
+#searchBtn,
 #saved,
 #signin,
 #signout,
 #signup {
-  cursor: pointer;
+  background-color: #2e5677;
+  color: white;
+  /* cursor: pointer;
   width: relative;
   text-align: center;
   -ms-flex-item-align: center;
@@ -73,9 +71,9 @@ h3 {
   display: flex;
   float: left;
   margin-bottom: 2vh;
-  margin-top: 0;
+  margin-top: 0; */
 }
-
+#searchBtn:hover,
 #saved:hover,
 #signin:hover,
 #signout:hover,
@@ -123,7 +121,7 @@ h3 {
   color: lightgrey;
 }
 
-.searchRow .btn {
+/* .searchRow .btn {
   width: 4.5rem;
   text-align: center;
   -ms-flex-item-align: center;
@@ -135,7 +133,7 @@ h3 {
   border-radius: 0;
   background-color: #2e5677;
   color: white;
-}
+} */
 
 .searchRow .btn:hover {
   cursor: pointer;
@@ -177,7 +175,7 @@ h3 {
   margin-right: 0;
 }
 
-[class*="col-"] {
+/* [class*="col-"] {
   float: left;
   padding: 1em;
   width: 100%;
@@ -185,7 +183,7 @@ h3 {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-}
+} */
 
 .container {
   width: 80%;
@@ -235,42 +233,41 @@ h3 {
   padding-bottom: 3vh;
 }
 
-.topCards {
+/* .topCards {
   padding-top: 1vh;
   margin: 0 auto;
   width: 100%;
   height: auto;
   overflow: scroll;
-}
+} */
 
-#spinner,
+/* #spinner,
 #yelpSpinner {
   width: 30%;
   margin-left: 11vw;
-}
+} */
 
-#propertySpinner {
+/* #propertySpinner {
   width: 75%;
   margin: 0 auto;
-}
+} */
 
-.yelp,
+/* .yelp,
 .schools {
   margin-left: 4vw;
-}
+} */
 
 .fas {
-  color: white;
-  border: 1px solid blue;
+  color: #2e5677;
 }
 
-.fa-stack {
+/* .fa-stack {
   color: #2e5677;
   font-size: 1rem;
   margin-right: 1vw;
-}
+} */
 
-#searchResults {
+/* #searchResults {
   font-family: "Tinos", serif;
   text-align: center;
   display: -webkit-box;
@@ -282,7 +279,7 @@ h3 {
   width: 80%;
   margin: 0 auto;
   padding-bottom: 0.5vh;
-}
+} */
 
 hr {
   border: 0.5px solid lightgray;
@@ -290,7 +287,7 @@ hr {
   margin: 0 auto;
 }
 
-.properties {
+/* .properties {
   margin: 0 auto;
   margin-bottom: 5vh;
   text-align: center;
@@ -334,9 +331,9 @@ hr {
   margin: 0 auto;
   padding: 0;
   font-weight: bold;
-}
+} */
 
-.properties .openmap {
+/* .properties .openmap {
   cursor: pointer;
   margin-top: 1vh;
   width: 2.5rem;
@@ -350,65 +347,27 @@ hr {
   border-radius: 0;
   background-color: #2e5677;
   color: white;
-}
+} */
 
-.properties .openmap:hover {
+/* .properties .openmap:hover {
   background-color: #586e80;
-}
-
-/* All Modal's */
-.modal {
-  text-align: center;
-  padding: 1vh 2vw 1vh 2vw;
-  width: 12%;
-  /* Full width */
-  height: auto;
-  /* Full height */
-  max-width: 20rem;
-  position: absolute;
-  margin-left: 43%;
-  margin-top: -85%;
-  /* Stay in place */
-  z-index: 1000;
-  margin-bottom: 2vh;
-  background-color: #f7f6f6;
-  border-color: #ccc;
-  -webkit-box-shadow: 0 2px 4px 2px #b8b6b6;
-  box-shadow: 0 2px 4px 2px #b8b6b6;
-}
-
-/* The Map Modal */
-.modalMap {
-  /* overflow: auto; */
-  /* Enable scroll if needed */
-  /* Modal Content/Box */
-  width: 400px !important;
-  height: 400px !important;
-  max-width: 400px;
-  position: absolute !important;
-  margin-left: 50% !important;
-  /* margin-top: 40px !important; */
-  /* margin-bottom: auto !important; */
-  padding: 0 !important;
-}
+} */
 
 #map {
   height: 400px !important;
-  width: 400px !important;
 }
 
+.openmap,
+.savedopenmap {
+  background-color: #2e5677;
+}
 .card-img-top {
   height: 250px !important;
-  width: 250px !important;
 }
 
-.modalMap .modal-content {
-  margin: 0 auto;
-  text-align: center;
-  border-radius: 0;
-  width: 300px;
-  height: auto;
-  margin-bottom: 0.5vh;
+.PropertyCard,
+.SavedPropertyCard {
+  height: 470px !important;
 }
 
 /* end modalMap */
@@ -462,10 +421,7 @@ hr {
   -ms-flex-pack: center;
   justify-content: center;
   font-size: 0.85rem;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-  padding-left: 3rem;
-  padding-right: 3rem;
+  padding-top: 5px;
   width: relative;
 }
 
